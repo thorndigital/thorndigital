@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Us | Big Leaf Creations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bigleaf-dark: #04560b;
+      --bigleaf-glow: #0dbf50;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bigleaf-dark), var(--bigleaf-glow));
+      color: white;
+      background-attachment: fixed;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 0 10px var(--bigleaf-glow);
+    }
+    .glow-text {
+      color: white;
+      text-shadow: 0 0 12px var(--bigleaf-glow);
+    }
+    .glow-btn {
+      background-color: white;
+      color: var(--bigleaf-dark);
+      box-shadow: 0 0 16px var(--bigleaf-glow);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md">
+    <a href="index.html" class="logo-text">Big Leaf Creations</a>
+    <nav class="space-x-5 text-md font-medium">
+      <a href="index.html" class="hover:text-green-300">Home</a>
+      <a href="portfolio.html" class="hover:text-green-300">Portfolio</a>
+      <a href="why.html" class="glow-text font-bold">Why Us</a>
+      <a href="about.html" class="hover:text-green-300">About</a>
+      <a href="contact.html" class="hover:text-green-300">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Why Us Section -->
+  <section class="text-center pt-24 pb-6 px-6">
+    <h1 class="text-5xl font-bold glow-text mb-4">Why Choose Big Leaf Creations?</h1>
+    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">We’re not just building websites — we’re building your digital storefront, your first impression, your competitive edge.</p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
+      <h3 class="text-xl font-bold glow-text mb-2">Tailored for Local Businesses</h3>
+      <p class="text-white/80">We specialize in crafting modern websites for restaurants and small shops in Woodinville — we know your market.</p>
+    </div>
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
+      <h3 class="text-xl font-bold glow-text mb-2">Free Until You’re Happy</h3>
+      <p class="text-white/80">You won’t pay a cent unless you love your site. We take all the risk, so you don’t have to.</p>
+    </div>
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
+      <h3 class="text-xl font-bold glow-text mb-2">Pro Look, Local Touch</h3>
+      <p class="text-white/80">Sleek designs that feel premium — but come with personal attention and service.</p>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
+    <h3 class="text-2xl font-semibold glow-text mb-8">Like What You See?</h3>
+    <a href="contact.html" class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">Let’s Talk</a>
+    <p class="text-sm text-white/60 mt-8">Or email us at <a href="mailto:bigleafcreations@gmail.com" class="text-green-300 underline">bigleafcreations@gmail.com</a></p>
+    <p class="mt-4 text-xs text-white/40">© 2025 Big Leaf Creations. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

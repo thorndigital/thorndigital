@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Big Leaf Creations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bigleaf-dark: #04560b;
+      --bigleaf-glow: #0dbf50;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bigleaf-dark), var(--bigleaf-glow));
+      color: white;
+      background-attachment: fixed;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 0 10px var(--bigleaf-glow);
+    }
+    .glow-text {
+      color: white;
+      text-shadow: 0 0 12px var(--bigleaf-glow);
+    }
+    .glow-btn {
+      background-color: white;
+      color: var(--bigleaf-dark);
+      box-shadow: 0 0 16px var(--bigleaf-glow);
+    }
+    input, textarea {
+      color: black;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md">
+    <a href="index.html" class="logo-text">Big Leaf Creations</a>
+    <nav class="space-x-5 text-md font-medium">
+      <a href="index.html" class="hover:text-green-300">Home</a>
+      <a href="portfolio.html" class="hover:text-green-300">Portfolio</a>
+      <a href="why.html" class="hover:text-green-300">Why Us</a>
+      <a href="about.html" class="hover:text-green-300">About</a>
+      <a href="contact.html" class="glow-text font-bold">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="text-center pt-24 pb-12 px-6">
+  <h1 class="text-5xl font-bold glow-text mb-4">Let’s Build Something Great</h1>
+  <p class="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
+    Reach out and let's get your dream website started — completely free until you're satisfied.
+  </p>
+
+  <form class="max-w-xl mx-auto grid gap-6 text-left">
+    <div>
+      <label for="name" class="block mb-2 text-white font-semibold glow-text">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Jane Doe"
+        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+      />
+    </div>
+    
+    <div>
+      <label for="email" class="block mb-2 text-white font-semibold glow-text">Your Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="you@example.com"
+        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+      />
+    </div>
+    
+    <div>
+      <label for="message" class="block mb-2 text-white font-semibold glow-text">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="6"
+        required
+        placeholder="Tell us what you need..."
+        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+      ></textarea>
+    </div>
+    
+    <div class="text-center pt-2">
+      <button
+        type="submit"
+        class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition"
+      >
+        Send Message
+      </button>
+    </div>
+  </form>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
+    <p class="text-sm text-white/60">Email us directly at <a href="mailto:bigleafcreations@gmail.com" class="text-green-300 underline">bigleafcreations@gmail.com</a></p>
+    <p class="mt-4 text-xs text-white/40">© 2025 Big Leaf Creations. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

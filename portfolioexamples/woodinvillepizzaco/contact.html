@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Woodinville Pizza Co</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#2e1d0e] text-white font-inter">
+
+  <!-- Navbar -->
+  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-md px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-playfair tracking-widest text-[#f4e1c1]">Woodinville Pizza Co</h1>
+    <nav class="space-x-6 text-[#f4e1c1] font-medium">
+      <a href="index.html" class="hover:text-yellow-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300">Menu</a>
+      <a href="contact.html" class="hover:text-yellow-300 font-bold underline">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="py-20 px-6 max-w-2xl mx-auto">
+    <h2 class="text-4xl font-playfair text-[#f4e1c1] mb-8 text-center">Get In Touch</h2>
+    
+    <form class="space-y-6">
+      <div>
+        <label for="name" class="block text-[#e0cdb4] mb-1">Name</label>
+        <input type="text" id="name" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="Your name">
+      </div>
+
+      <div>
+        <label for="email" class="block text-[#e0cdb4] mb-1">Email</label>
+        <input type="email" id="email" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="you@example.com">
+      </div>
+
+      <div>
+        <label for="message" class="block text-[#e0cdb4] mb-1">Message</label>
+        <textarea id="message" rows="5" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="What can we help you with?"></textarea>
+      </div>
+
+      <button type="submit" class="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full">Send Message</button>
+    </form>
+
+    <div class="text-center text-[#e0cdb4] mt-12">
+      <p class="mb-2">Or reach us directly at:</p>
+      <p class="font-semibold">info@woodinvillepizza.co</p>
+      <p>123 Rustic Ave, Woodinville, WA</p>
+      <p>(425) 555-1234</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#3b2614] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10">
+    <p class="text-sm">© 2025 Woodinville Pizza Co. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
