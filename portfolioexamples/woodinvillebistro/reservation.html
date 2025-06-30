@@ -3,51 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book your table at Woodinville Bistro. Make a reservation for an unforgettable dining experience in Woodinville, WA.">
   <title>Reservation | Woodinville Bistro</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="PLACEHOLDER_favicon.ico" type="image/x-icon">
+  <style>
+    /* Custom CSS for animations and form styling */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+    .animate-slide-in-up { animation: slideInUp 0.8s ease-out forwards; }
+
+    /* Custom styles for date/time inputs to match dark theme */
+    input[type="date"],
+    input[type="time"] {
+      color-scheme: dark; /* Helps standardize calendar/time picker appearance */
+    }
+  </style>
 </head>
-<body class="bg-[#1c1c1c] text-white font-inter">
-  <header class="bg-[#2e2a28] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
-    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1]">Woodinville Bistro</a>
-    <nav class="space-x-6 text-[#f4e1c1]">
-      <a href="index.html" class="hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="hover:text-yellow-300">Menu</a>
-      <a href="reservation.html" class="hover:text-yellow-300 font-bold underline decoration-yellow-600">Reservation</a>
+<body class="bg-[#1c1c1c] text-white font-inter antialiased min-h-screen flex flex-col">
+  <header class="bg-[#2e2a28] bg-opacity-95 px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg sticky top-0 z-50 transition-all duration-300">
+    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1] tracking-wide mb-2 sm:mb-0 hover:text-yellow-300 transition-colors duration-300" aria-label="Woodinville Bistro Home">Woodinville Bistro</a>
+    <nav class="space-x-6 text-[#f4e1c1] font-medium text-lg">
+      <a href="index.html" class="hover:text-yellow-300 hover:underline hover:underline-offset-4 hover:decoration-yellow-600 transition-all duration-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 hover:underline hover:underline-offset-4 hover:decoration-yellow-600 transition-all duration-300">Menu</a>
+      <a href="reservation.html" class="hover:text-yellow-300 font-bold underline underline-offset-4 decoration-yellow-600 transition-all duration-300" aria-current="page">Reservation</a>
     </nav>
   </header>
 
-  <main class="py-16 px-6 max-w-xl mx-auto">
-    <h1 class="text-4xl font-playfair text-center text-[#f4e1c1] mb-10">Make a Reservation</h1>
-    <form class="space-y-6 text-[#e0cdb4]">
-      <div>
-        <label class="block mb-2">Name</label>
-        <input type="text" class="w-full px-4 py-2 bg-[#2e2a28] border border-[#444] rounded" />
+  <main class="flex-grow relative py-16 md:py-20 px-6 flex items-center justify-center">
+    <div class="absolute inset-0 bg-[url('PLACEHOLDER_reservation_bg.jpg')] bg-cover bg-center opacity-30"></div>
+    <div class="absolute inset-0 bg-black/50"></div> <div class="relative z-10 max-w-xl w-full mx-auto bg-[#2e2a28] p-8 md:p-10 rounded-xl shadow-2xl animate-slide-in-up">
+      <h1 class="text-4xl md:text-5xl font-playfair text-center text-[#f4e1c1] mb-10 leading-tight drop-shadow-md">Make a Reservation</h1>
+      <p class="text-lg text-[#e0cdb4] text-center mb-8">Secure your table for an exceptional dining experience at Woodinville Bistro.</p>
+
+      <form class="space-y-6 text-[#e0cdb4]">
+        <div>
+          <label for="name" class="block mb-2 font-semibold">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe"
+                 class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200" />
+        </div>
+        <div>
+          <label for="email" class="block mb-2 font-semibold">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="john.doe@example.com"
+                 class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="date" class="block mb-2 font-semibold">Date</label>
+                <input type="date" id="date" name="date" required
+                       class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200" />
+            </div>
+            <div>
+                <label for="time" class="block mb-2 font-semibold">Time</label>
+                <input type="time" id="time" name="time" required
+                       class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200" />
+            </div>
+        </div>
+        <div>
+          <label for="guests" class="block mb-2 font-semibold">Number of Guests</label>
+          <input type="number" id="guests" name="guests" min="1" max="20" required value="1"
+                 class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200" />
+        </div>
+        <div>
+          <label for="notes" class="block mb-2 font-semibold">Special Requests (Optional)</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Allergies, dietary restrictions, special occasions, preferred seating..."
+                    class="w-full px-4 py-3 bg-[#1c1c1c] border border-[#444] rounded-lg focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition-colors duration-200 resize-y"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg mt-6 shadow-md transition duration-300 ease-in-out transform hover:scale-102 active:scale-98">
+          Confirm Reservation
+        </button>
+      </form>
+
       </div>
-      <div>
-        <label class="block mb-2">Email</label>
-        <input type="email" class="w-full px-4 py-2 bg-[#2e2a28] border border-[#444] rounded" />
-      </div>
-      <div>
-        <label class="block mb-2">Date</label>
-        <input type="date" class="w-full px-4 py-2 bg-[#2e2a28] border border-[#444] rounded" />
-      </div>
-      <div>
-        <label class="block mb-2">Time</label>
-        <input type="time" class="w-full px-4 py-2 bg-[#2e2a28] border border-[#444] rounded" />
-      </div>
-      <div>
-        <label class="block mb-2">Guests</label>
-        <input type="number" min="1" max="20" class="w-full px-4 py-2 bg-[#2e2a28] border border-[#444] rounded" />
-      </div>
-      <button type="submit" class="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded mt-4">Book Table</button>
-    </form>
   </main>
 
-  <footer class="bg-[#2e2a28] text-center py-6 text-[#e0cdb4]">
-    <p>&copy; <span id="year"></span> Woodinville Bistro. All rights reserved.</p>
+  <footer class="bg-[#2e2a28] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10 shadow-inner mt-auto">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-sm md:text-base mb-2">Woodinville Bistro. | Crafted with passion in Woodinville, WA</p>
+      <p class="text-xs md:text-sm">&copy; <span id="year-reservation"></span> All rights reserved.</p>
+    </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year-reservation').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
