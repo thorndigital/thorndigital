@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Café Rush – Your go-to spot in Woodinville, WA for locally roasted coffee, artisan pastries, fresh bites, and a warm, inviting atmosphere. Fuel your day with us!" />
+  <title>Café Rush | Woodinville's Premier Coffee & Bites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="PLACEHOLDER_favicon.ico" type="image/x-icon">
+  <style>
+    /* Custom CSS for animations and refined styling */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes bounceIn {
+      0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      }
+      0% { opacity: 0; transform: scale3d(.3, .3, .3); }
+      20% { transform: scale3d(1.1, 1.1, 1.1); }
+      40% { transform: scale3d(.9, .9, .9); }
+      60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+      80% { transform: scale3d(.97, .97, .97); }
+      100% { opacity: 1; transform: scale3d(1, 1, 1); }
+    }
+
+    .animate-fade-in-up { animation: fadeInUp 0.9s ease-out forwards; }
+    .animate-fade-in { animation: fadeIn 1.2s ease-out forwards; }
+    .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+    .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+    .animate-bounce-in { animation: bounceIn 1s ease-out forwards; }
+
+    /* Custom scroll-snap for smoother section navigation */
+    html {
+      scroll-behavior: smooth;
+    }
+    .scroll-snap-y {
+      scroll-snap-type: y mandatory;
+    }
+    .scroll-snap-start {
+      scroll-snap-align: start;
+    }
+
+    /* Style for date picker in dark mode for consistency */
+    input[type="date"], input[type="time"] {
+      color-scheme: dark;
+    }
+  </style>
+</head>
+<body class="bg-[#fdf9f6] text-[#2e2a28] font-inter antialiased min-h-screen flex flex-col scroll-snap-y">
+
+  <header class="bg-[#fffaf0] shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+      <h1 class="text-4xl font-playfair text-[#8b5c2c] tracking-wide mb-3 sm:mb-0 transform hover:scale-105 transition-transform duration-300">
+        <a href="#" aria-label="Café Rush Home">Café Rush</a>
+      </h1>
+      <nav class="space-x-6 text-xl font-medium text-[#4b3f36]">
+        <a href="#menu" class="hover:text-[#c2995b] transition-colors duration-300 border-b-2 border-transparent hover:border-[#c2995b] pb-1" aria-label="View our menu">Menu</a>
+        <a href="#about" class="hover:text-[#c2995b] transition-colors duration-300 border-b-2 border-transparent hover:border-[#c2995b] pb-1" aria-label="Learn about us">About</a>
+        <a href="#reviews" class="hover:text-[#c2995b] transition-colors duration-300 border-b-2 border-transparent hover:border-[#c2995b] pb-1" aria-label="Read customer reviews">Reviews</a>
+        <a href="#contact" class="hover:text-[#c2995b] transition-colors duration-300 border-b-2 border-transparent hover:border-[#c2995b] pb-1" aria-label="Find our location and hours">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <section class="relative h-[90vh] flex items-center justify-center bg-[url('PLACEHOLDER_hero_coffee_beans.jpg')] bg-cover bg-center text-white overflow-hidden scroll-snap-start">
+      <div class="bg-black/60 w-full h-full absolute top-0 left-0"></div>
+      <div class="relative z-10 max-w-2xl px-6 py-8 text-center animate-fade-in-up">
+        <h2 class="text-6xl md:text-7xl font-playfair mb-6 leading-tight drop-shadow-xl animate-bounce-in" style="animation-delay: 0.2s;">
+          Fuel Your Day with Café Rush
+        </h2>
+        <p class="text-xl md:text-2xl mb-10 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.5s;">
+          Locally roasted beans, artisan pastries, and a warm community vibe you'll instantly love right here in Woodinville.
+        </p>
+        <a href="#menu" class="inline-block bg-[#c2995b] hover:bg-[#aa8651] text-white font-bold px-10 py-4 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 border-2 border-transparent hover:border-white animate-fade-in-up" style="animation-delay: 0.8s;">
+          Explore Our Menu
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 bg-[#fdf9f6] text-center scroll-snap-start">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl font-playfair text-[#8b5c2c] mb-8 animate-fade-in-up">More Than Just Coffee</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left animate-slide-in-left">
+                <p class="text-lg text-[#4b3f36] leading-relaxed mb-6">
+                    Nestled in the heart of Woodinville, **Café Rush** is a sanctuary for coffee lovers and food enthusiasts alike. We believe in crafting exceptional experiences, one cup and one bite at a time. Our commitment to quality begins with **ethically sourced, locally roasted coffee beans** that promise a rich, vibrant flavor in every brew.
+                </p>
+                <p class="text-lg text-[#4b3f36] leading-relaxed">
+                    Beyond coffee, our kitchen hums with activity, baking **fresh artisan pastries** daily and preparing wholesome, delicious bites using seasonal ingredients. It's a place where friends gather, ideas brew, and comfort is always on the menu.
+                </p>
+            </div>
+            <div class="flex justify-center animate-slide-in-right">
+                <img src="PLACEHOLDER_cafe_interior.jpg" alt="Cozy interior of Café Rush with seating and natural light" class="rounded-xl shadow-2xl w-full max-w-md object-cover h-72 transform hover:scale-102 transition-transform duration-300 ease-in-out">
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-[#fffaf0] px-6 scroll-snap-start">
+      <h2 class="text-5xl font-playfair text-[#8b5c2c] mb-14 text-center animate-fade-in-up">Our Delicious Offerings</h2>
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <img src="PLACEHOLDER_vanilla_latte.jpg" alt="Rich and creamy Vanilla Latte" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Vanilla Latte</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            Velvety smooth espresso blended with a hint of premium vanilla syrup and topped with perfectly steamed milk. A comforting classic.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$5.50</span>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <img src="PLACEHOLDER_almond_croissant.jpg" alt="Flaky Almond Croissant" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Almond Croissant</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            Our signature flaky, buttery pastry generously filled with sweet almond cream and dusted with powdered sugar. Baked fresh daily.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$4.75</span>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.3s;">
+          <img src="PLACEHOLDER_avocado_bowl.jpg" alt="Healthy Avocado Bowl" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Artisan Avocado Toast Bowl</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            Creamy fresh avocado, roasted sweet potatoes, mixed greens, cherry tomatoes, and a drizzle of zesty lemon-tahini dressing. A wholesome delight.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$13.00</span>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.4s;">
+          <img src="PLACEHOLDER_drip_coffee.jpg" alt="Freshly brewed drip coffee" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Batch Brew Coffee</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            Our daily rotating selection of freshly brewed, single-origin coffee. Perfectly roasted for a smooth and satisfying cup.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$3.50</span>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.5s;">
+          <img src="PLACEHOLDER_matcha_latte.jpg" alt="Vibrant Matcha Latte" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Matcha Latte</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            Premium ceremonial grade matcha, whisked to perfection with your choice of milk for a vibrant, energizing beverage.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$6.00</span>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center text-left transform hover:scale-103 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.6s;">
+          <img src="PLACEHOLDER_blueberry_muffin.jpg" alt="Delicious Blueberry Muffin" class="w-full h-56 object-cover rounded-xl mb-6 shadow-md">
+          <h3 class="text-3xl font-playfair text-[#c2995b] mb-3 self-start">Blueberry Muffin</h3>
+          <p class="text-lg text-[#4b3f36] leading-relaxed mb-4 self-start flex-grow">
+            A moist, tender muffin bursting with fresh blueberries and a delightful streusel topping. Perfect with your morning coffee.
+          </p>
+          <span class="text-2xl font-semibold text-[#8b5c2c] self-end">$4.00</span>
+        </div>
+      </div>
+      <div class="mt-16">
+        <a href="PLACEHOLDER_full_menu.pdf" target="_blank" class="inline-block bg-[#8b5c2c] hover:bg-[#6f4b23] text-white font-bold px-10 py-4 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 border-2 border-transparent hover:border-white animate-fade-in-up" style="animation-delay: 0.7s;">
+          Download Full Menu (PDF)
+        </a>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-24 px-6 bg-[#fdf9f6] scroll-snap-start">
+      <h2 class="text-5xl font-playfair text-[#8b5c2c] mb-14 text-center animate-fade-in-up">What Our Customers Say</h2>
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="bg-white rounded-2xl shadow-xl p-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="flex justify-center mb-4 text-yellow-500">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+          </div>
+          <p class="italic text-xl text-[#4b3f36] leading-relaxed mb-6">
+            “Café Rush is my daily dose of happiness! The coffee is consistently excellent, and the almond croissants are simply divine. The staff always remembers my order and makes me feel so welcome. It’s truly the best coffee shop in Woodinville!”
+          </p>
+          <p class="text-[#c2995b] font-semibold text-lg border-t pt-4 border-[#eee]">– Jamie R., Loyal Customer</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl p-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="flex justify-center mb-4 text-yellow-500">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+          </div>
+          <p class="italic text-xl text-[#4b3f36] leading-relaxed mb-6">
+            “The atmosphere at Café Rush is so welcoming and cozy, perfect for working or catching up with friends. Their avocado bowl is incredibly fresh and filling, and their playlist always sets the perfect mood. Highly recommend stopping by!”
+          </p>
+          <p class="text-[#c2995b] font-semibold text-lg border-t pt-4 border-[#eee]">– Morgan L., Local Enthusiast</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 bg-[#fffaf0] scroll-snap-start">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl font-playfair text-[#8b5c2c] mb-12 text-center animate-fade-in-up">Plan Your Visit</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="bg-white rounded-2xl shadow-xl p-8 text-center md:text-left animate-slide-in-left">
+            <h3 class="text-3xl font-playfair text-[#c2995b] mb-6">Our Location</h3>
+            <p class="text-xl text-[#4b3f36] mb-4">
+              123 Coffee Lane<br>
+              Woodinville, WA 98072
+            </p>
+            <h3 class="text-3xl font-playfair text-[#c2995b] mb-6 mt-8">Hours of Operation</h3>
+            <p class="text-xl text-[#4b3f36] mb-2">
+              Monday - Sunday: <strong class="text-[#8b5c2c]">7:00 AM – 4:00 PM</strong>
+            </p>
+            <p class="text-lg text-[#4b3f36] italic">(Open daily for your convenience)</p>
+
+            <a href="PLACEHOLDER_Maps_link" target="_blank" class="inline-block mt-10 bg-[#c2995b] hover:bg-[#aa8651] text-white font-bold px-8 py-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 border-2 border-transparent hover:border-white">
+              Get Directions on Google Maps
+            </a>
+          </div>
+          <div class="flex justify-center md:justify-end animate-slide-in-right">
+            <iframe src="PLACEHOLDER_Maps_embed_url" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-2xl shadow-2xl"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-[#fdf4e3] text-center py-8 text-[#4b3f36] text-lg border-t border-[#ede0d1] shadow-inner mt-auto">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-base md:text-lg mb-3">
+        &copy; <span id="current-year"></span> Café Rush. All rights reserved.
+      </p>
+      <div class="flex justify-center space-x-6">
+        <a href="PLACEHOLDER_facebook_link" class="text-[#8b5c2c] hover:text-[#c2995b] transition-colors duration-300" aria-label="Follow us on Facebook">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10Z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="PLACEHOLDER_instagram_link" class="text-[#8b5c2c] hover:text-[#c2995b] transition-colors duration-300" aria-label="Follow us on Instagram">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 5C8.683 5 5 8.683 5 12s3.683 7 7 7 7-3.683 7-7-3.683-7-7-7Zm0 1.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-6.5-.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd" /><path d="M16.355 7.823c.307-.307.76-.477 1.226-.477.466 0 .919.17 1.226.477.307.307.477.76.477 1.226 0 .466-.17.919-.477 1.226-.307.307-.76.477-1.226.477-.466 0-.919-.17-1.226-.477-.307-.307-.477-.76-.477-1.226 0-.466.17-.919.477-1.226Z" /></svg>
+        </a>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
