@@ -1,152 +1,213 @@
-/* Global Styles */
-:root {
-  --bg-dark: #1e1a17;
-  --deep-red: #8b2f1c;
-  --amber: #f4b942;
-  --text-light: #fdfdfd;
-  --text-muted: #ddd;
-}
-
+/* Basic Resets & Body Styles */
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  line-height: 1.6;
+    margin: 0;
+    font-family: 'Georgia', serif; /* A classic, rustic-feeling font */
+    line-height: 1.6;
+    color: #333; /* Darker text for readability */
+    background-color: #F5F5DC; /* A very light, warm off-white for the background */
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #14100f;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* Color Palette Variables (easy to change later!) */
+:root {
+    --dark-green: #364531; /* A deep, forest-like green */
+    --brown: #6F4E37; /* A rich, earthy brown */
+    --accent-gold: #B8860B; /* An optional, warm gold for accents or highlights */
+    --light-cream: #F5F5DC; /* Your background color */
 }
 
-.navbar .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: var(--amber);
-  letter-spacing: 1px;
+/* Header & Navigation */
+header {
+    background-color: var(--dark-green);
+    color: var(--light-cream);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 5px solid var(--brown); /* A strong line to separate */
 }
 
-.navbar nav a {
-  margin-left: 1.5rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+header h1 {
+    margin: 0;
+    font-family: 'Copperplate', serif; /* Or another strong, slightly ornate font */
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.navbar nav a:hover {
-  color: var(--amber);
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-/* Hero Section */
-.hero {
-  background: url('https://images.unsplash.com/photo-1514517199975-cc2d0c575b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  padding: 6rem 2rem;
-  text-align: center;
-  color: var(--text-light);
+nav ul li {
+    margin: 0 1.5rem;
 }
 
-.hero-content {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  max-width: 600px;
-  margin: auto;
-  border-radius: 12px;
+nav ul li a {
+    color: var(--light-cream);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--amber);
+nav ul li a:hover,
+nav ul li a.active { /* Add 'active' class to current page link */
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+/* Main Content Area */
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
-.btn {
-  background-color: var(--amber);
-  color: #000;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+section {
+    background-color: #FFFFFF; /* Clean white background for content blocks */
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid var(--brown); /* A slight brown border */
 }
 
-.btn:hover {
-  background-color: #e5a72f;
+h2 {
+    color: var(--dark-green);
+    font-family: 'Georgia', serif;
+    font-size: 2.2em;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--accent-gold); /* A rustic divider */
+    padding-bottom: 0.5rem;
 }
 
-.btn-outline {
-  display: inline-block;
-  margin-top: 2rem;
-  color: var(--amber);
-  border: 2px solid var(--amber);
-  padding: 0.5rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+h3 {
+    color: var(--brown);
+    font-family: 'Georgia', serif;
+    font-size: 1.8em;
+    margin-top: 1.5rem;
 }
 
-.btn-outline:hover {
-  background-color: var(--amber);
-  color: #000;
+p {
+    margin-bottom: 1em;
 }
 
-/* Featured Section */
-.featured {
-  padding: 4rem 2rem;
-  text-align: center;
+/* Buttons (example) */
+.button {
+    display: inline-block;
+    background-color: var(--brown);
+    color: var(--light-cream);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 2px solid var(--brown);
 }
 
-.featured h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--amber);
+.button:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
 }
 
-.dishes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.dish-card {
-  background-color: #2a221f;
-  padding: 1.5rem;
-  border-radius: 10px;
-  max-width: 300px;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-.dish-card h3 {
-  color: var(--amber);
-  margin-bottom: 0.5rem;
-}
-
-.dish-card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+/* Images (example) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem 0;
+    border: 5px solid var(--brown);
+    border-radius: 5px;
 }
 
 /* Footer */
-.footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  background-color: #14100f;
-  color: var(--text-muted);
+footer {
+    background-color: var(--dark-green);
+    color: var(--light-cream);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    border-top: 5px solid var(--brown);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Specific Page Enhancements (Example for Menu) */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--accent-gold);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item-name {
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+.menu-item-price {
+    font-weight: bold;
+    color: var(--brown);
+}
+
+.menu-item-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.3rem;
+}
+
+/* Contact Form (Basic styling) */
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--brown);
+    border-radius: 4px;
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form button[type="submit"] {
+    background-color: var(--brown);
+    color: var(--light-cream);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--dark-green);
 }
