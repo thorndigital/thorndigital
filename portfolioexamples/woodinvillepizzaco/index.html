@@ -3,45 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Woodinville Pizza Co</title>
+  <meta name="description" content="Woodinville Pizza Co - Authentic woodfire pizza crafted with locally sourced ingredients. Experience the taste of tradition in Woodinville, WA.">
+  <title>Woodinville Pizza Co | Authentic Woodfire Pizza</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#2e1d0e] text-white font-inter">
-
-  <!-- Navbar -->
-  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-md px-6 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-playfair tracking-widest text-[#f4e1c1]">Woodinville Pizza Co</h1>
-    <nav class="space-x-6 text-[#f4e1c1] font-medium">
-      <a href="index.html" class="hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="hover:text-yellow-300">Menu</a>
-      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+<body class="bg-[#2e1d0e] text-white font-inter antialiased">
+  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-lg px-6 py-4 flex flex-col sm:flex-row justify-between items-center transition-all duration-300">
+    <a href="index.html" class="text-2xl font-playfair tracking-widest text-[#f4e1c1] mb-2 sm:mb-0 hover:text-yellow-300 transition-colors duration-300">Woodinville Pizza Co</a>
+    <nav class="space-x-4 sm:space-x-6 text-[#f4e1c1] font-medium">
+      <a href="index.html" class="hover:text-yellow-300 font-bold underline-offset-4 underline decoration-yellow-600 transition-all duration-300" aria-current="page">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Menu</a>
+      <a href="contact.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-24 px-6 bg-[url('https://images.unsplash.com/photo-1601924582975-7e220e6b03a7?auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed">
-    <div class="bg-black/60 p-10 rounded-xl inline-block">
-      <h2 class="text-5xl font-playfair mb-4 text-[#f4e1c1]">Authentic Woodfire Pizza</h2>
-      <p class="text-lg text-[#f4e1c1] mb-6">Straight from our oven to your heart, in the heart of Woodinville.</p>
-      <a href="menu.html" class="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full">See the Menu</a>
+  <main>
+    <section class="relative text-center py-28 md:py-36 lg:py-48 px-6 bg-[url('https://images.unsplash.com/photo-1601924582975-7e220e6b03a7?auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed overflow-hidden flex items-center justify-center">
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="relative z-10 p-8 md:p-12 rounded-xl bg-black/50 backdrop-blur-sm max-w-3xl animate-fade-in-up">
+        <h2 id="hero-heading" class="text-5xl md:text-6xl lg:text-7xl font-playfair mb-5 text-[#f4e1c1] leading-tight drop-shadow-xl">Authentic Woodfire Pizza</h2>
+        <p class="text-lg md:text-xl text-[#f4e1c1] mb-10 drop-shadow-md max-w-prose mx-auto">
+          Straight from our oven to your heart, savor the rustic flavors of Woodinville's finest pizza.
+        </p>
+        <a href="menu.html" class="inline-block bg-yellow-600 hover:bg-yellow-500 text-black font-semibold py-3 px-10 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 border border-transparent hover:border-yellow-700">
+          Explore Our Menu
+        </a>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 max-w-6xl mx-auto text-center grid md:grid-cols-2 items-center gap-12 md:gap-16">
+      <div class="md:order-2 animate-fade-in-right">
+        <h3 id="about-heading" class="text-3xl md:text-4xl lg:text-5xl font-playfair text-[#f4e1c1] mb-6 leading-snug">A Taste of Tradition, Crafted with Passion</h3>
+        <p class="text-[#e0cdb4] text-lg leading-relaxed mb-4">
+          At Woodinville Pizza Co, every pizza is a labor of love, handcrafted with the freshest **locally-sourced ingredients** and baked to perfection in our authentic **woodfire oven**.
+        </p>
+        <p class="text-[#e0cdb4] text-lg leading-relaxed">
+          With over a decade of dedication, we're honored to serve the Woodinville community, offering a cozy, rustic dining experience where delicious food and good company come together.
+        </p>
+      </div>
+      <div class="md:order-1 flex justify-center animate-fade-in-left">
+        <img src="https://images.unsplash.com/photo-1596767677443-bf6b77ae03ff?auto=format&fit=crop&w=800&q=80" alt="Chef preparing a woodfire pizza dough with flour" class="rounded-xl shadow-2xl w-full max-w-sm md:max-w-none object-cover h-72 md:h-96 transform hover:scale-102 transition-transform duration-300 ease-in-out">
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#3b2614] text-center py-10 text-[#e0cdb4] border-t border-[#f4e1c1]/15 shadow-inner">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-sm md:text-base mb-2">Woodinville Pizza Co. | Crafted with passion in Woodinville, WA</p>
+      <p class="text-xs md:text-sm">© <span id="current-year-home"></span> All rights reserved.</p>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-    <h3 class="text-3xl font-playfair text-[#f4e1c1] mb-6">A Taste of Tradition</h3>
-    <p class="text-[#e0cdb4] text-lg leading-relaxed">
-      Our pizzas are handcrafted with love using locally-sourced ingredients and baked in our traditional woodfire oven.
-      With over a decade of passion, we're proud to serve the Woodinville community with a cozy, rustic dining experience.
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#3b2614] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10">
-    <p class="text-sm">© 2025 Woodinville Pizza Co. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById('current-year-home').textContent = new Date().getFullYear();
+  </script>
+  <style>
+    @keyframes fadeInFromBottom {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInFromBottom 1s ease-out forwards;
+    }
+
+    @keyframes fadeInFromLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in-left {
+      animation: fadeInFromLeft 1s ease-out forwards;
+    }
+
+    @keyframes fadeInFromRight {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in-right {
+      animation: fadeInFromRight 1s ease-out forwards;
+    }
+  </style>
 </body>
 </html>
