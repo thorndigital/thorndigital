@@ -3,58 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact Woodinville Pizza Co for reservations, catering, feedback, or general inquiries. Find our address, phone number, and email in Woodinville, WA.">
   <title>Contact | Woodinville Pizza Co</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#2e1d0e] text-white font-inter">
-
-  <!-- Navbar -->
-  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-md px-6 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-playfair tracking-widest text-[#f4e1c1]">Woodinville Pizza Co</h1>
-    <nav class="space-x-6 text-[#f4e1c1] font-medium">
-      <a href="index.html" class="hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="hover:text-yellow-300">Menu</a>
-      <a href="contact.html" class="hover:text-yellow-300 font-bold underline">Contact</a>
+<body class="bg-[#2e1d0e] text-white font-inter antialiased">
+  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-lg px-6 py-4 flex flex-col sm:flex-row justify-between items-center transition-all duration-300">
+    <a href="index.html" class="text-2xl font-playfair tracking-widest text-[#f4e1c1] mb-2 sm:mb-0 hover:text-yellow-300 transition-colors duration-300">Woodinville Pizza Co</a>
+    <nav class="space-x-4 sm:space-x-6 text-[#f4e1c1] font-medium">
+      <a href="index.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Menu</a>
+      <a href="contact.html" class="hover:text-yellow-300 font-bold underline-offset-4 underline decoration-yellow-600 transition-all duration-300" aria-current="page">Contact</a>
     </nav>
   </header>
 
-  <!-- Contact Section -->
-  <section class="py-20 px-6 max-w-2xl mx-auto">
-    <h2 class="text-4xl font-playfair text-[#f4e1c1] mb-8 text-center">Get In Touch</h2>
-    
-    <form class="space-y-6">
+  <main>
+    <section class="py-20 md:py-28 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center animate-fade-in">
       <div>
-        <label for="name" class="block text-[#e0cdb4] mb-1">Name</label>
-        <input type="text" id="name" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="Your name">
+        <h2 id="contact-heading" class="text-4xl md:text-5xl lg:text-6xl font-playfair text-[#f4e1c1] mb-8 text-center md:text-left leading-tight drop-shadow-lg">Get In Touch</h2>
+        <form class="space-y-6" aria-label="Contact Form" action="#" method="POST">
+          <div>
+            <label for="name" class="block text-[#e0cdb4] text-lg mb-2 font-medium">Name <span class="text-red-400">*</span></label>
+            <input type="text" id="name" name="name" class="w-full px-5 py-3 rounded-lg bg-[#4b3220] text-white placeholder-[#cbb49b] border border-[#4b3220] focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition duration-200" placeholder="Your full name" required aria-required="true">
+          </div>
+          <div>
+            <label for="email" class="block text-[#e0cdb4] text-lg mb-2 font-medium">Email <span class="text-red-400">*</span></label>
+            <input type="email" id="email" name="email" class="w-full px-5 py-3 rounded-lg bg-[#4b3220] text-white placeholder-[#cbb49b] border border-[#4b3220] focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition duration-200" placeholder="you@example.com" required aria-required="true">
+          </div>
+          <div>
+            <label for="subject" class="block text-[#e0cdb4] text-lg mb-2 font-medium">Subject</label>
+            <input type="text" id="subject" name="subject" class="w-full px-5 py-3 rounded-lg bg-[#4b3220] text-white placeholder-[#cbb49b] border border-[#4b3220] focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition duration-200" placeholder="Regarding your inquiry or reservation...">
+          </div>
+          <div>
+            <label for="message" class="block text-[#e0cdb4] text-lg mb-2 font-medium">Message <span class="text-red-400">*</span></label>
+            <textarea id="message" name="message" rows="6" class="w-full px-5 py-3 rounded-lg bg-[#4b3220] text-white placeholder-[#cbb49b] border border-[#4b3220] focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 transition duration-200" placeholder="What can we help you with? We look forward to hearing from you!" required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-500 text-black font-semibold py-4 px-8 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+            Send Message
+          </button>
+        </form>
+        <div class="mt-6 text-sm text-[#cbb49b] text-center md:text-left">
+            <p><span class="text-red-400 font-bold">*</span> Required fields</p>
+        </div>
       </div>
 
-      <div>
-        <label for="email" class="block text-[#e0cdb4] mb-1">Email</label>
-        <input type="email" id="email" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="you@example.com">
+      <div class="text-center md:text-left text-[#e0cdb4] md:mt-0">
+        <img src="https://images.unsplash.com/photo-1549057404-e3c09b7c89b3?auto=format&fit=crop&w=800&q=80" alt="Contact us illustration, person writing a message with a coffee cup" class="rounded-xl shadow-2xl mb-8 w-full max-w-sm mx-auto md:max-w-none object-cover h-72 transform hover:scale-102 transition-transform duration-300 ease-in-out">
+        <h3 class="text-2xl font-playfair text-[#f4e1c1] mb-4">Visit or Call Us</h3>
+        <p class="mb-5 text-lg leading-relaxed">
+            Prefer a direct line? We're here to assist you with any questions or special requests.
+        </p>
+        <div class="space-y-3 text-xl font-medium">
+            <p><a href="mailto:info@woodinvillepizza.co" class="hover:text-yellow-300 transition-colors duration-200">
+                info@woodinvillepizza.co
+            </a></p>
+            <address class="not-italic space-y-1">
+                <p>
+                    123 Rustic Ave
+                </p>
+                <p>Woodinville, WA 98072</p>
+            </address>
+            <p><a href="tel:+14255551234" class="hover:text-yellow-300 transition-colors duration-200">
+                (425) 555-1234
+            </a></p>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div>
-        <label for="message" class="block text-[#e0cdb4] mb-1">Message</label>
-        <textarea id="message" rows="5" class="w-full px-4 py-2 rounded bg-[#4b3220] text-white placeholder-[#cbb49b] focus:outline-none" placeholder="What can we help you with?"></textarea>
-      </div>
-
-      <button type="submit" class="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full">Send Message</button>
-    </form>
-
-    <div class="text-center text-[#e0cdb4] mt-12">
-      <p class="mb-2">Or reach us directly at:</p>
-      <p class="font-semibold">info@woodinvillepizza.co</p>
-      <p>123 Rustic Ave, Woodinville, WA</p>
-      <p>(425) 555-1234</p>
+  <footer class="bg-[#3b2614] text-center py-10 text-[#e0cdb4] border-t border-[#f4e1c1]/15 shadow-inner">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-sm md:text-base mb-2">Woodinville Pizza Co. | Crafted with passion in Woodinville, WA</p>
+      <p class="text-xs md:text-sm">© <span id="current-year-contact"></span> All rights reserved.</p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#3b2614] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10">
-    <p class="text-sm">© 2025 Woodinville Pizza Co. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById('current-year-contact').textContent = new Date().getFullYear();
+  </script>
+  <style>
+    /* CSS for fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+  </style>
 </body>
 </html>
