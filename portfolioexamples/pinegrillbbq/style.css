@@ -1,133 +1,161 @@
 /* Basic Resets & Body Styles */
 body {
     margin: 0;
-    font-family: 'Times New Roman', serif; /* A classic, robust font */
-    line-height: 1.6;
-    color: #382B22; /* Very dark brown for body text, almost black */
-    background-color: #A0836C; /* A warm, medium-brown wood tone for the overall background */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23A0836C"/><circle cx="50" cy="50" r="40" fill="none" stroke="%238C715D" stroke-width="2" opacity="0.3"/></svg>'); /* Subtle wood grain-like pattern */
+    font-family: 'Open Sans', sans-serif; /* A warm, legible, and modern-friendly sans-serif */
+    line-height: 1.7; /* Slightly more spacious line height for comfort */
+    color: #3D2B1F; /* A very dark, soft brown for main text */
+    background-color: #6F4E37; /* Base warm brown, like a log cabin interior */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%236F4E37"/><circle cx="50" cy="50" r="40" fill="none" stroke="%235C3E2A" stroke-width="2" opacity="0.4"/></svg>'); /* Subtle, dark wood-like texture */
     background-size: 50px 50px;
+    display: flex; /* Use flexbox for sticky footer effect */
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes full viewport height */
 }
 
 /* Color Palette Variables */
 :root {
-    --forest-green: #224229; /* A deep, rich forest green */
-    --fire-red: #B22222; /* A classic crimson/fire red */
-    --dark-brown: #382B22; /* Very dark, rich brown (almost black) */
-    --medium-brown: #6F4E37; /* A warm, earthy brown for accents */
-    --light-wood: #A0836C; /* Main background wood tone */
-    --lighter-wood: #C7AE97; /* Lighter wood tone for contrast or text on dark */
-    --paper-white: #FEFBF4; /* A very slight off-white, like aged paper */
+    --deep-forest: #1F3F2F; /* A very deep, calming forest green */
+    --embers-red: #A32A29; /* A deep, warm, glowing red like embers */
+    --dark-oak: #3D2B1F; /* A very dark, rich oak brown */
+    --warm-cedar: #8B5E3C; /* A rich, medium-warm brown */
+    --golden-glow: #D4AF37; /* A subtle, warm gold accent */
+    --parchment-beige: #EDE0CC; /* A soft, aged parchment-like color for content backgrounds */
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--forest-green);
-    color: var(--lighter-wood);
-    padding: 1.5rem 0;
+    background-color: var(--dark-oak); /* Dark oak for a strong header */
+    color: var(--golden-glow); /* Gold for highlights */
+    padding: 1.8rem 0; /* More vertical padding */
     text-align: center;
-    border-bottom: 5px solid var(--medium-brown);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-bottom: 6px solid var(--embers-red); /* Strong red accent line */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Deeper shadow for robust feel */
+    position: relative; /* For potential future elements */
+    z-index: 10;
 }
 
 header h1 {
     margin: 0;
-    font-family: 'Copperplate', serif; /* Or a strong, blocky serif */
-    font-size: 3.5em; /* Slightly larger */
-    letter-spacing: 3px; /* More prominent */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-    color: var(--fire-red); /* Title in crimson red */
+    font-family: 'Playfair Display SC', serif; /* An elegant, interesting, slightly vintage-inspired font */
+    font-size: 3.8em; /* Larger, more impactful title */
+    letter-spacing: 4px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* More pronounced shadow */
+    color: var(--golden-glow); /* Main title in warm gold */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
-    margin: 0 1.5rem;
+    margin: 0 1.8rem; /* More space between links */
 }
 
 nav ul li a {
-    color: var(--lighter-wood);
+    color: var(--parchment-beige); /* Navigation text in parchment */
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em; /* Slightly larger nav links */
-    padding: 0.7rem 1.2rem; /* More padding */
+    font-weight: 600; /* Slightly bolder */
+    font-size: 1.25em; /* Larger nav links */
+    padding: 0.8rem 1.5rem;
     border: 2px solid transparent;
-    transition: all 0.3s ease;
-    text-transform: uppercase; /* A bit more structured */
-    letter-spacing: 1px;
+    transition: all 0.4s ease-in-out; /* Smoother transition */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: var(--fire-red); /* Hover/active in fire red */
-    border-color: var(--fire-red);
-    background-color: rgba(0, 0, 0, 0.2); /* Darker background on hover */
-    border-radius: 5px;
+    color: var(--embers-red); /* Hover/active in embers red */
+    border-color: var(--embers-red);
+    background-color: rgba(0, 0, 0, 0.3); /* Darker, transparent background on hover */
+    transform: translateY(-3px); /* Subtle lift on hover */
 }
 
 /* Main Content Area */
 .container {
-    max-width: 960px; /* Slightly narrower to feel cozier */
-    margin: 2.5rem auto; /* More margin top/bottom */
-    padding: 0 1.5rem;
+    max-width: 900px; /* Cozy, slightly narrower container */
+    margin: 3rem auto; /* More vertical margin */
+    padding: 0 2rem;
+    flex: 1; /* Allows content to push footer down */
 }
 
 section {
-    background-color: var(--paper-white); /* Clean background for readability */
-    padding: 3rem; /* More padding */
-    margin-bottom: 2.5rem;
-    border-radius: 10px; /* Slightly more rounded corners */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Deeper shadow */
-    border: 2px solid var(--medium-brown); /* Stronger brown border */
+    background-color: var(--parchment-beige); /* Soft, aged parchment background */
+    padding: 3.5rem; /* Generous padding */
+    margin-bottom: 3rem;
+    border-radius: 12px; /* Nicely rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Pronounced shadow for depth */
+    border: 3px solid var(--warm-cedar); /* Warm cedar border */
 }
 
 h2 {
-    color: var(--forest-green);
-    font-family: 'Times New Roman', serif; /* Use main font for h2 */
-    font-size: 2.5em; /* Larger h2 */
-    margin-bottom: 1.8rem;
-    border-bottom: 3px dashed var(--fire-red); /* Red dashed divider */
-    padding-bottom: 0.8rem;
-    text-align: center; /* Center headings */
+    color: var(--deep-forest); /* Deep forest green for main headings */
+    font-family: 'Playfair Display', serif; /* Use a slightly less bold version of the header font */
+    font-size: 2.8em;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--embers-red); /* Solid red line for emphasis */
+    padding-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 h3 {
-    color: var(--dark-brown);
-    font-family: 'Times New Roman', serif;
-    font-size: 2em;
-    margin-top: 2rem;
+    color: var(--dark-oak); /* Dark oak for subheadings */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    margin-top: 2.5rem;
     text-align: center;
 }
 
 p {
-    margin-bottom: 1.2em; /* More spacing between paragraphs */
-    line-height: 1.7;
+    margin-bottom: 1.5em; /* More spacing between paragraphs */
+    line-height: 1.8;
+}
+
+ul {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+}
+
+ul li {
+    padding-left: 1.8em; /* Space for custom bullet */
+    position: relative;
+    margin-bottom: 0.8em;
+}
+
+ul li:before {
+    content: "🔥"; /* Fire emoji as a custom bullet point */
+    position: absolute;
+    left: 0;
+    color: var(--embers-red);
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 /* Buttons */
 .button {
     display: inline-block;
-    background-color: var(--fire-red); /* Button in fire red */
-    color: var(--lighter-wood); /* Text in lighter wood */
-    padding: 1rem 2rem; /* More prominent buttons */
+    background-color: var(--embers-red); /* Buttons glow red like embers */
+    color: var(--parchment-beige); /* Text in parchment */
+    padding: 1.2rem 2.5rem;
     text-decoration: none;
-    border-radius: 8px; /* More rounded */
+    border-radius: 8px;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: 2px solid var(--fire-red);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--embers-red);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .button:hover {
-    background-color: var(--medium-brown); /* Hover to a warm brown */
-    border-color: var(--medium-brown);
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: var(--warm-cedar); /* Hover to warm cedar */
+    border-color: var(--warm-cedar);
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Images */
@@ -135,36 +163,37 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2rem auto; /* Center images and add more margin */
-    border: 8px solid var(--medium-brown); /* Thicker brown frame */
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2.5rem auto;
+    border: 10px solid var(--dark-oak); /* Thick dark oak frame */
+    border-radius: 8px; /* Slightly rounded corners for the frame */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
 footer {
-    background-color: var(--dark-brown); /* Darker brown footer */
-    color: var(--lighter-wood);
+    background-color: var(--dark-oak);
+    color: var(--parchment-beige);
     text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem; /* More space above footer */
-    border-top: 5px solid var(--fire-red); /* Red line above footer */
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    border-top: 6px solid var(--embers-red);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
 }
 
 footer p {
     margin: 0;
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.95em;
+    line-height: 1.6;
 }
 
 /* Specific Page Enhancements (Example for Menu) */
 .menu-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline; /* Align text baselines */
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--lighter-wood); /* Lighter divider for menu items */
-    margin-bottom: 0.5rem;
+    align-items: baseline;
+    padding: 1.2rem 0;
+    border-bottom: 1px dashed var(--warm-cedar); /* Dashed cedar line for menu items */
+    margin-bottom: 0.8rem;
 }
 
 .menu-item:last-child {
@@ -173,69 +202,73 @@ footer p {
 
 .menu-item-name {
     font-weight: bold;
-    color: var(--forest-green);
-    font-size: 1.1em;
+    color: var(--deep-forest);
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
 }
 
 .menu-item-price {
     font-weight: bold;
-    color: var(--fire-red); /* Prices in fire red */
-    font-size: 1.1em;
+    color: var(--embers-red); /* Prices in embers red */
+    font-size: 1.2em;
+    flex-shrink: 0; /* Prevent price from shrinking */
+    margin-left: 1rem;
 }
 
 .menu-item-description {
-    font-size: 0.9em;
-    color: var(--dark-brown);
-    margin-top: 0.3rem;
-    flex-basis: 70%; /* Give description more space */
-    padding-right: 1rem;
+    font-size: 0.95em;
+    color: var(--dark-oak);
+    margin-top: 0.4rem;
+    flex-basis: 75%; /* Give description more space */
+    padding-right: 1.5rem;
 }
 
 /* Contact Form */
 form {
     display: grid;
-    gap: 1.2rem; /* More space between form elements */
+    gap: 1.5rem; /* More space for form elements */
 }
 
 form label {
     font-weight: bold;
-    color: var(--dark-brown);
-    font-size: 1.1em;
+    color: var(--dark-oak);
+    font-size: 1.15em;
 }
 
 form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 100%;
-    padding: 1rem; /* More padding in inputs */
-    border: 1px solid var(--medium-brown);
-    border-radius: 5px;
-    font-family: 'Times New Roman', serif;
+    padding: 1.1rem;
+    border: 1px solid var(--warm-cedar);
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
     box-sizing: border-box;
-    background-color: var(--paper-white); /* Inputs on white */
-    color: var(--dark-brown);
+    background-color: var(--parchment-beige);
+    color: var(--dark-oak);
 }
 
 form textarea {
     resize: vertical;
-    min-height: 120px; /* Taller text area */
+    min-height: 150px; /* Taller text area */
 }
 
 form button[type="submit"] {
-    background-color: var(--forest-green); /* Submit button in forest green */
-    color: var(--lighter-wood);
-    padding: 1.2rem 2.5rem;
+    background-color: var(--deep-forest); /* Submit button in deep forest green */
+    color: var(--parchment-beige);
+    padding: 1.3rem 2.8rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.25em;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 form button[type="submit"]:hover {
-    background-color: var(--fire-red); /* Hover to fire red */
-    transform: translateY(-2px);
+    background-color: var(--embers-red); /* Hover to embers red */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
