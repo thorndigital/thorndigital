@@ -46,7 +46,7 @@
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
-    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0">Pine Grill & BBQ</h1>
+    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0 text-shadow-sm">Pine Grill & BBQ</h1>
     <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
       <a href="index.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
       <a href="menu.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
@@ -55,13 +55,13 @@
     </nav>
   </header>
 
-  <main class="py-20 px-6 max-w-4xl mx-auto text-[#FEE7C0] text-center">
+  <main class="py-20 px-6 max-w-4xl mx-auto text-[#FEE7C0] text-center animate-fade-in animate-duration-500">
     <div class="catering-overlay p-10 rounded-2xl">
-      <h2 class="text-5xl font-bebas-neue tracking-wide mb-8 text-[#FFD700] text-shadow-sm">Chow for Your Crew: Legendary Catering</h2>
-      <p class="mb-8 text-xl leading-relaxed">Got a gathering? Let **Pine Grill & BBQ** bring the authentic taste of Texas BBQ to your event. From backyard shindigs to big ol' weddings, we've got your hunger covered with our award-winning smoked meats and down-home sides!</p>
+      <h2 class="text-5xl font-bebas-neue tracking-wide mb-8 text-[#FFD700] text-shadow-sm animate-fade-down animate-duration-500 animate-delay-100">Chow for Your Crew: Legendary Catering</h2>
+      <p class="mb-8 text-xl leading-relaxed animate-fade-up animate-duration-500 animate-delay-300">Got a gathering? Let **Pine Grill & BBQ** bring the authentic taste of the Pacific Northwest to your event. From backyard shindigs to big ol' weddings, we've got your hunger covered with our award-winning smoked meats and down-home sides!</p>
 
       <div class="grid md:grid-cols-2 gap-8 mb-10">
-        <div>
+        <div class="animate-slide-in-right animate-duration-300 animate-delay-200">
           <h3 class="text-3xl font-bebas-neue text-[#FFD700] mb-4 border-b-2 border-[#A34A28] pb-2">What We Offer</h3>
           <ul class="space-y-4 text-left text-lg catering-list">
             <li>
@@ -90,7 +90,7 @@
             </li>
           </ul>
         </div>
-        <div>
+        <div class="animate-slide-in-left animate-duration-300 animate-delay-400">
           <h3 class="text-3xl font-bebas-neue text-[#FFD700] mb-4 border-b-2 border-[#A34A28] pb-2">Perfect For</h3>
           <ul class="space-y-4 text-left text-lg catering-list">
             <li>
@@ -122,12 +122,14 @@
       </div>
 
       <p class="mt-8 text-2xl font-bold text-[#FFD700]">Ready to feast? Holler at us to get your custom quote!</p>
-      <a href="contact.html" class="mt-6 inline-block btn-bbq-contact px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg">Get Your Catering Quote</a>
+      <a href="contact.html" class="mt-6 inline-block btn-bbq-contact px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg hover:animate-pulse">Get Your Catering Quote</a>
     </div>
   </main>
 
   <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
     © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
+    <p class="mt-2">17823 NE 132nd Ave, Woodinville, WA 98072 | (425) 555-7890</p>
+    <p class="mt-1">Email us at: catering@pinegrillbbq.com</p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
