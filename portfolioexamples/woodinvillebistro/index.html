@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Woodinville Bistro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#1c1c1c] text-white font-inter">
+  <header class="bg-[#2e2a28] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1]">Woodinville Bistro</a>
+    <nav class="space-x-6 text-[#f4e1c1]">
+      <a href="index.html" class="hover:text-yellow-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300">Menu</a>
+      <a href="reservation.html" class="hover:text-yellow-300">Reservation</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="h-[80vh] bg-[url('hero.jpg')] bg-cover bg-center flex items-center justify-center relative">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="relative z-10 text-center px-6">
+        <h1 class="text-5xl md:text-6xl font-playfair text-[#f4e1c1] mb-4">Authentic Woodinville Dining</h1>
+        <p class="text-xl text-[#e0cdb4]">Cozy, elegant, and unforgettable — welcome to your new favorite spot.</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-playfair text-[#f4e1c1] mb-6">Crafted with Heart</h2>
+      <p class="text-lg text-[#e0cdb4] max-w-2xl mx-auto">At Woodinville Bistro, we blend rustic charm with refined flavors. Every dish is made with fresh, seasonal ingredients and served with warmth. Whether it’s a cozy dinner or special celebration, we’re here to make it memorable.</p>
+    </section>
+  </main>
+
+  <footer class="bg-[#2e2a28] text-center py-6 text-[#e0cdb4]">
+    <p>&copy; <span id="year"></span> Woodinville Bistro. All rights reserved.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
