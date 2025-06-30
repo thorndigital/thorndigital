@@ -1,35 +1,42 @@
 /* Basic Resets & Body Styles */
 body {
     margin: 0;
-    font-family: 'Georgia', serif; /* A classic, rustic-feeling font */
+    font-family: 'Times New Roman', serif; /* A classic, robust font */
     line-height: 1.6;
-    color: #333; /* Darker text for readability */
-    background-color: #F5F5DC; /* A very light, warm off-white for the background */
+    color: #382B22; /* Very dark brown for body text, almost black */
+    background-color: #A0836C; /* A warm, medium-brown wood tone for the overall background */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23A0836C"/><circle cx="50" cy="50" r="40" fill="none" stroke="%238C715D" stroke-width="2" opacity="0.3"/></svg>'); /* Subtle wood grain-like pattern */
+    background-size: 50px 50px;
 }
 
-/* Color Palette Variables (easy to change later!) */
+/* Color Palette Variables */
 :root {
-    --dark-green: #364531; /* A deep, forest-like green */
-    --brown: #6F4E37; /* A rich, earthy brown */
-    --accent-gold: #B8860B; /* An optional, warm gold for accents or highlights */
-    --light-cream: #F5F5DC; /* Your background color */
+    --forest-green: #224229; /* A deep, rich forest green */
+    --fire-red: #B22222; /* A classic crimson/fire red */
+    --dark-brown: #382B22; /* Very dark, rich brown (almost black) */
+    --medium-brown: #6F4E37; /* A warm, earthy brown for accents */
+    --light-wood: #A0836C; /* Main background wood tone */
+    --lighter-wood: #C7AE97; /* Lighter wood tone for contrast or text on dark */
+    --paper-white: #FEFBF4; /* A very slight off-white, like aged paper */
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--dark-green);
-    color: var(--light-cream);
+    background-color: var(--forest-green);
+    color: var(--lighter-wood);
     padding: 1.5rem 0;
     text-align: center;
-    border-bottom: 5px solid var(--brown); /* A strong line to separate */
+    border-bottom: 5px solid var(--medium-brown);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 header h1 {
     margin: 0;
-    font-family: 'Copperplate', serif; /* Or another strong, slightly ornate font */
-    font-size: 3em;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Copperplate', serif; /* Or a strong, blocky serif */
+    font-size: 3.5em; /* Slightly larger */
+    letter-spacing: 3px; /* More prominent */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    color: var(--fire-red); /* Title in crimson red */
 }
 
 nav ul {
@@ -45,107 +52,119 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--light-cream);
+    color: var(--lighter-wood);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1em;
-    padding: 0.5rem 1rem;
+    font-size: 1.2em; /* Slightly larger nav links */
+    padding: 0.7rem 1.2rem; /* More padding */
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    text-transform: uppercase; /* A bit more structured */
+    letter-spacing: 1px;
 }
 
 nav ul li a:hover,
-nav ul li a.active { /* Add 'active' class to current page link */
-    color: var(--accent-gold);
-    border-color: var(--accent-gold);
-    background-color: rgba(0, 0, 0, 0.1);
+nav ul li a.active {
+    color: var(--fire-red); /* Hover/active in fire red */
+    border-color: var(--fire-red);
+    background-color: rgba(0, 0, 0, 0.2); /* Darker background on hover */
     border-radius: 5px;
 }
 
 /* Main Content Area */
 .container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+    max-width: 960px; /* Slightly narrower to feel cozier */
+    margin: 2.5rem auto; /* More margin top/bottom */
+    padding: 0 1.5rem;
 }
 
 section {
-    background-color: #FFFFFF; /* Clean white background for content blocks */
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border: 1px solid var(--brown); /* A slight brown border */
+    background-color: var(--paper-white); /* Clean background for readability */
+    padding: 3rem; /* More padding */
+    margin-bottom: 2.5rem;
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+    border: 2px solid var(--medium-brown); /* Stronger brown border */
 }
 
 h2 {
-    color: var(--dark-green);
-    font-family: 'Georgia', serif;
-    font-size: 2.2em;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px dashed var(--accent-gold); /* A rustic divider */
-    padding-bottom: 0.5rem;
+    color: var(--forest-green);
+    font-family: 'Times New Roman', serif; /* Use main font for h2 */
+    font-size: 2.5em; /* Larger h2 */
+    margin-bottom: 1.8rem;
+    border-bottom: 3px dashed var(--fire-red); /* Red dashed divider */
+    padding-bottom: 0.8rem;
+    text-align: center; /* Center headings */
 }
 
 h3 {
-    color: var(--brown);
-    font-family: 'Georgia', serif;
-    font-size: 1.8em;
-    margin-top: 1.5rem;
+    color: var(--dark-brown);
+    font-family: 'Times New Roman', serif;
+    font-size: 2em;
+    margin-top: 2rem;
+    text-align: center;
 }
 
 p {
-    margin-bottom: 1em;
+    margin-bottom: 1.2em; /* More spacing between paragraphs */
+    line-height: 1.7;
 }
 
-/* Buttons (example) */
+/* Buttons */
 .button {
     display: inline-block;
-    background-color: var(--brown);
-    color: var(--light-cream);
-    padding: 0.8rem 1.5rem;
+    background-color: var(--fire-red); /* Button in fire red */
+    color: var(--lighter-wood); /* Text in lighter wood */
+    padding: 1rem 2rem; /* More prominent buttons */
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px; /* More rounded */
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    border: 2px solid var(--brown);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid var(--fire-red);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .button:hover {
-    background-color: var(--dark-green);
-    border-color: var(--dark-green);
+    background-color: var(--medium-brown); /* Hover to a warm brown */
+    border-color: var(--medium-brown);
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* Images (example) */
+/* Images */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1.5rem 0;
-    border: 5px solid var(--brown);
+    margin: 2rem auto; /* Center images and add more margin */
+    border: 8px solid var(--medium-brown); /* Thicker brown frame */
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
 footer {
-    background-color: var(--dark-green);
-    color: var(--light-cream);
+    background-color: var(--dark-brown); /* Darker brown footer */
+    color: var(--lighter-wood);
     text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-    border-top: 5px solid var(--brown);
+    padding: 2rem 0;
+    margin-top: 4rem; /* More space above footer */
+    border-top: 5px solid var(--fire-red); /* Red line above footer */
 }
 
 footer p {
     margin: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
 /* Specific Page Enhancements (Example for Menu) */
 .menu-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem 0;
-    border-bottom: 1px dashed var(--accent-gold);
+    align-items: baseline; /* Align text baselines */
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--lighter-wood); /* Lighter divider for menu items */
+    margin-bottom: 0.5rem;
 }
 
 .menu-item:last-child {
@@ -154,60 +173,69 @@ footer p {
 
 .menu-item-name {
     font-weight: bold;
-    color: var(--dark-green);
+    color: var(--forest-green);
+    font-size: 1.1em;
 }
 
 .menu-item-price {
     font-weight: bold;
-    color: var(--brown);
+    color: var(--fire-red); /* Prices in fire red */
+    font-size: 1.1em;
 }
 
 .menu-item-description {
     font-size: 0.9em;
-    color: #555;
+    color: var(--dark-brown);
     margin-top: 0.3rem;
+    flex-basis: 70%; /* Give description more space */
+    padding-right: 1rem;
 }
 
-/* Contact Form (Basic styling) */
+/* Contact Form */
 form {
     display: grid;
-    gap: 1rem;
+    gap: 1.2rem; /* More space between form elements */
 }
 
 form label {
     font-weight: bold;
-    color: var(--dark-green);
+    color: var(--dark-brown);
+    font-size: 1.1em;
 }
 
 form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--brown);
-    border-radius: 4px;
-    font-family: 'Georgia', serif;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
+    padding: 1rem; /* More padding in inputs */
+    border: 1px solid var(--medium-brown);
+    border-radius: 5px;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    background-color: var(--paper-white); /* Inputs on white */
+    color: var(--dark-brown);
 }
 
 form textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px; /* Taller text area */
 }
 
 form button[type="submit"] {
-    background-color: var(--brown);
-    color: var(--light-cream);
-    padding: 1rem 2rem;
+    background-color: var(--forest-green); /* Submit button in forest green */
+    color: var(--lighter-wood);
+    padding: 1.2rem 2.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 form button[type="submit"]:hover {
-    background-color: var(--dark-green);
+    background-color: var(--fire-red); /* Hover to fire red */
+    transform: translateY(-2px);
 }
