@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Big Leaf Creations | Web Design</title>
+  <title>Thorn Digital | Web Design</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bigleaf-dark: #04560b;
-      --bigleaf-glow: #0dbf50;
+      --thorn-dark: #111111;
+      --thorn-accent: #0dbf50; /* or pick a more thorny color like blood red if you want */
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--bigleaf-dark), var(--bigleaf-glow));
+      background: linear-gradient(135deg, var(--thorn-dark), #222);
       color: white;
       background-attachment: fixed;
     }
@@ -22,16 +22,17 @@
       font-size: 1.5rem;
       font-weight: 600;
       color: white;
-      text-shadow: 0 0 10px var(--bigleaf-glow);
+      text-shadow: 0 0 10px var(--thorn-accent);
+      letter-spacing: 2px;
     }
     .glow-text {
       color: white;
-      text-shadow: 0 0 12px var(--bigleaf-glow);
+      text-shadow: 0 0 12px var(--thorn-accent);
     }
     .glow-btn {
       background-color: white;
-      color: var(--bigleaf-dark);
-      box-shadow: 0 0 16px var(--bigleaf-glow);
+      color: var(--thorn-dark);
+      box-shadow: 0 0 16px var(--thorn-accent);
     }
   </style>
 </head>
@@ -39,7 +40,7 @@
 
   <!-- Navbar -->
   <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md">
-    <a href="index.html" class="logo-text">Big Leaf Creations</a>
+    <a href="index.html" class="logo-text">Thorn Digital</a>
     <nav class="space-x-5 text-md font-medium">
       <a href="/home" class="glow-text font-bold">Home</a>
       <a href="/portfolio" class="hover:text-green-300">Portfolio</a>
@@ -52,26 +53,28 @@
   <!-- Hero Section -->
   <section class="text-center pt-24 pb-6 px-6">
     <h1 class="text-5xl font-bold glow-text mb-4">We Design. You Approve. You Win.</h1>
-    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">Websites that feel high-end, futuristic, and fully tailored — with no cost until you’re impressed.</p>
+    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">Bold, cutting-edge websites with a sharp edge — pay nothing until you’re impressed.</p>
     <a href="contact.html" class="glow-btn px-8 py-4 rounded-full font-semibold mb-0 hover:brightness-110 transition">Start for Free</a>
   </section>
+
   <div class="mt-14 text-center max-w-2xl mx-auto px-6">
-  <h2 class="text-3xl font-semibold glow-text mb-4">Web design that earns trust.</h2>
-  <p class="text-white/80 text-lg">We combine clean code, sleek design, and conversion-focused strategy to give your local business a professional online presence.</p>
+    <h2 class="text-3xl font-semibold glow-text mb-4">Web design that cuts through the noise.</h2>
+    <p class="text-white/80 text-lg">We craft striking, modern sites that build trust and convert visitors into loyal customers.</p>
   </div>
+
   <!-- Services Section -->
   <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
       <h3 class="text-xl font-bold glow-text mb-2">Custom Design</h3>
-      <p class="text-white/80">Built from scratch, tailored to your business. No cookie-cutters here.</p>
+      <p class="text-white/80">Unique, razor-sharp designs tailored for your brand. No templates.</p>
     </div>
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
       <h3 class="text-xl font-bold glow-text mb-2">Fast & Responsive</h3>
-      <p class="text-white/80">Works beautifully on all screens — from phones to tablets to desktops.</p>
+      <p class="text-white/80">Pixel-perfect performance on every screen — from mobile to desktop.</p>
     </div>
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_#0dbf50] transition">
-      <h3 class="text-xl font-bold glow-text mb-2">No Risk To You</h3>
-      <p class="text-white/80">Try before you buy. You only pay if you love what we build.</p>
+    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
+      <h3 class="text-xl font-bold glow-text mb-2">Zero Risk</h3>
+      <p class="text-white/80">No upfront costs. You only pay if you love what we build.</p>
     </div>
   </section>
 
@@ -80,13 +83,13 @@
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-bold glow-text mb-10">Client Testimonials</h2>
       <div class="space-y-8">
-        <div class="bg-white/10 p-6 rounded-lg shadow-[0_0_12px_#0dbf50]">
-          <p class="italic text-white/80">“Big Leaf Creations made our site stand out from the competition. Customers always mention how good it looks.”</p>
-          <p class="mt-3 font-semibold glow-text">– Alex, Woodinville Bistro</p>
+        <div class="bg-white/10 p-6 rounded-lg shadow-[0_0_12px_var(--thorn-accent)]">
+          <p class="italic text-white/80">“Thorn Digital gave our brand an edge. Our website is sleek and stands out in our industry.”</p>
+          <p class="mt-3 font-semibold glow-text">– Alex, Edge Bistro</p>
         </div>
-        <div class="bg-white/10 p-6 rounded-lg shadow-[0_0_12px_#0dbf50]">
-          <p class="italic text-white/80">“The free build gave us peace of mind — and the result blew us away. Best money we’ve spent.”</p>
-          <p class="mt-3 font-semibold glow-text">– Jamie, The Corner Cafe</p>
+        <div class="bg-white/10 p-6 rounded-lg shadow-[0_0_12px_var(--thorn-accent)]">
+          <p class="italic text-white/80">“No upfront fees, no hassle — the result was way better than we imagined.”</p>
+          <p class="mt-3 font-semibold glow-text">– Jamie, The Corner Studio</p>
         </div>
       </div>
     </div>
@@ -94,10 +97,10 @@
 
   <!-- Footer CTA -->
   <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
-<h3 class="text-2xl font-semibold glow-text mb-8">Ready to Look Pro Online?</h3>
-<a href="/contactus" class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">Get In Touch</a>
-    <p class="text-sm text-white/60 mt-8">Or email us at <a href="mailto:bigleafcreations@gmail.com" class="text-green-300 underline">bigleafcreations@gmail.com</a></p>
-    <p class="mt-4 text-xs text-white/40">© 2025 Big Leaf Creations. All rights reserved.</p>
+    <h3 class="text-2xl font-semibold glow-text mb-8">Ready to Cut Through Online?</h3>
+    <a href="/contactus" class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">Get In Touch</a>
+    <p class="text-sm text-white/60 mt-8">Or email us at <a href="mailto:thorndigital@gmail.com" class="text-green-300 underline">thorndigital@gmail.com</a></p>
+    <p class="mt-4 text-xs text-white/40">© 2025 Thorn Digital. All rights reserved.</p>
   </footer>
 
 </body>
