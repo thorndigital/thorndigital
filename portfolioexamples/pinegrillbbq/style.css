@@ -1,318 +1,130 @@
-/* Core Styling & Body */
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif; /* Clean and highly readable sans-serif */
-    line-height: 1.7;
-    color: #F8F8F8; /* Light text for dark backgrounds */
-    background-color: #1A1A1A; /* Fallback dark color */
-    background-image: url('https://via.placeholder.com/1920x1080/1A1A1A/FFFFFF?text=Subtle+Dark+Texture+Background'); /* Placeholder for a subtle dark texture */
-    background-size: cover;
-    background-attachment: fixed; /* Makes the background scroll with the page */
-    background-position: center center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* === FONT IMPORTS === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
 
-/* Color Palette Variables */
+/* === ROOT COLOR PALETTE === */
 :root {
-    --crimson-red: #DC143C; /* Lighter crimson red */
-    --black: #000000; /* Pure black for logo and strong contrast */
-    --white: #FFFFFF; /* Pure white for text */
-    --dark-grey: #333333; /* Dark grey for secondary elements */
-    --light-grey-text: #E0E0E0; /* Slightly off-white for softer text */
-    --transparent-black-overlay: rgba(0, 0, 0, 0.7); /* For text readability over images */
+  --bg-dark: #1a1a1a;
+  --accent-brown: #4b2e15;
+  --footer-brown: #33210f;
+  --text-light: #ffeccc;
+  --text-muted: #d4bfa4;
+  --highlight-yellow: #eab308;
 }
 
-/* Header & Navigation */
+/* === GLOBAL STYLES === */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: white;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--highlight-yellow);
+  text-decoration: underline;
+}
+
+/* === HEADER === */
 header {
-    background-color: var(--crimson-red); /* Lighter crimson red header */
-    color: var(--white);
-    padding: 1.8rem 0;
-    text-align: center;
-    border-bottom: 5px solid var(--black); /* Strong black accent line */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
-    position: relative;
-    z-index: 10;
+  background-color: var(--accent-brown);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-light);
 }
 
-header h1 {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif; /* Strong, modern sans-serif for headlines */
-    font-size: 3.2em;
-    letter-spacing: 3px;
-    color: var(--black); /* Logo/Title text in black */
-    text-shadow: none;
-    padding-bottom: 0.5rem; /* Space for the underline */
-    display: inline-block; /* Allows underline to fit text */
-    border-bottom: 3px solid var(--black); /* Black underline for the logo */
+nav a {
+  margin-left: 1.5rem;
+  font-weight: 600;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.2rem;
-    display: flex;
-    justify-content: center;
+nav a.active {
+  text-decoration: underline;
 }
 
-nav ul li {
-    margin: 0 1.5rem;
+/* === HERO SECTION === */
+.hero {
+  background: url('bbq-hero.jpg') center/cover no-repeat;
+  padding: 6rem 1rem;
+  text-align: center;
+  color: var(--text-light);
 }
 
-nav ul li a {
-    color: var(--white); /* White text for navigation */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1em;
-    padding: 0.7rem 1.2rem;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    color: var(--black); /* Hover/active text black */
-    background-color: var(--white); /* White background on hover/active */
-    border-color: var(--black);
+/* === MAIN === */
+main {
+  padding: 4rem 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* Main Content Area */
-.container {
-    max-width: 900px; /* Slightly narrower to emphasize content blocks */
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-    flex: 1;
-}
-
-section {
-    /* Background for content sections - will need to be images */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    padding: 3.5rem;
-    margin-bottom: 3rem;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth over images */
-    border: 2px solid var(--crimson-red); /* Crimson border */
-    position: relative; /* For the overlay */
-}
-
-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--transparent-black-overlay); /* Semi-transparent overlay for text readability */
-    border-radius: 8px;
-    z-index: 1; /* Puts overlay behind text but in front of background image */
-}
-
-section > *:not(.background-image) { /* Target direct children that are not the bg image itself */
-    position: relative;
-    z-index: 2; /* Ensures text and other elements are above the overlay */
-    color: var(--white); /* Ensure text is white on dark background */
-}
-
-h2 {
-    color: var(--crimson-red); /* Headings in crimson */
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
-    margin-bottom: 1.8rem;
-    border-bottom: 3px solid var(--white); /* White underline for headings */
-    padding-bottom: 0.8rem;
-    text-align: center;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for headings */
-}
-
-h3 {
-    color: var(--crimson-red);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-p {
-    margin-bottom: 1.2em;
-    line-height: 1.8;
+/* === MENU LISTS === */
+.menu-section h3 {
+  border-bottom: 1px solid rgba(255, 236, 204, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding: 0;
 }
 
-ul li {
-    padding-left: 1.8em;
-    position: relative;
-    margin-bottom: 0.8em;
-}
-
-ul li:before {
-    content: "➤"; /* Sharp, sleek arrow bullet point */
-    position: absolute;
-    left: 0;
-    color: var(--crimson-red); /* Bullet point in crimson */
-    font-size: 1.2em;
-    line-height: 1;
-    font-weight: bold;
-}
-
-/* Buttons */
-.button {
-    display: inline-block;
-    background-color: var(--black); /* Buttons in black */
-    color: var(--white); /* White text on buttons */
-    padding: 1rem 2.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: 2px solid var(--crimson-red); /* Crimson border on buttons */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    font-size: 1.05em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.button:hover {
-    background-color: var(--crimson-red); /* Hover to crimson */
-    border-color: var(--black);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-}
-
-/* Images within content (e.g., hero images for sections) */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 2rem auto; /* Center images */
-    border: 4px solid var(--crimson-red); /* Crimson border for images */
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer */
-footer {
-    background-color: var(--black); /* Black footer */
-    color: var(--light-grey-text);
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-    border-top: 5px solid var(--crimson-red); /* Crimson top border */
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-    line-height: 1.6;
-}
-
-/* Menu Specific Enhancements */
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1.2rem 0;
-    border-bottom: 1px dashed var(--light-grey-text); /* Light grey dashed line */
-    margin-bottom: 1em;
-}
-
-.menu-item:last-child {
-    border-bottom: none;
-}
-
-.menu-item-name {
-    font-weight: 700; /* Bolder for impact */
-    color: var(--white); /* White text for menu item name */
-    font-size: 1.15em;
-    letter-spacing: 0.5px;
-}
-
-.menu-item-price {
-    font-weight: 700;
-    color: var(--crimson-red); /* Prices in crimson */
-    font-size: 1.15em;
-    flex-shrink: 0;
-    margin-left: 1.5rem;
-}
-
-.menu-item-description {
-    font-size: 0.95em;
-    color: var(--light-grey-text); /* Lighter grey for description */
-    margin-top: 0.2rem;
-    flex-basis: 75%;
-    padding-right: 1rem;
-}
-
-/* Contact Form - Text boxes should be crimson */
-form {
-    display: grid;
-    gap: 1.5rem;
-}
-
-form label {
-    font-weight: 600;
-    color: var(--white); /* Labels in white */
-    font-size: 1.05em;
-}
-
-form input[type="text"],
-form input[type="email"],
+/* === CONTACT FORM === */
+form input,
 form textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--white); /* White border for text boxes */
-    border-radius: 6px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-    box-sizing: border-box;
-    background-color: var(--crimson-red); /* Text boxes in crimson */
-    color: var(--white); /* Text input in white */
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4); /* Stronger inner shadow */
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  background-color: #2a1a0a;
+  border: 1px solid #5c3a1a;
+  color: white;
 }
 
-form input[type="text"]::placeholder,
-form input[type="email"]::placeholder,
-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+form button {
+  background-color: var(--highlight-yellow);
+  color: black;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Ensure text in crimson boxes is legible when typed */
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form textarea:focus {
-    outline: none;
-    border-color: var(--black); /* Black border on focus */
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5); /* Black glow on focus */
+form button:hover {
+  background-color: #ca8a04;
 }
 
-
-form button[type="submit"] {
-    background-color: var(--black); /* Submit button in black */
-    color: var(--white);
-    padding: 1.2rem 2.8rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.15em;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    text-transform: uppercase;
+/* === FOOTER === */
+footer {
+  background-color: var(--footer-brown);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
-form button[type="submit"]:hover {
-    background-color: var(--crimson-red); /* Hover to crimson */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+/* === UTILITIES === */
+.text-center {
+  text-align: center;
 }
