@@ -8,13 +8,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --thorn-dark: #041a05;
-      --thorn-accent: #0dbf50;
-      --thorn-secondary: #0dbf50;
-      --thorn-purple: #2dd96b;
-      --thorn-blue: #39ff14;
-      --thorn-gradient: linear-gradient(135deg, #00ff6b 0%, #0dbf50 50%, #8b5cf6 100%);
-      --thorn-mesh: conic-gradient(from 0deg at 50% 50%, #00ff6b 0deg, #0dbf50 120deg, #8b5cf6 240deg, #00ff6b 360deg);
+      /* Refined Green Palette */
+      --thorn-dark: #0A1C0B; /* Deep Forest Green */
+      --thorn-accent: #33FF77; /* Vibrant Electric Green */
+      --thorn-secondary: #22CC55; /* Muted Bright Green */
+      --thorn-highlight: #00FF00; /* Pure Green for highlights */
+      --thorn-subtle-green: #0F3011; /* Even darker, subtle green */
+
+      /* Gradients for Premium Look */
+      --thorn-gradient: linear-gradient(135deg, var(--thorn-subtle-green) 0%, var(--thorn-accent) 100%);
+      --thorn-text-gradient: linear-gradient(90deg, #F0F0F0, var(--thorn-accent)); /* Light to Green */
+
+      /* Mesh background with more complex, subtle colors */
+      --thorn-mesh-gradient-1: rgba(51, 255, 119, 0.1); /* Vibrant Electric Green (10%) */
+      --thorn-mesh-gradient-2: rgba(34, 204, 85, 0.08); /* Muted Bright Green (8%) */
+      --thorn-mesh-gradient-3: rgba(0, 255, 0, 0.05); /* Pure Green (5%) */
     }
 
     * {
@@ -23,10 +31,24 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
+      background: #000000; /* Pure black for stark contrast */
       color: white;
       overflow-x: hidden;
       position: relative;
+    }
+
+    /* Subtle Noise Texture Overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3; /* Below everything else */
+      background-image: url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h8v8H0V0zM8 8h8v8H8V8z" fill="%23FFFFFF" opacity="0.02"/%3E%3C/svg%3E');
+      background-repeat: repeat;
+      pointer-events: none;
     }
 
     /* Epic Animated Background */
@@ -38,20 +60,21 @@
       height: 100%;
       z-index: -2;
       background: 
-        radial-gradient(circle at 20% 20%, rgba(0, 255, 107, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 255, 107, 0.1) 0%, transparent 50%);
-      animation: meshMove 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 20%, var(--thorn-mesh-gradient-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--thorn-mesh-gradient-2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, var(--thorn-mesh-gradient-3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--thorn-mesh-gradient-1) 0%, transparent 50%);
+      animation: meshMove 25s ease-in-out infinite alternate; /* Slower, smoother animation */
+      filter: blur(50px); /* More pronounced blur */
     }
 
     @keyframes meshMove {
-      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-      33% { transform: scale(1.1) rotate(120deg); opacity: 1; }
-      66% { transform: scale(0.9) rotate(240deg); opacity: 0.6; }
+      0%, 100% { transform: scale(1) translate(0, 0) rotate(0deg); opacity: 0.8; }
+      33% { transform: scale(1.05) translate(5vw, -5vh) rotate(10deg); opacity: 0.9; }
+      66% { transform: scale(0.95) translate(-5vw, 5vh) rotate(-10deg); opacity: 0.7; }
     }
 
-    /* Matrix-style falling code effect */
+    /* Matrix-style falling code effect - more subtle */
     .matrix-bg {
       position: fixed;
       top: 0;
@@ -59,7 +82,7 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.03;
+      opacity: 0.015; /* Even more subtle */
       pointer-events: none;
     }
 
@@ -67,14 +90,14 @@
       position: absolute;
       color: var(--thorn-accent);
       font-family: 'Courier New', monospace;
-      font-size: 14px;
+      font-size: 12px; /* Slightly smaller */
       animation: matrix-fall linear infinite;
     }
 
     @keyframes matrix-fall {
       0% { 
         transform: translateY(-100vh);
-        opacity: 1;
+        opacity: 0.8; /* Starts more visible */
       }
       100% { 
         transform: translateY(100vh);
@@ -84,33 +107,30 @@
 
     .logo-text {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
+      font-size: 2.2rem; /* Slightly larger */
       font-weight: 900;
-      background: var(--thorn-gradient);
+      background: var(--thorn-text-gradient); /* Use the new text gradient */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: 4px;
+      letter-spacing: 5px; /* More spacing */
       position: relative;
       text-transform: uppercase;
-    }
-
-    @keyframes logoShift {
-      0%, 100% { transform: translate(0, 0); opacity: 0; }
-      50% { transform: translate(2px, 2px); opacity: 0.5; }
+      text-shadow: 0 0 10px rgba(51, 255, 119, 0.4); /* Subtle glow */
     }
 
     .hero-title {
       font-family: 'Orbitron', sans-serif;
       font-weight: 900;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      line-height: 1.1;
-      background: var(--thorn-gradient);
+      font-size: clamp(3rem, 9vw, 6rem); /* Larger and more impactful */
+      line-height: 1.05;
+      background: var(--thorn-text-gradient); /* New text gradient */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       position: relative;
       margin-bottom: 2rem;
+      text-shadow: 0 0 20px rgba(51, 255, 119, 0.6); /* More pronounced glow */
     }
 
     .hero-title::after {
@@ -118,32 +138,32 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, var(--thorn-accent) 0%, transparent 70%);
+      width: 120%; /* Slightly smaller, more focused glow */
+      height: 120%;
+      background: radial-gradient(circle, var(--thorn-highlight) 0%, transparent 60%); /* Pure green glow */
       transform: translate(-50%, -50%);
-      opacity: 0.1;
+      opacity: 0.08; /* Subtler opacity */
       z-index: -1;
-      animation: heroGlow 6s ease-in-out infinite;
+      animation: heroGlow 8s ease-in-out infinite alternate; /* Slower, smoother */
     }
 
     @keyframes heroGlow {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
-      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.08; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.15; }
     }
 
-    /* Ultra-premium form styling */
+    /* Premium form styling */
     .form-container {
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 30px;
-      padding: 3rem;
+      background: rgba(15, 48, 17, 0.6); /* Darker, more opaque background */
+      backdrop-filter: blur(40px); /* Stronger blur */
+      border: 1px solid rgba(51, 255, 119, 0.2); /* More visible green border */
+      border-radius: 25px; /* Slightly less rounded */
+      padding: 3.5rem; /* More padding */
       position: relative;
       overflow: hidden;
       box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 40px 80px rgba(0, 0, 0, 0.7), /* Stronger, deeper shadow */
+        inset 0 1px 0 rgba(51, 255, 119, 0.15); /* Greenish inset shadow */
     }
 
     .form-container::before {
@@ -154,60 +174,65 @@
       right: -2px;
       bottom: -2px;
       background: var(--thorn-gradient);
-      border-radius: 30px;
+      border-radius: 25px;
       z-index: -1;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease, filter 0.5s ease; /* Add filter transition */
+      filter: blur(10px); /* Initial blur for the border glow */
     }
 
     .form-container:hover::before {
-      opacity: 0.3;
+      opacity: 0.6; /* Stronger glow on hover */
+      filter: blur(25px); /* More blurred glow */
     }
 
     .form-group {
       position: relative;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem; /* More spacing between fields */
     }
 
     .form-label {
       display: block;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      background: linear-gradient(135deg, #fff 0%, var(--thorn-accent) 100%);
+      margin-bottom: 0.8rem; /* Slightly more space */
+      font-weight: 700; /* Bolder label */
+      font-size: 1rem; /* Slightly larger font */
+      background: var(--thorn-text-gradient); /* Use text gradient */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px; /* More prominent letter spacing */
+      text-shadow: 0 0 5px rgba(51, 255, 119, 0.3); /* Subtle label glow */
     }
 
     .form-input {
       width: 100%;
-      padding: 1.25rem 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
+      padding: 1.4rem 1.6rem; /* More padding */
+      background: rgba(51, 255, 119, 0.08); /* Slightly richer green tint */
+      border: 2px solid rgba(51, 255, 119, 0.3); /* More defined green border */
+      border-radius: 12px; /* Slightly less rounded */
       color: white;
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.05rem; /* Slightly larger text */
+      font-weight: 300; /* Lighter font weight for input text */
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px); /* Stronger blur on input */
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
     }
 
     .form-input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
-      font-style: italic;
+      color: rgba(255, 255, 255, 0.35); /* Slightly darker placeholder */
+      font-style: normal; /* No italics */
+      font-weight: 300;
     }
 
     .form-input:focus {
       outline: none;
-      border-color: var(--thorn-accent);
-      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--thorn-highlight); /* Pure green for focused border */
+      background: rgba(51, 255, 119, 0.12); /* More prominent background on focus */
       box-shadow: 
-        0 0 0 4px rgba(0, 255, 107, 0.1),
-        0 10px 30px rgba(0, 255, 107, 0.2);
-      transform: translateY(-2px);
+        0 0 0 5px rgba(51, 255, 119, 0.15), /* Enhanced green glow */
+        0 15px 40px rgba(51, 255, 119, 0.3); /* Stronger green shadow */
+      transform: translateY(-3px); /* More pronounced lift */
     }
 
     .form-input:focus + .input-glow {
@@ -222,95 +247,98 @@
       right: 0;
       bottom: 0;
       background: linear-gradient(135deg, var(--thorn-accent), var(--thorn-secondary));
-      border-radius: 15px;
+      border-radius: 12px;
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.98); /* Less scaling */
       z-index: -1;
       transition: all 0.4s ease;
-      filter: blur(20px);
+      filter: blur(30px); /* More intense blur for glow */
     }
 
     .textarea-input {
       resize: vertical;
-      min-height: 140px;
+      min-height: 160px; /* Taller textarea */
       font-family: inherit;
     }
 
-    /* Epic submit button */
+    /* Epic submit button - refined */
     .submit-btn {
       background: var(--thorn-gradient);
-      color: var(--thorn-dark);
-      font-weight: 800;
-      font-size: 1.1rem;
-      padding: 1.25rem 3rem;
+      color: var(--thorn-dark); /* Dark green text for contrast */
+      font-weight: 900; /* Extra bold */
+      font-size: 1.2rem; /* Larger text */
+      padding: 1.4rem 3.5rem; /* More padding */
       border: none;
-      border-radius: 50px;
+      border-radius: 40px; /* Slightly less rounded */
       cursor: pointer;
       position: relative;
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px; /* Wider letter spacing */
       box-shadow: 
-        0 15px 35px rgba(0, 255, 107, 0.3),
-        0 5px 15px rgba(0, 0, 0, 0.1);
+        0 20px 45px rgba(51, 255, 119, 0.4), /* Stronger green shadow */
+        0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .submit-btn::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
+      left: -120%; /* Start further left */
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-      transition: left 0.6s ease;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent); /* Brighter shimmer */
+      transition: left 0.7s ease; /* Slower shimmer */
     }
 
     .submit-btn:hover::before {
-      left: 100%;
+      left: 120%; /* End further right */
     }
 
     .submit-btn:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-8px) scale(1.03); /* More lift and subtle scale */
       box-shadow: 
-        0 25px 50px rgba(0, 255, 107, 0.4),
-        0 10px 25px rgba(0, 0, 0, 0.2);
+        0 30px 60px rgba(51, 255, 119, 0.5), /* Even stronger green shadow */
+        0 12px 30px rgba(0, 0, 0, 0.3);
     }
 
     .submit-btn:active {
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(-4px) scale(1.01); /* Reduced active state */
     }
 
-    /* Floating contact cards */
+    /* Floating contact cards - refined */
     .contact-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem;
+      background: rgba(15, 48, 17, 0.5); /* Darker, more substantial background */
+      backdrop-filter: blur(25px); /* Stronger blur */
+      border: 1px solid rgba(51, 255, 119, 0.2); /* More prominent green border */
+      border-radius: 18px; /* Slightly less rounded */
+      padding: 2.5rem; /* More padding */
       text-align: center;
       position: relative;
       overflow: hidden;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Add initial shadow */
     }
 
     .contact-card::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(transparent, var(--thorn-accent), transparent);
-      animation: cardRotate 4s linear infinite;
+      top: -60%; /* Cover more area */
+      left: -60%;
+      width: 220%; /* Larger sweep */
+      height: 220%;
+      background: conic-gradient(transparent, var(--thorn-highlight), transparent); /* Pure green conic */
+      animation: cardRotate 6s linear infinite; /* Slower rotation */
       z-index: -1;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease, filter 0.4s ease; /* Add filter transition */
+      filter: blur(15px); /* Initial blur for card glow */
     }
 
     .contact-card:hover::before {
-      opacity: 0.1;
+      opacity: 0.2; /* Stronger glow */
+      filter: blur(30px); /* More blurred glow */
     }
 
     @keyframes cardRotate {
@@ -319,92 +347,88 @@
     }
 
     .contact-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 255, 107, 0.2);
+      transform: translateY(-15px) scale(1.03); /* More lift and scale */
+      box-shadow: 0 30px 60px rgba(51, 255, 119, 0.35); /* Stronger green shadow */
     }
 
     .contact-icon {
-      width: 60px;
-      height: 60px;
+      width: 70px; /* Larger icons */
+      height: 70px;
       background: var(--thorn-gradient);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
-      animation: iconFloat 3s ease-in-out infinite;
+      margin: 0 auto 1.25rem; /* More space below icon */
+      font-size: 1.8rem; /* Larger icon font */
+      color: var(--thorn-dark); /* Dark text for icons */
+      box-shadow: 0 5px 15px rgba(51, 255, 119, 0.4); /* Green shadow for icon */
+      animation: iconFloat 4s ease-in-out infinite; /* Slower float */
     }
 
     @keyframes iconFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(5deg); } /* Subtle rotation on float */
     }
 
-    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="logo-text">THORN DIGITAL</a>
-        <nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
-          <a href="/home" class="nav-link hover:text-white">Home</a>
-          <a href="/portfolio" class="nav-link active">Portfolio</a>
-          <a href="/aboutus" class="nav-link hover:text-white">About</a>
-          <a href="/contactus" class="nav-link hover:text-white">Contact</a>
-        </nav>
-        
-        <!-- Mobile menu button -->
-        <button class="md:hidden text-white" id="mobileMenuBtn">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-  
-      <!-- Mobile menu -->
-      <div class="md:hidden hidden bg-black/90 backdrop-blur-md mt-4 p-4 rounded-lg" id="mobileMenu">
-        <nav class="flex flex-col space-y-4">
-          <a href="/home" class="nav-link">Home</a>
-          <a href="/portfolio" class="nav-link active">Portfolio</a>
-          <a href="/aboutus" class="nav-link">About</a>
-          <a href="/contactus" class="nav-link">Contact</a>
-        </nav>
-      </div>
-    </header>
+    /* Navbar */
+    header {
+      position: sticky; /* Keep it sticky */
+      top: 0;
+      z-index: 50;
+      padding: 1.25rem 2rem; /* Adjusted padding */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7); /* More transparent black */
+      backdrop-filter: blur(20px); /* Stronger blur */
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent; /* Starts transparent */
+    }
 
     .nav-link {
       position: relative;
-      padding: 0.75rem 1.25rem;
+      padding: 0.85rem 1.4rem; /* Slightly more padding */
       border-radius: 50px;
       transition: all 0.3s ease;
       font-weight: 500;
       text-decoration: none;
+      color: rgba(255, 255, 255, 0.6); /* Muted white for default */
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .nav-link::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--thorn-gradient);
+      background: var(--thorn-accent); /* Solid accent color for glow */
       border-radius: 50px;
       opacity: 0;
       z-index: -1;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+      filter: blur(10px); /* Glow effect */
+      transform: scale(0.95); /* Subtle scale */
     }
 
     .nav-link:hover::before,
     .nav-link.active::before {
-      opacity: 0.15;
+      opacity: 0.25; /* More prominent glow */
+      transform: scale(1); /* No scale */
+      filter: blur(15px); /* Stronger blur on hover */
     }
 
     .nav-link:hover,
     .nav-link.active {
-      color: var(--thorn-accent);
-      transform: translateY(-2px);
+      color: var(--thorn-accent); /* Bright green on hover/active */
+      transform: translateY(-3px); /* More pronounced lift */
+      text-shadow: 0 0 10px rgba(51, 255, 119, 0.5); /* Text glow on hover/active */
     }
 
     .section-fade {
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(60px); /* More pronounced initial position */
+      transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); /* Slower, bouncier transition */
     }
 
     .section-fade.visible {
@@ -416,20 +440,24 @@
       color: var(--thorn-accent);
       text-decoration: none;
       position: relative;
-      font-weight: 600;
+      font-weight: 700; /* Bolder */
+      font-size: 1.3rem; /* Larger */
       transition: all 0.3s ease;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(51, 255, 119, 0.4);
     }
 
     .email-link::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -3px; /* Lower underline */
       left: 0;
       width: 100%;
-      height: 2px;
+      height: 3px; /* Thicker underline */
       background: var(--thorn-gradient);
       transform: scaleX(0);
-      transition: transform 0.3s ease;
+      transform-origin: left; /* Animation from left */
+      transition: transform 0.4s ease;
     }
 
     .email-link:hover::after {
@@ -437,10 +465,10 @@
     }
 
     .email-link:hover {
-      color: #fff;
+      color: #FFFFFF; /* White on hover */
     }
 
-    /* Particles system */
+    /* Particles system - more subtle and dynamic */
     .particles {
       position: fixed;
       top: 0;
@@ -453,69 +481,117 @@
 
     .particle {
       position: absolute;
-      background: var(--thorn-accent);
+      background: var(--thorn-highlight); /* Pure green particles */
       border-radius: 50%;
-      opacity: 0.1;
-      animation: particleFloat 15s ease-in-out infinite;
+      opacity: 0.05; /* More subtle opacity */
+      animation: particleFloat 20s ease-in-out infinite alternate; /* Slower, alternate animation */
+      filter: blur(5px); /* Slight blur for softness */
     }
 
     @keyframes particleFloat {
       0%, 100% { 
         transform: translateY(0px) translateX(0px) rotate(0deg);
-        opacity: 0.1;
+        opacity: 0.05;
       }
       25% { 
-        transform: translateY(-100px) translateX(50px) rotate(90deg);
-        opacity: 0.3;
+        transform: translateY(-150px) translateX(70px) rotate(120deg);
+        opacity: 0.1;
       }
       50% { 
-        transform: translateY(-50px) translateX(-30px) rotate(180deg);
-        opacity: 0.2;
+        transform: translateY(-80px) translateX(-50px) rotate(240deg);
+        opacity: 0.07;
       }
       75% { 
-        transform: translateY(-80px) translateX(20px) rotate(270deg);
-        opacity: 0.4;
+        transform: translateY(-120px) translateX(40px) rotate(300deg);
+        opacity: 0.12;
       }
     }
 
     @media (max-width: 768px) {
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
       .form-container {
-        padding: 2rem;
+        padding: 2.5rem;
         margin: 1rem;
       }
       
       .contact-cards {
         grid-template-columns: 1fr;
       }
+
+      /* Mobile menu button specific styles */
+      #mobileMenuBtn {
+        display: block; /* Ensure it's visible on small screens */
+        color: white;
+      }
+
+      header .md:flex { /* Correctly target the desktop nav */
+        display: none;
+      }
+      
+      #mobileMenu.hidden {
+        display: none;
+      }
+
+      #mobileMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95); /* Darker background for mobile menu */
+        backdrop-filter: blur(25px); /* Stronger blur */
+        margin-top: 1rem;
+        padding: 1.5rem; /* More padding */
+        border-radius: 0.75rem; /* Slightly more rounded */
+        border: 1px solid rgba(51, 255, 119, 0.2); /* Green border */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      #mobileMenu .nav-link {
+        padding: 1rem 0; /* More vertical padding */
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      header.navbar-blur {
+        background: rgba(0, 0, 0, 0.85); /* Darker on scroll */
+        box-shadow: 0 10px 30px rgba(51, 255, 119, 0.15); /* Green shadow */
+        border-bottom-color: rgba(51, 255, 119, 0.2); /* Green border on scroll */
+      }
     }
   </style>
 </head>
 <body class="min-h-screen">
-  <!-- Epic Animated Background -->
   <div class="mesh-background"></div>
   
-  <!-- Matrix Effect -->
   <div class="matrix-bg" id="matrix"></div>
   
-  <!-- Particle System -->
   <div class="particles" id="particles"></div>
 
-  <!-- Navbar -->
   <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center navbar-blur">
     <a href="index.html" class="logo-text">THORN DIGITAL</a>
-    <nav class="flex space-x-2 text-sm font-medium">
-      <a href="/home" class="nav-link">Home</a>
+    <nav class="hidden md:flex space-x-4 text-sm font-medium"> <a href="/home" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
       <a href="/aboutus" class="nav-link">About</a>
       <a href="/contactus" class="nav-link active">Contact</a>
     </nav>
+    
+    <button class="md:hidden text-white" id="mobileMenuBtn">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </header>
 
-  <!-- Hero Section -->
+  <div class="md:hidden hidden bg-black/90 backdrop-blur-md mt-4 p-4 rounded-lg absolute w-full" id="mobileMenu">
+    <nav class="flex flex-col space-y-4">
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/portfolio" class="nav-link">Portfolio</a>
+      <a href="/aboutus" class="nav-link">About</a>
+      <a href="/contactus" class="nav-link">Contact</a>
+    </nav>
+  </div>
+
   <section class="text-center pt-32 pb-16 px-6 section-fade">
     <h1 class="hero-title">Let's Build Something Legendary</h1>
     <p class="text-xl text-white/70 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
@@ -523,7 +599,6 @@
     </p>
   </section>
 
-  <!-- Contact Cards -->
   <section class="px-6 mb-20 section-fade">
     <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 contact-cards">
       <div class="contact-card">
@@ -546,7 +621,6 @@
     </div>
   </section>
 
-  <!-- Contact Form -->
   <section class="px-6 pb-20 section-fade">
     <div class="max-w-2xl mx-auto">
       <div class="form-container">
@@ -624,10 +698,9 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-black/60 backdrop-blur-xl border-t border-white/10 py-16 text-center section-fade">
+  <footer class="bg-black/80 backdrop-blur-xl border-t border-white/10 py-16 text-center section-fade">
     <div class="max-w-4xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent">
+      <h3 class="text-2xl font-bold mb-6" style="background: linear-gradient(to right, #F0F0F0, var(--thorn-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         Prefer Direct Contact?
       </h3>
       
@@ -647,11 +720,17 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
     // Form submission handling with success feedback
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       const btn = document.querySelector('.submit-btn');
       btn.innerHTML = 'Launching...';
-      btn.style.background = 'linear-gradient(135deg, #0dbf50, #00ff6b)';
+      btn.style.background = 'linear-gradient(135deg, #00FF00, #33FF77)'; // Pure green to vibrant green
       
       setTimeout(() => {
         btn.innerHTML = 'Message Sent! 🚀';
@@ -688,25 +767,25 @@
       function createParticle() {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.width = Math.random() * 5 + 3 + 'px'; /* Slightly larger particles */
         particle.style.height = particle.style.width;
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particle.style.animationDelay = Math.random() * 20 + 's'; /* Longer delay range */
+        particle.style.animationDuration = (Math.random() * 15 + 15) + 's'; /* Longer animation duration */
         
         particles.appendChild(particle);
         
         setTimeout(() => {
           particle.remove();
-        }, 25000);
+        }, 30000); /* Removed after longer time */
       }
       
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 30; i++) { /* More initial particles */
         setTimeout(createParticle, i * 500);
       }
       
-      setInterval(createParticle, 2000);
+      setInterval(createParticle, 1500); /* Create particles more frequently */
     }
 
     // Scroll reveal animation
@@ -735,11 +814,13 @@
       const currentScrollY = window.scrollY;
       
       if (currentScrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 255, 107, 0.1)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.95)'; /* Darker black on scroll */
+        navbar.style.boxShadow = '0 10px 30px rgba(51, 255, 119, 0.2)'; /* Green shadow */
+        navbar.style.borderBottom = '1px solid rgba(51, 255, 119, 0.2)'; /* Green border */
       } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.7)'; /* Original more transparent black */
         navbar.style.boxShadow = 'none';
+        navbar.style.borderBottom = '1px solid transparent';
       }
       
       lastScrollY = currentScrollY;
@@ -748,7 +829,7 @@
     // Form input enhancements
     document.querySelectorAll('.form-input').forEach(input => {
       input.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
+        this.parentElement.style.transform = 'scale(1.01)'; /* More subtle scale */
       });
       
       input.addEventListener('blur', function() {
@@ -765,7 +846,7 @@
       const scrolled = window.pageYOffset;
       const heroTitle = document.querySelector('.hero-title');
       if (heroTitle) {
-        heroTitle.style.transform = `translateY(${scrolled * 0.3}px)`;
+        heroTitle.style.transform = `translateY(${scrolled * 0.35}px)`; /* Slightly more pronounced parallax */
       }
     });
 
@@ -782,11 +863,13 @@
     const messageInput = document.getElementById('message');
     
     function rotatePlaceholder() {
-      messageInput.placeholder = placeholders[placeholderIndex];
-      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+      if (document.activeElement !== messageInput) { /* Only rotate if input is not focused */
+        messageInput.placeholder = placeholders[placeholderIndex];
+        placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+      }
     }
     
-    setInterval(rotatePlaceholder, 3000);
+    setInterval(rotatePlaceholder, 3500); /* Slightly slower rotation */
   </script>
 </body>
 </html>
