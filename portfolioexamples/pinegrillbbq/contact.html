@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Pine Grill & BBQ</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pine Grill & BBQ - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Pine Grill & BBQ</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catering.html">Catering</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Pine Grill & BBQ</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="catering.html">Catering</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <div class="container">
+        <section>
+            <h2>Get in Touch with Pine Grill & BBQ</h2>
+            <p>We'd love to hear from you! Whether you have a question about our menu, need to inquire about catering, or just want to share your feedback, feel free to reach out. Our team is here to help.</p>
 
-  <!-- Hero -->
-  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1562967916-eb82221dfb42?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
-    <div class="hero-content">
-      <h1>Contact Us</h1>
-      <p>Let’s talk BBQ. Send us a message or come by for a bite.</p>
+            <h3>Visit Us:</h3>
+            <p><strong>Pine Grill & BBQ</strong><br>
+            [Your Street Address]<br>
+            [Your City, State, Zip Code]</p>
+            <p><a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="button">Get Directions</a></p>
+            <img src="https://via.placeholder.com/800x450/6F4E37/F5F5DC?text=Exterior+of+BBQ+Restaurant" alt="Exterior of Pine Grill & BBQ restaurant">
+
+            <h3>Call Us:</h3>
+            <p><strong>Phone:</strong> <a href="tel:+1YourPhoneNumber">[Your Phone Number]</a></p>
+
+            <h3>Email Us:</h3>
+            <p><strong>Email:</strong> <a href="mailto:info@pinegrillbbq.com">info@pinegrillbbq.com</a></p>
+
+            <h3>Send Us a Message:</h3>
+            <form action="#" method="POST"> <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject">
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Hours of Operation</h2>
+            <p><strong>Tuesday - Thursday:</strong> 11:00 AM - 9:00 PM</p>
+            <p><strong>Friday - Saturday:</strong> 11:00 AM - 10:00 PM</p>
+            <p><strong>Sunday:</strong> 12:00 PM - 8:00 PM</p>
+            <p><strong>Monday:</strong> Closed</p>
+        </section>
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section class="featured">
-    <h2>We'd Love to Hear from You</h2>
-
-    <div class="dishes" style="flex-wrap: wrap;">
-      <div class="dish-card" style="flex: 1; min-width: 300px;">
-        <h3>Get in Touch</h3>
-        <p>Email: <a href="mailto:info@pinegrillbbq.com">info@pinegrillbbq.com</a></p>
-        <p>Phone: (425) 555-1975</p>
-        <p>Visit: 123 Woodsmoke Lane, Woodinville, WA</p>
-        <p>Hours: Mon–Sat, 11am – 9pm</p>
-      </div>
-
-      <div class="dish-card" style="flex: 1; min-width: 300px;">
-        <h3>Send a Message</h3>
-        <form action="#" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    &copy; 2025 Pine Grill & BBQ. All rights reserved.
-  </footer>
-
+    <footer>
+        <p>&copy; 2025 Pine Grill & BBQ. All rights reserved.</p>
+        <p>[Your Address] | [Your Phone Number] | [Your Email]</p>
+    </footer>
 </body>
 </html>
