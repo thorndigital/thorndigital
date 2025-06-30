@@ -1,59 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pine Grill & BBQ - Catering</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pine Grill & BBQ | Catering</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1>Pine Grill & BBQ</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="catering.html" class="active">Catering</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#1a1a1a] text-white font-inter">
+  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
+    <nav class="space-x-6">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="menu.html" class="hover:underline">Menu</a>
+      <a href="catering.html" class="font-bold underline">Catering</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section>
-            <h2>Elevate Your Event with Pine Grill & BBQ Catering.</h2>
-            <p>Make your next event truly unforgettable with premium catering from Pine Grill & BBQ. We bring our expertly smoked meats and delicious sides directly to your gathering, ensuring a seamless and flavorful experience for you and your guests. Perfect for corporate functions, private parties, weddings, and special celebrations.</p>
-            <p>Our dedicated catering team works closely with you to craft a customized menu that perfectly suits your needs, preferences, and budget. Experience the same high standards of quality and service you find in our restaurant, delivered to your chosen venue.</p>
-            <img src="https://via.placeholder.com/900x500/2C3E50/FFFFFF?text=Professional+Catering+Setup" alt="Professional catering setup with BBQ dishes">
+  <main class="py-20 px-6 max-w-4xl mx-auto text-[#ffeccc] text-center">
+    <h2 class="text-4xl font-playfair mb-6">Catering Services</h2>
+    <p class="mb-6">Hosting a wedding, office lunch, or backyard bash? Let us bring the smoke to you!</p>
+    <ul class="space-y-4 text-left">
+      <li>✅ Full-service BBQ catering</li>
+      <li>✅ Customizable menus for any group size</li>
+      <li>✅ Delivery or on-site pit crew available</li>
+    </ul>
+    <p class="mt-8">Email us at <a href="mailto:bbq@pinegrill.com" class="underline text-yellow-300">bbq@pinegrill.com</a> to get started!</p>
+  </main>
 
-            <h3>Our Comprehensive Catering Options Include:</h3>
-            <ul>
-                <li>**Customizable Menus:** Select from our full range of smoked meats, sides, and desserts.</li>
-                <li>**Flexible Service Styles:** From convenient drop-off to full-service buffet setup.</li>
-                <li>**Professional Staff:** Our experienced team ensures a smooth and enjoyable event.</li>
-                <li>**Dietary Accommodations:** Options available to meet various dietary needs (upon request).</li>
-            </ul>
-            <p>Let Pine Grill & BBQ handle the details, so you can focus on enjoying your event. We are committed to providing a superior catering experience from start to finish.</p>
-            <a href="contact.html" class="button">Request a Catering Consultation</a>
-        </section>
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4]">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  </footer>
 
-        <section>
-            <h2>Why Choose Pine Grill & BBQ for Your Catering?</h2>
-            <ul>
-                <li>**Uncompromising Quality:** Authentic, slow-smoked BBQ prepared with care.</li>
-                <li>**Tailored Solutions:** Menus designed specifically for your event.</li>
-                <li>**Reliability & Punctuality:** We deliver on time, every time.</li>
-                <li>**Customer Satisfaction:** Our priority is your complete satisfaction.</li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Pine Grill & BBQ. All rights reserved.</p>
-        <p>[Your Address] | [Your Phone Number] | [Your Email]</p>
-    </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
