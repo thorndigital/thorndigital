@@ -3,107 +3,595 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio | Thorn Digital</title>
+  <title>Portfolio | Thorn Digital - Cutting-Edge Web Design</title>
+  <meta name="description" content="Discover Thorn Digital's portfolio of modern, high-performance websites that cut through the noise and drive results.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --thorn-dark: #111111;
-      --thorn-accent: #0dbf50; /* Or pick a more thorny red if you like */
+      --thorn-dark: #0a0a0a;
+      --thorn-darker: #050505;
+      --thorn-accent: #0dbf50;
+      --thorn-accent-glow: rgba(13, 191, 80, 0.3);
+      --thorn-secondary: #1a1a1a;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--thorn-dark), #222);
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(13, 191, 80, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(13, 191, 80, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, var(--thorn-darker) 0%, var(--thorn-dark) 50%, #111 100%);
       color: white;
       background-attachment: fixed;
+      overflow-x: hidden;
     }
+
+    /* Enhanced Typography */
     .logo-text {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.75rem;
+      font-weight: 700;
       color: white;
-      text-shadow: 0 0 10px var(--thorn-accent);
-      letter-spacing: 2px;
+      text-shadow: 0 0 20px var(--thorn-accent-glow);
+      letter-spacing: 3px;
+      transition: all 0.3s ease;
     }
-    .glow-text {
-      color: white;
-      text-shadow: 0 0 12px var(--thorn-accent);
+
+    .logo-text:hover {
+      text-shadow: 0 0 30px var(--thorn-accent), 0 0 40px var(--thorn-accent-glow);
+      transform: scale(1.05);
     }
-    .glow-btn {
-      background-color: white;
+
+    .hero-title {
+      background: linear-gradient(135deg, #ffffff 0%, var(--thorn-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow-pulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow-pulse {
+      0% { filter: drop-shadow(0 0 10px var(--thorn-accent-glow)); }
+      100% { filter: drop-shadow(0 0 25px var(--thorn-accent)); }
+    }
+
+    /* Glass morphism effects */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 255, 255, 0.02) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(13, 191, 80, 0.05) 100%);
+      border-color: var(--thorn-accent);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--thorn-accent),
+        0 0 30px var(--thorn-accent-glow);
+    }
+
+    /* Enhanced buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--thorn-accent) 0%, #10d554 100%);
       color: var(--thorn-dark);
-      box-shadow: 0 0 16px var(--thorn-accent);
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(13, 191, 80, 0.4);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    /* Navigation enhancements */
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      background: var(--thorn-accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--thorn-accent);
+      text-shadow: 0 0 10px var(--thorn-accent-glow);
+    }
+
+    /* Portfolio grid animations */
+    .portfolio-item {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+    .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+    .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+    .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Image hover effects */
+    .portfolio-image {
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-image::after {
+      content: 'View Project';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--thorn-accent);
+      color: var(--thorn-dark);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover .portfolio-image::after {
+      opacity: 1;
+    }
+
+    .glass-card:hover .portfolio-image img {
+      transform: scale(1.1);
+      filter: brightness(0.7);
+    }
+
+    /* Floating elements */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .logo-text {
+        font-size: 1.25rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--thorn-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--thorn-accent);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10d554;
+    }
+
+    /* Loading animation */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--thorn-darker);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--glass-border);
+      border-top: 3px solid var(--thorn-accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body class="min-h-screen">
+  <!-- Loading Screen -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
 
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md">
-    <a href="index.html" class="logo-text">Thorn Digital</a>
-    <nav class="space-x-5 text-md font-medium">
-      <a href="/home" class="hover:text-green-300">Home</a>
-      <a href="/portfolio" class="glow-text font-bold">Portfolio</a>
-      <a href="/aboutus" class="hover:text-green-300">About</a>
-      <a href="/contactus" class="hover:text-green-300">Contact</a>
-    </nav>
+  <!-- Enhanced Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="logo-text">THORN DIGITAL</a>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
+        <a href="/home" class="nav-link hover:text-white">Home</a>
+        <a href="/portfolio" class="nav-link active">Portfolio</a>
+        <a href="/aboutus" class="nav-link hover:text-white">About</a>
+        <a href="/contactus" class="nav-link hover:text-white">Contact</a>
+      </nav>
+      
+      <!-- Mobile menu button -->
+      <button class="md:hidden text-white" id="mobileMenuBtn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden bg-black/90 backdrop-blur-md mt-4 p-4 rounded-lg" id="mobileMenu">
+      <nav class="flex flex-col space-y-4">
+        <a href="/home" class="nav-link">Home</a>
+        <a href="/portfolio" class="nav-link active">Portfolio</a>
+        <a href="/aboutus" class="nav-link">About</a>
+        <a href="/contactus" class="nav-link">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Portfolio Hero Section -->
-  <section class="text-center pt-24 pb-6 px-6">
-    <h1 class="text-5xl font-bold glow-text mb-4">Work That Cuts Through</h1>
-    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">Our portfolio shows how we craft sharp, modern websites that grab attention and build trust.</p>
+  <!-- Enhanced Hero Section -->
+  <section class="text-center pt-32 pb-16 px-6 relative">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-thorn-accent opacity-5 rounded-full blur-3xl floating"></div>
+      <div class="absolute top-3/4 right-1/4 w-48 h-48 bg-thorn-accent opacity-10 rounded-full blur-2xl floating" style="animation-delay: -3s;"></div>
+    </div>
+    
+    <div class="relative z-10">
+      <h1 class="text-6xl md:text-7xl font-black hero-title mb-6 tracking-tight">
+        Work That<br>
+        <span class="font-family: 'Orbitron', sans-serif;">Cuts Through</span>
+      </h1>
+      <p class="text-xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Our portfolio showcases how we craft <span class="text-thorn-accent font-semibold">sharp, modern websites</span> that grab attention, build trust, and drive real results for businesses.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#portfolio" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
+          Explore Our Work
+        </a>
+        <a href="/contactus" class="text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white/10 transition text-lg font-semibold">
+          Start Your Project
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Portfolio Grid -->
-<section class="py-20 px-4 sm:px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+  <!-- Enhanced Portfolio Grid -->
+  <section id="portfolio" class="py-24 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-white mb-4">Featured Projects</h2>
+        <div class="w-24 h-1 bg-thorn-accent mx-auto rounded-full"></div>
+      </div>
 
-  <!-- Woodinville Pizza Co -->
-  <a href="portfolioexamples/woodinvillepizzaco/index.html" target="_blank" class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-xl hover:ring-2 hover:ring-[#0dbf50] transition block">
-    <img src="assets/woodinvillepizzacopreview.png" 
-         alt="Woodinville Pizza Co preview" 
-         class="rounded-xl mb-4 w-full h-40 object-cover shadow-md" />
-    <h3 class="text-xl font-bold glow-text mb-2">Woodinville Pizza Co</h3>
-    <p class="text-white/80">Fast, modern, and tasty — an online ordering experience with bite.</p>
-  </a>
+      <!-- Portfolio Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Woodinville Pizza Co -->
+        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+          <a href="portfolioexamples/woodinvillepizzaco/index.html" target="_blank" class="block">
+            <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
+              <img src="assets/woodinvillepizzacopreview.png" 
+                   alt="Woodinville Pizza Co - Modern restaurant website with online ordering" 
+                   class="w-full h-48 object-cover transition-all duration-500" 
+                   loading="lazy" />
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-white group-hover:text-thorn-accent transition">
+                  Woodinville Pizza Co
+                </h3>
+                <div class="text-thorn-accent opacity-0 group-hover:opacity-100 transition">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-white/70 leading-relaxed">
+                Fast, modern, and appetizing — an intuitive online ordering experience that drives sales and customer satisfaction.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">E-commerce</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Mobile-First</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Restaurant</span>
+              </div>
+            </div>
+          </a>
+        </article>
 
-  <!-- Café Rush -->
-  <a href="portfolioexamples/caferush/index.html" target="_blank" class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-xl hover:ring-2 hover:ring-[#0dbf50] transition block">
-    <img src="assets/caferushpreview.png" 
-         alt="Café Rush preview" 
-         class="rounded-xl mb-4 w-full h-40 object-cover shadow-md" />
-    <h3 class="text-xl font-bold glow-text mb-2">Café Rush</h3>
-    <p class="text-white/80">A sleek landing page with warmth — crafted for loyal coffee fans.</p>
-  </a>
+        <!-- Café Rush -->
+        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+          <a href="portfolioexamples/caferush/index.html" target="_blank" class="block">
+            <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
+              <img src="assets/caferushpreview.png" 
+                   alt="Café Rush - Warm and inviting coffee shop landing page" 
+                   class="w-full h-48 object-cover transition-all duration-500" 
+                   loading="lazy" />
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-white group-hover:text-thorn-accent transition">
+                  Café Rush
+                </h3>
+                <div class="text-thorn-accent opacity-0 group-hover:opacity-100 transition">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-white/70 leading-relaxed">
+                A sleek landing page with warmth and personality — perfectly crafted to convert coffee lovers into loyal customers.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Landing Page</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Branding</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Café</span>
+              </div>
+            </div>
+          </a>
+        </article>
 
-  <!-- Pine Grill & BBQ -->
-  <a href="portfolioexamples/pinegrillbbq/index.html" target="_blank" class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-xl hover:ring-2 hover:ring-[#0dbf50] transition block">
-    <img src="assets/pinegrillbbqpreview.png" 
-         alt="Pine Grill & BBQ preview" 
-         class="rounded-xl mb-4 w-full h-40 object-cover shadow-md" />
-    <h3 class="text-xl font-bold glow-text mb-2">Pine Grill & BBQ</h3>
-    <p class="text-white/80">Bold design and bold flavors — a mobile-first site with edge.</p>
-  </a>
+        <!-- Pine Grill & BBQ -->
+        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+          <a href="portfolioexamples/pinegrillbbq/index.html" target="_blank" class="block">
+            <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
+              <img src="assets/pinegrillbbqpreview.png" 
+                   alt="Pine Grill & BBQ - Bold mobile-first restaurant website" 
+                   class="w-full h-48 object-cover transition-all duration-500" 
+                   loading="lazy" />
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-white group-hover:text-thorn-accent transition">
+                  Pine Grill & BBQ
+                </h3>
+                <div class="text-thorn-accent opacity-0 group-hover:opacity-100 transition">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-white/70 leading-relaxed">
+                Bold design meets bold flavors — a rugged, mobile-first website that captures the authentic BBQ experience.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Mobile-First</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Bold Design</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">BBQ</span>
+              </div>
+            </div>
+          </a>
+        </article>
 
-  <!-- Woodinville Bistro -->
-  <a href="portfolioexamples/woodinvillebistro/index.html" target="_blank" class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-xl hover:ring-2 hover:ring-[#0dbf50] transition block">
-    <img src="assets/woodinvillebistropreview.png" 
-         alt="Woodinville Bistro preview" 
-         class="rounded-xl mb-4 w-full h-40 object-cover shadow-md" />
-    <h3 class="text-xl font-bold glow-text mb-2">Woodinville Bistro</h3>
-    <p class="text-white/80">Minimal, high-end, and smooth — fine dining’s online first impression.</p>
-  </a>
+        <!-- Woodinville Bistro -->
+        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+          <a href="portfolioexamples/woodinvillebistro/index.html" target="_blank" class="block">
+            <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
+              <img src="assets/woodinvillebistropreview.png" 
+                   alt="Woodinville Bistro - Elegant fine dining website" 
+                   class="w-full h-48 object-cover transition-all duration-500" 
+                   loading="lazy" />
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-white group-hover:text-thorn-accent transition">
+                  Woodinville Bistro
+                </h3>
+                <div class="text-thorn-accent opacity-0 group-hover:opacity-100 transition">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-white/70 leading-relaxed">
+                Minimal, high-end, and sophisticated — the perfect digital first impression for fine dining excellence.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Fine Dining</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Minimal</span>
+                <span class="px-3 py-1 bg-thorn-accent/20 text-thorn-accent rounded-full text-sm">Luxury</span>
+              </div>
+            </div>
+          </a>
+        </article>
 
-</section>
+      </div>
+    </div>
+  </section>
 
-
-  <!-- Footer CTA -->
-  <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
-    <h3 class="text-2xl font-semibold glow-text mb-8">Ready to Stand Out?</h3>
-    <a href="contact.html" class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">Let’s Talk</a>
-    <p class="text-sm text-white/60 mt-8">Or email us at <a href="mailto:thorndigital@gmail.com" class="text-green-300 underline">thorndigital@gmail.com</a></p>
-    <p class="mt-4 text-xs text-white/40">© 2025 Thorn Digital. All rights reserved.</p>
+  <!-- Enhanced Footer CTA -->
+  <footer class="glass border-t border-white/10 py-20 text-center relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-thorn-accent opacity-5 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <h3 class="text-4xl font-bold text-white mb-4">Ready to Stand Out?</h3>
+      <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+        Let's create something extraordinary together. Your vision, our expertise.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <a href="contact.html" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold">
+          Start Your Project
+        </a>
+        <a href="mailto:thorndigital@gmail.com" class="text-white border border-white/30 px-10 py-4 rounded-full hover:bg-white/10 transition text-lg font-semibold">
+          Email Us
+        </a>
+      </div>
+      
+      <div class="text-center space-y-6">
+        <div class="flex justify-center space-x-8 text-sm text-white/60">
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
+          <a href="/sitemap" class="hover:text-white transition">Sitemap</a>
+        </div>
+        
+        <div class="w-24 h-px bg-white/20 mx-auto"></div>
+        
+        <p class="text-sm text-white/40">
+          © 2025 Thorn Digital. All rights reserved. | Crafted with precision in Bothell, WA
+        </p>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Loading screen
+    window.addEventListener('load', function() {
+      const loadingOverlay = document.getElementById('loadingOverlay');
+      setTimeout(() => {
+        loadingOverlay.style.opacity = '0';
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+        }, 500);
+      }, 500);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      const floatingElements = document.querySelectorAll('.floating');
+      floatingElements.forEach(element => {
+        element.style.transform = `translateY(${rate}px)`;
+      });
+    });
+
+    // Enhanced portfolio item reveal on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Add dynamic cursor effect (desktop only)
+    if (window.innerWidth > 768) {
+      const cursor = document.createElement('div');
+      cursor.className = 'fixed w-4 h-4 bg-thorn-accent rounded-full pointer-events-none z-50 mix-blend-difference';
+      cursor.style.transition = 'transform 0.1s ease';
+      document.body.appendChild(cursor);
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX - 8 + 'px';
+        cursor.style.top = e.clientY - 8 + 'px';
+      });
+
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'scale(2)';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'scale(1)';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
