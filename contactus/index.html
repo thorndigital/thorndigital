@@ -5,117 +5,779 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | Thorn Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --thorn-dark: #111111;
-      --thorn-accent: #0dbf50;
+      --thorn-dark: #0a0a0a;
+      --thorn-accent: #00ff6b;
+      --thorn-secondary: #0dbf50;
+      --thorn-purple: #8b5cf6;
+      --thorn-blue: #3b82f6;
+      --thorn-gradient: linear-gradient(135deg, #00ff6b 0%, #0dbf50 50%, #8b5cf6 100%);
+      --thorn-mesh: conic-gradient(from 0deg at 50% 50%, #00ff6b 0deg, #0dbf50 120deg, #8b5cf6 240deg, #00ff6b 360deg);
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--thorn-dark), #222);
+      background: #0a0a0a;
       color: white;
-      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
     }
+
+    /* Epic Animated Background */
+    .mesh-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 107, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 255, 107, 0.1) 0%, transparent 50%);
+      animation: meshMove 20s ease-in-out infinite;
+    }
+
+    @keyframes meshMove {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+      33% { transform: scale(1.1) rotate(120deg); opacity: 1; }
+      66% { transform: scale(0.9) rotate(240deg); opacity: 0.6; }
+    }
+
+    /* Matrix-style falling code effect */
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    .matrix-char {
+      position: absolute;
+      color: var(--thorn-accent);
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      animation: matrix-fall linear infinite;
+    }
+
+    @keyframes matrix-fall {
+      0% { 
+        transform: translateY(-100vh);
+        opacity: 1;
+      }
+      100% { 
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
     .logo-text {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-weight: 900;
+      background: var(--thorn-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 4px;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .logo-text::before {
+      content: 'THORN DIGITAL';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--thorn-mesh);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: logoShift 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes logoShift {
+      0%, 100% { transform: translate(0, 0); opacity: 0; }
+      50% { transform: translate(2px, 2px); opacity: 0.5; }
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.1;
+      background: var(--thorn-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, var(--thorn-accent) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0.1;
+      z-index: -1;
+      animation: heroGlow 6s ease-in-out infinite;
+    }
+
+    @keyframes heroGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+    }
+
+    /* Ultra-premium form styling */
+    .form-container {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--thorn-gradient);
+      border-radius: 30px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .form-container:hover::before {
+      opacity: 0.3;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.75rem;
       font-weight: 600;
-      color: white;
-      text-shadow: 0 0 10px var(--thorn-accent);
-      letter-spacing: 2px;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, #fff 0%, var(--thorn-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .glow-text {
+
+    .form-input {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       color: white;
-      text-shadow: 0 0 12px var(--thorn-accent);
+      font-size: 1rem;
+      font-weight: 400;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
     }
-    .glow-btn {
-      background-color: white;
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      font-style: italic;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--thorn-accent);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 
+        0 0 0 4px rgba(0, 255, 107, 0.1),
+        0 10px 30px rgba(0, 255, 107, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .form-input:focus + .input-glow {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .input-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--thorn-accent), var(--thorn-secondary));
+      border-radius: 15px;
+      opacity: 0;
+      transform: scale(0.95);
+      z-index: -1;
+      transition: all 0.4s ease;
+      filter: blur(20px);
+    }
+
+    .textarea-input {
+      resize: vertical;
+      min-height: 140px;
+      font-family: inherit;
+    }
+
+    /* Epic submit button */
+    .submit-btn {
+      background: var(--thorn-gradient);
       color: var(--thorn-dark);
-      box-shadow: 0 0 16px var(--thorn-accent);
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 1.25rem 3rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 
+        0 15px 35px rgba(0, 255, 107, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    input, textarea {
-      color: black;
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 
+        0 25px 50px rgba(0, 255, 107, 0.4),
+        0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    /* Floating contact cards */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(transparent, var(--thorn-accent), transparent);
+      animation: cardRotate 4s linear infinite;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-card:hover::before {
+      opacity: 0.1;
+    }
+
+    @keyframes cardRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 255, 107, 0.2);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--thorn-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .navbar-blur {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(30px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--thorn-gradient);
+      border-radius: 50px;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      opacity: 0.15;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--thorn-accent);
+      transform: translateY(-2px);
+    }
+
+    .section-fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .email-link {
+      color: var(--thorn-accent);
+      text-decoration: none;
+      position: relative;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .email-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--thorn-gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .email-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .email-link:hover {
+      color: #fff;
+    }
+
+    /* Particles system */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--thorn-accent);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: particleFloat 15s ease-in-out infinite;
+    }
+
+    @keyframes particleFloat {
+      0%, 100% { 
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.1;
+      }
+      25% { 
+        transform: translateY(-100px) translateX(50px) rotate(90deg);
+        opacity: 0.3;
+      }
+      50% { 
+        transform: translateY(-50px) translateX(-30px) rotate(180deg);
+        opacity: 0.2;
+      }
+      75% { 
+        transform: translateY(-80px) translateX(20px) rotate(270deg);
+        opacity: 0.4;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .form-container {
+        padding: 2rem;
+        margin: 1rem;
+      }
+      
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body class="min-h-screen">
+  <!-- Epic Animated Background -->
+  <div class="mesh-background"></div>
+  
+  <!-- Matrix Effect -->
+  <div class="matrix-bg" id="matrix"></div>
+  
+  <!-- Particle System -->
+  <div class="particles" id="particles"></div>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md">
-    <a href="index.html" class="logo-text">Thorn Digital</a>
-    <nav class="space-x-5 text-md font-medium">
-      <a href="/home" class="hover:text-green-300">Home</a>
-      <a href="/portfolio" class="hover:text-green-300">Portfolio</a>
-      <a href="/aboutus" class="hover:text-green-300">About</a>
-      <a href="/contactus" class="glow-text font-bold">Contact</a>
+  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center navbar-blur">
+    <a href="index.html" class="logo-text">THORN DIGITAL</a>
+    <nav class="flex space-x-2 text-sm font-medium">
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/portfolio" class="nav-link">Portfolio</a>
+      <a href="/aboutus" class="nav-link">About</a>
+      <a href="/contactus" class="nav-link active">Contact</a>
     </nav>
   </header>
 
-  <!-- Contact Section -->
-  <section class="text-center pt-24 pb-12 px-6 max-w-xl mx-auto">
-    <h1 class="text-5xl font-bold glow-text mb-4">Let’s Build Something Great</h1>
-    <p class="text-lg text-white/80 mb-12">
-      Reach out and let's get your dream website started — completely free until you're satisfied.
+  <!-- Hero Section -->
+  <section class="text-center pt-32 pb-16 px-6 section-fade">
+    <h1 class="hero-title">Let's Build Something Legendary</h1>
+    <p class="text-xl text-white/70 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
+      Ready to dominate your market? Reach out and let's craft your digital masterpiece — completely free until you're absolutely blown away.
     </p>
+  </section>
 
-    <form action="https://formsubmit.co/thorndigital@gmail.com" method="POST" class="grid gap-6 text-left">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://thorndigital.onrender.com/thankyou">
-
-      <div>
-        <label for="name" class="block mb-2 text-white font-semibold glow-text">Your Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          placeholder="Jane Doe"
-          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-        />
+  <!-- Contact Cards -->
+  <section class="px-6 mb-20 section-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon">⚡</div>
+        <h3 class="text-xl font-bold mb-2 text-white">Lightning Fast</h3>
+        <p class="text-white/60">Get your quote in under 24 hours</p>
       </div>
-
-      <div>
-        <label for="email" class="block mb-2 text-white font-semibold glow-text">Your Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="you@example.com"
-          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-        />
+      
+      <div class="contact-card">
+        <div class="contact-icon">🛡️</div>
+        <h3 class="text-xl font-bold mb-2 text-white">Zero Risk</h3>
+        <p class="text-white/60">Pay nothing until you're thrilled</p>
       </div>
-
-      <div>
-        <label for="message" class="block mb-2 text-white font-semibold glow-text">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="6"
-          required
-          placeholder="Tell us what you need..."
-          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-        ></textarea>
+      
+      <div class="contact-card">
+        <div class="contact-icon">🚀</div>
+        <h3 class="text-xl font-bold mb-2 text-white">Local Experts</h3>
+        <p class="text-white/60">PNW-based, market-focused</p>
       </div>
+    </div>
+  </section>
 
-      <div class="text-center pt-2">
-        <button
-          type="submit"
-          class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition"
-        >
-          Send Message
-        </button>
+  <!-- Contact Form -->
+  <section class="px-6 pb-20 section-fade">
+    <div class="max-w-2xl mx-auto">
+      <div class="form-container">
+        <form action="https://formsubmit.co/thorndigital@gmail.com" method="POST" id="contactForm">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://thorndigital.onrender.com/thankyou">
+          <input type="hidden" name="_subject" value="New Contact from Thorn Digital Website">
+
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <div class="relative">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Enter your full name"
+                class="form-input"
+              />
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="relative">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="form-input"
+              />
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="business" class="form-label">Business Name (Optional)</label>
+            <div class="relative">
+              <input
+                type="text"
+                id="business"
+                name="business"
+                placeholder="Your company or business name"
+                class="form-input"
+              />
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Tell Us About Your Vision</label>
+            <div class="relative">
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="Describe your project, goals, timeline, or any specific requirements..."
+                class="form-input textarea-input"
+              ></textarea>
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <div class="text-center pt-8">
+            <button type="submit" class="submit-btn">
+              Launch My Project
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
-    <p class="text-sm text-white/60">Email us directly at <a href="mailto:thorndigital@gmail.com" class="text-green-300 underline">thorndigital@gmail.com</a></p>
-    <p class="mt-4 text-xs text-white/40">© 2025 Thorn Digital. All rights reserved.</p>
+  <footer class="bg-black/60 backdrop-blur-xl border-t border-white/10 py-16 text-center section-fade">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent">
+        Prefer Direct Contact?
+      </h3>
+      
+      <div class="mb-8">
+        <p class="text-white/60 mb-4">Drop us a line anytime:</p>
+        <a href="mailto:thorndigital@gmail.com" class="email-link text-xl">
+          thorndigital@gmail.com
+        </a>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8">
+        <p class="text-xs text-white/40">
+          © 2025 Thorn Digital. All rights reserved. Crafted with precision in the Pacific Northwest.
+        </p>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Form submission handling with success feedback
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const btn = document.querySelector('.submit-btn');
+      btn.innerHTML = 'Launching...';
+      btn.style.background = 'linear-gradient(135deg, #0dbf50, #00ff6b)';
+      
+      setTimeout(() => {
+        btn.innerHTML = 'Message Sent! 🚀';
+      }, 1000);
+    });
+
+    // Matrix falling code effect
+    function createMatrixEffect() {
+      const matrix = document.getElementById('matrix');
+      const chars = '01';
+      
+      function createChar() {
+        const char = document.createElement('div');
+        char.className = 'matrix-char';
+        char.textContent = chars[Math.floor(Math.random() * chars.length)];
+        char.style.left = Math.random() * 100 + '%';
+        char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        char.style.animationDelay = Math.random() * 2 + 's';
+        
+        matrix.appendChild(char);
+        
+        setTimeout(() => {
+          char.remove();
+        }, 5000);
+      }
+      
+      setInterval(createChar, 200);
+    }
+
+    // Particle system
+    function createParticles() {
+      const particles = document.getElementById('particles');
+      
+      function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        
+        particles.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.remove();
+        }, 25000);
+      }
+      
+      for (let i = 0; i < 20; i++) {
+        setTimeout(createParticle, i * 500);
+      }
+      
+      setInterval(createParticle, 2000);
+    }
+
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-fade').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Enhanced navbar scroll effect
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.boxShadow = '0 10px 30px rgba(0, 255, 107, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+        navbar.style.boxShadow = 'none';
+      }
+      
+      lastScrollY = currentScrollY;
+    });
+
+    // Form input enhancements
+    document.querySelectorAll('.form-input').forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'scale(1.02)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'scale(1)';
+      });
+    });
+
+    // Initialize effects
+    createMatrixEffect();
+    createParticles();
+
+    // Parallax effect for hero
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        heroTitle.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+    });
+
+    // Add typing effect to placeholder text
+    const placeholders = [
+      "I need a website that converts visitors into customers...",
+      "Looking for a complete rebrand and web presence...",
+      "Want to dominate my local market online...",
+      "Need an e-commerce site that sells...",
+      "Ready to leave my competitors in the dust..."
+    ];
+
+    let placeholderIndex = 0;
+    const messageInput = document.getElementById('message');
+    
+    function rotatePlaceholder() {
+      messageInput.placeholder = placeholders[placeholderIndex];
+      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+    }
+    
+    setInterval(rotatePlaceholder, 3000);
+  </script>
 </body>
 </html>
-
