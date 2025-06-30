@@ -9,17 +9,23 @@
   <style>
     body {
       font-family: 'Merriweather', serif;
-      background-image: url('https://images.unsplash.com/photo-1544025170-c7336b9e2889?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Catering/party vibe */
+      background-color: #281A1A; /* Deep Charcoal/Brown */
+      color: #E0DCD4; /* Off-white/Cream */
+      background-image: url('PLACEHOLDER: A professional, inviting image of a catered BBQ event setup with food and people'); /* Catering/party vibe */
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
     }
-    .text-shadow-sm {
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    .header-bg {
+      background-color: #4A2C2C; /* Muted Red-Brown */
+    }
+    .nav-link:hover {
+      color: #D49B52; /* Warm Gold/Orange */
+      text-decoration: underline;
     }
     .catering-overlay {
-      background-color: rgba(0, 0, 0, 0.75); /* Darker overlay for text readability */
-      border: 4px solid #A34A28;
+      background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for text readability */
+      border: 4px solid #D49B52;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     }
     .catering-list li {
@@ -30,39 +36,65 @@
     .catering-list li svg {
       flex-shrink: 0;
       margin-right: 0.75rem;
-      color: #FFD700; /* Yellow checkmark */
+      color: #D49B52; /* Warm Gold/Orange checkmark */
     }
     .btn-bbq-contact {
-      background-color: #A34A28; /* Deep red-brown */
-      color: #FEE7C0; /* Creamy yellow */
-      border: 2px solid #7D381D;
+      background-color: #3A5A40; /* Dark Forest Green */
+      color: #E0DCD4; /* Off-white/Cream */
+      border: 2px solid #D49B52;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .btn-bbq-contact:hover {
-      background-color: #7D381D;
-      transform: scale(1.05);
+      background-color: #D49B52;
+      color: #281A1A;
+      transform: translateY(-3px);
     }
+    .footer-bg {
+      background-color: #1A110A; /* Even darker for footer */
+      border-top: 4px solid #D49B52;
+    }
+    /* Custom Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+    .animate-slide-in-left { animation: slideInLeft 0.7s ease-out forwards; }
+    .animate-slide-in-right { animation: slideInRight 0.7s ease-out forwards; }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
-  <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
-    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0 text-shadow-sm">Pine Grill & BBQ</h1>
-    <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
-      <a href="index.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
-      <a href="menu.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
-      <a href="catering.html" class="font-bold underline hover:text-[#FFD700] transition-colors duration-200">Chow for Your Crew</a>
-      <a href="contact.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Holler at Us</a>
+<body class="text-white">
+  <header class="header-bg px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#D49B52]">
+    <h1 class="text-4xl font-['Bebas_Neue'] tracking-wider mb-2 sm:mb-0 text-[#D49B52]">Pine Grill & BBQ</h1>
+    <nav class="space-x-4 sm:space-x-6 text-lg font-['Merriweather']">
+      <a href="index.html" class="nav-link transition-colors duration-200">Home</a>
+      <a href="menu.html" class="nav-link transition-colors duration-200">Our Pit Menu</a>
+      <a href="catering.html" class="font-bold underline nav-link transition-colors duration-200">Chow for Your Crew</a>
+      <a href="contact.html" class="nav-link transition-colors duration-200">Holler at Us</a>
     </nav>
   </header>
 
-  <main class="py-20 px-6 max-w-4xl mx-auto text-[#FEE7C0] text-center animate-fade-in animate-duration-500">
+  <main class="py-20 px-6 max-w-4xl mx-auto text-[#E0DCD4] text-center animate-fade-in">
     <div class="catering-overlay p-10 rounded-2xl">
-      <h2 class="text-5xl font-bebas-neue tracking-wide mb-8 text-[#FFD700] text-shadow-sm animate-fade-down animate-duration-500 animate-delay-100">Chow for Your Crew: Legendary Catering</h2>
-      <p class="mb-8 text-xl leading-relaxed animate-fade-up animate-duration-500 animate-delay-300">Got a gathering? Let **Pine Grill & BBQ** bring the authentic taste of the Pacific Northwest to your event. From backyard shindigs to big ol' weddings, we've got your hunger covered with our award-winning smoked meats and down-home sides!</p>
+      <h2 class="text-5xl font-['Bebas_Neue'] tracking-wide mb-8 text-[#D49B52] animate-slide-in-up">Chow for Your Crew: Legendary Catering</h2>
+      <p class="mb-8 text-xl leading-relaxed animate-slide-in-up delay-200">Got a gathering? Let **Pine Grill & BBQ** bring the authentic taste of the Pacific Northwest to your event. From backyard shindigs to big ol' weddings, we've got your hunger covered with our award-winning smoked meats and down-home sides!</p>
 
       <div class="grid md:grid-cols-2 gap-8 mb-10">
-        <div class="animate-slide-in-right animate-duration-300 animate-delay-200">
-          <h3 class="text-3xl font-bebas-neue text-[#FFD700] mb-4 border-b-2 border-[#A34A28] pb-2">What We Offer</h3>
+        <div class="animate-slide-in-left delay-300">
+          <h3 class="text-3xl font-['Bebas_Neue'] text-[#D49B52] mb-4 border-b-2 border-[#D49B52] pb-2">What We Offer</h3>
           <ul class="space-y-4 text-left text-lg catering-list">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -90,8 +122,8 @@
             </li>
           </ul>
         </div>
-        <div class="animate-slide-in-left animate-duration-300 animate-delay-400">
-          <h3 class="text-3xl font-bebas-neue text-[#FFD700] mb-4 border-b-2 border-[#A34A28] pb-2">Perfect For</h3>
+        <div class="animate-slide-in-right delay-400">
+          <h3 class="text-3xl font-['Bebas_Neue'] text-[#D49B52] mb-4 border-b-2 border-[#D49B52] pb-2">Perfect For</h3>
           <ul class="space-y-4 text-left text-lg catering-list">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -121,12 +153,12 @@
         </div>
       </div>
 
-      <p class="mt-8 text-2xl font-bold text-[#FFD700]">Ready to feast? Holler at us to get your custom quote!</p>
-      <a href="contact.html" class="mt-6 inline-block btn-bbq-contact px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg hover:animate-pulse">Get Your Catering Quote</a>
+      <p class="mt-8 text-2xl font-bold text-[#D49B52] animate-slide-in-up delay-500">Ready to feast? Holler at us to get your custom quote!</p>
+      <a href="contact.html" class="mt-6 inline-block btn-bbq-contact px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg hover:animate-pulse animate-slide-in-up delay-600">Get Your Catering Quote</a>
     </div>
   </main>
 
-  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
+  <footer class="footer-bg text-center py-6 text-sm text-[#A0988C] mt-20">
     © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
     <p class="mt-2">17823 NE 132nd Ave, Woodinville, WA 98072 | (425) 555-7890</p>
     <p class="mt-1">Email us at: catering@pinegrillbbq.com</p>
