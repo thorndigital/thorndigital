@@ -54,58 +54,63 @@
 
   <!-- Contact Section -->
   <section class="text-center pt-24 pb-12 px-6">
-  <h1 class="text-5xl font-bold glow-text mb-4">Let’s Build Something Great</h1>
-  <p class="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
-    Reach out and let's get your dream website started — completely free until you're satisfied.
-  </p>
+    <h1 class="text-5xl font-bold glow-text mb-4">Let’s Build Something Great</h1>
+    <p class="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
+      Reach out and let's get your dream website started — completely free until you're satisfied.
+    </p>
 
-  <form class="max-w-xl mx-auto grid gap-6 text-left">
-    <div>
-      <label for="name" class="block mb-2 text-white font-semibold glow-text">Your Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        placeholder="Jane Doe"
-        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-      />
-    </div>
-    
-    <div>
-      <label for="email" class="block mb-2 text-white font-semibold glow-text">Your Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        placeholder="you@example.com"
-        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-      />
-    </div>
-    
-    <div>
-      <label for="message" class="block mb-2 text-white font-semibold glow-text">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="6"
-        required
-        placeholder="Tell us what you need..."
-        class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
-      ></textarea>
-    </div>
-    
-    <div class="text-center pt-2">
-      <button
-        type="submit"
-        class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition"
-      >
-        Send Message
-      </button>
-    </div>
-  </form>
-</section>
+    <!-- ✅ FORM with Formsubmit -->
+    <form action="https://formsubmit.co/your@email.com" method="POST" class="max-w-xl mx-auto grid gap-6 text-left">
+      <!-- replace your@email.com with your real email -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+
+      <div>
+        <label for="name" class="block mb-2 text-white font-semibold glow-text">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Jane Doe"
+          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block mb-2 text-white font-semibold glow-text">Your Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="block mb-2 text-white font-semibold glow-text">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          required
+          placeholder="Tell us what you need..."
+          class="w-full p-3 rounded bg-white text-black placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0dbf50]"
+        ></textarea>
+      </div>
+
+      <div class="text-center pt-2">
+        <button
+          type="submit"
+          class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
