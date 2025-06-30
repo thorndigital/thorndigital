@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --thorn-dark: #0a0a0a;
-      --thorn-accent: #00ff6b;
+      --thorn-dark: #041a05;
+      --thorn-accent: #0dbf50;
       --thorn-secondary: #0dbf50;
-      --thorn-purple: #8b5cf6;
-      --thorn-blue: #3b82f6;
+      --thorn-purple: #2dd96b;
+      --thorn-blue: #39ff14;
       --thorn-gradient: linear-gradient(135deg, #00ff6b 0%, #0dbf50 50%, #8b5cf6 100%);
       --thorn-mesh: conic-gradient(from 0deg at 50% 50%, #00ff6b 0deg, #0dbf50 120deg, #8b5cf6 240deg, #00ff6b 360deg);
     }
@@ -93,19 +93,6 @@
       letter-spacing: 4px;
       position: relative;
       text-transform: uppercase;
-    }
-
-    .logo-text::before {
-      content: 'THORN DIGITAL';
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: var(--thorn-mesh);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: logoShift 4s ease-in-out infinite;
-      z-index: -1;
     }
 
     @keyframes logoShift {
