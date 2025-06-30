@@ -1,72 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pine Grill & BBQ - Contact Us</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pine Grill & BBQ | Contact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1>Pine Grill & BBQ</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#1a1a1a] text-white font-inter">
+  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
+    <nav class="space-x-6">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="menu.html" class="hover:underline">Menu</a>
+      <a href="catering.html" class="hover:underline">Catering</a>
+      <a href="contact.html" class="font-bold underline">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section>
-            <h2>Connect With Pine Grill & BBQ.</h2>
-            <p>We're here to answer your questions, assist with catering inquiries, or simply hear your feedback. Please use the contact methods below or fill out our convenient online form.</p>
+  <main class="py-20 px-6 max-w-xl mx-auto text-[#ffeccc]">
+    <h2 class="text-4xl font-playfair text-center mb-8">Contact Us</h2>
+    <form class="space-y-6">
+      <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-[#2a1a0a] border border-[#5c3a1a]" />
+      <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-[#2a1a0a] border border-[#5c3a1a]" />
+      <textarea rows="5" placeholder="Your Message" class="w-full p-3 rounded bg-[#2a1a0a] border border-[#5c3a1a]"></textarea>
+      <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700 transition">Send</button>
+    </form>
+  </main>
 
-            <h3>Our Location:</h3>
-            <p><strong>Pine Grill & BBQ</strong><br>
-            [Your Street Address]<br>
-            [Your City, State, Zip Code]</p>
-            <p><a href="https://maps.google.com/?q=[Your Full Address]" target="_blank" class="button">Get Directions</a></p>
-            <img src="https://via.placeholder.com/900x500/333333/FFFFFF?text=Modern+Restaurant+Exterior" alt="Modern exterior of Pine Grill & BBQ restaurant">
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4]">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  </footer>
 
-            <h3>Reach Us Directly:</h3>
-            <p><strong>Phone:</strong> <a href="tel:+1[YourPhoneNumber]">[Your Phone Number]</a></p>
-            <p><strong>Email:</strong> <a href="mailto:info@pinegrillbbq.com">info@pinegrillbbq.com</a></p>
-
-            <h3>Send Us a Message:</h3>
-            <form action="#" method="POST"> <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject">
-
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
-        <section>
-            <h2>Operating Hours:</h2>
-            <p><strong>Tuesday - Thursday:</strong> 11:30 AM - 9:00 PM</p>
-            <p><strong>Friday - Saturday:</strong> 11:30 AM - 10:00 PM</p>
-            <p><strong>Sunday:</strong> 12:00 PM - 8:00 PM</p>
-            <p><strong>Monday:</strong> Closed</p>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Pine Grill & BBQ. All rights reserved.</p>
-        <p>[Your Address] | [Your Phone Number] | [Your Email]</p>
-    </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
