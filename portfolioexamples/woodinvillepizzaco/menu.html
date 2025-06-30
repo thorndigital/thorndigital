@@ -3,90 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore the diverse menu of Woodinville Pizza Co: woodfired pizzas, fresh salads, savory sides, and refreshing beverages made with quality local ingredients.">
   <title>Menu | Woodinville Pizza Co</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#2e1d0e] text-white font-inter">
-
-  <!-- Navbar -->
-  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-md px-6 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-playfair tracking-widest text-[#f4e1c1]">Woodinville Pizza Co</h1>
-    <nav class="space-x-6 text-[#f4e1c1] font-medium">
-      <a href="index.html" class="hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="hover:text-yellow-300 font-bold underline">Menu</a>
-      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+<body class="bg-[#2e1d0e] text-white font-inter antialiased">
+  <header class="bg-[#3b2614] bg-opacity-90 sticky top-0 z-50 shadow-lg px-6 py-4 flex flex-col sm:flex-row justify-between items-center transition-all duration-300">
+    <a href="index.html" class="text-2xl font-playfair tracking-widest text-[#f4e1c1] mb-2 sm:mb-0 hover:text-yellow-300 transition-colors duration-300">Woodinville Pizza Co</a>
+    <nav class="space-x-4 sm:space-x-6 text-[#f4e1c1] font-medium">
+      <a href="index.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 font-bold underline-offset-4 underline decoration-yellow-600 transition-all duration-300" aria-current="page">Menu</a>
+      <a href="contact.html" class="hover:text-yellow-300 hover:underline-offset-4 hover:underline hover:decoration-yellow-600 transition-all duration-300">Contact</a>
     </nav>
   </header>
 
-  <!-- Menu Hero -->
-  <section class="text-center py-20 px-6 bg-[url('https://images.unsplash.com/photo-1603076611521-17ffb38ce4f5?auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed">
-    <div class="bg-black/60 p-10 rounded-xl inline-block">
-      <h2 class="text-5xl font-playfair text-[#f4e1c1] mb-4">Our Menu</h2>
-      <p class="text-[#e0cdb4]">Woodfired classics, handcrafted with local ingredients.</p>
+  <main>
+    <section class="relative text-center py-24 md:py-32 px-6 bg-[url('https://images.unsplash.com/photo-1603076611521-17ffb38ce4f5?auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed overflow-hidden flex items-center justify-center">
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="relative z-10 p-8 md:p-12 rounded-xl bg-black/50 backdrop-blur-sm max-w-3xl animate-fade-in-up">
+        <h2 id="menu-hero-heading" class="text-5xl md:text-6xl lg:text-7xl font-playfair text-[#f4e1c1] mb-5 leading-tight drop-shadow-xl">Our Delicious Menu</h2>
+        <p class="text-lg md:text-xl text-[#e0cdb4] drop-shadow-md max-w-prose mx-auto">
+          Woodfired classics, handcrafted with passion and the freshest local ingredients.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 max-w-7xl mx-auto animate-fade-in">
+      <h2 id="menu-list-heading" class="sr-only">Our Offerings</h2> <div class="grid lg:grid-cols-3 gap-10 md:gap-14">
+        <div class="bg-[#3b2614] p-8 rounded-xl shadow-xl border border-[#4b3220] flex flex-col items-center text-center">
+          <h3 class="text-3xl md:text-4xl font-playfair text-[#f4e1c1] mb-6 border-b-2 border-[#f4e1c1]/30 pb-3 w-full">Woodfire Pizzas</h3>
+          <ul class="space-y-7 text-[#e0cdb4] text-lg w-full">
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Margherita</strong> <br> <span class="text-sm italic">Fresh mozzarella, vibrant basil, crushed tomato from local farms.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Spicy Pepperoni</strong> <br> <span class="text-sm italic">Finely cured pepperoni, a kick of chili oil, and aged parmesan.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Truffle Mushroom</strong> <br> <span class="text-sm italic">Earthy roasted mushrooms, rich fontina cheese, delicate truffle drizzle.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">The Forager</strong> <br> <span class="text-sm italic">Savory sausage, assorted mushrooms, sweet caramelized onion.</span>
+            </li>
+          </ul>
+          <img src="https://images.unsplash.com/photo-1594002672051-bd1b1e2c902d?auto=format&fit=crop&w=500&q=80" alt="Assortment of freshly baked pizzas" class="rounded-lg shadow-xl mt-8 w-full h-48 object-cover object-center transform hover:scale-102 transition-transform duration-300 ease-in-out">
+        </div>
+
+        <div class="bg-[#3b2614] p-8 rounded-xl shadow-xl border border-[#4b3220] flex flex-col items-center text-center">
+          <h3 class="text-3xl md:text-4xl font-playfair text-[#f4e1c1] mb-6 border-b-2 border-[#f4e1c1]/30 pb-3 w-full">Salads & Sides</h3>
+          <ul class="space-y-7 text-[#e0cdb4] text-lg w-full">
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Caesar Salad</strong> <br> <span class="text-sm italic">Crisp romaine, crunchy garlic croutons, generous parmesan shavings.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">House Greens</strong> <br> <span class="text-sm italic">Fresh mixed greens, zesty balsamic vinaigrette, and a sprinkle of seeds.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Garlic Knots</strong> <br> <span class="text-sm italic">Soft, woodfired knots brushed with aromatic herb butter.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Fire-Roasted Veggies</strong> <br> <span class="text-sm italic">Seasonal vegetables, perfectly roasted in our woodfire oven.</span>
+            </li>
+          </ul>
+          <img src="https://images.unsplash.com/photo-1628841029272-969c3a372d8a?auto=format&fit=crop&w=500&q=80" alt="Fresh Caesar salad in a bowl" class="rounded-lg shadow-xl mt-8 w-full h-48 object-cover object-center transform hover:scale-102 transition-transform duration-300 ease-in-out">
+        </div>
+
+        <div class="bg-[#3b2614] p-8 rounded-xl shadow-xl border border-[#4b3220] flex flex-col items-center text-center">
+          <h3 class="text-3xl md:text-4xl font-playfair text-[#f4e1c1] mb-6 border-b-2 border-[#f4e1c1]/30 pb-3 w-full">Refreshing Drinks</h3>
+          <ul class="space-y-7 text-[#e0cdb4] text-lg w-full">
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Craft Sodas</strong> <br> <span class="text-sm italic">Unique, rotating seasonal flavors to perfectly complement your meal.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">Italian Sparkling Water</strong> <br> <span class="text-sm italic">Crisp and effervescent, a perfect palate cleanser.</span>
+            </li>
+            <li class="group cursor-default p-2 rounded-md hover:bg-[#4b3220] transition-colors duration-200">
+              <strong class="text-xl text-yellow-300 group-hover:text-yellow-200 transition-colors duration-200">House Wine & Beer</strong> <br> <span class="text-sm italic">Carefully selected local and imported options – please ask your server for today's specials!</span>
+            </li>
+          </ul>
+          <img src="https://images.unsplash.com/photo-1551804240-5e365022870e?auto=format&fit=crop&w=500&q=80" alt="Various craft beverage bottles on a rustic table" class="rounded-lg shadow-xl mt-8 w-full h-48 object-cover object-center transform hover:scale-102 transition-transform duration-300 ease-in-out">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#3b2614] text-center py-10 text-[#e0cdb4] border-t border-[#f4e1c1]/15 shadow-inner">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-sm md:text-base mb-2">Woodinville Pizza Co. | Crafted with passion in Woodinville, WA</p>
+      <p class="text-xs md:text-sm">© <span id="current-year-menu"></span> All rights reserved.</p>
     </div>
-  </section>
-
-  <!-- Menu List -->
-  <section class="py-20 px-6 max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-12">
-      
-      <!-- Pizzas -->
-      <div>
-        <h3 class="text-3xl font-playfair text-[#f4e1c1] mb-4 border-b border-[#f4e1c1]/30 pb-2">Woodfire Pizzas</h3>
-        <ul class="space-y-4 text-[#e0cdb4]">
-          <li>
-            <strong>Margherita</strong> – Fresh mozzarella, basil, crushed tomato.
-          </li>
-          <li>
-            <strong>Spicy Pepperoni</strong> – Cured pepperoni, chili oil, parmesan.
-          </li>
-          <li>
-            <strong>Truffle Mushroom</strong> – Roasted mushrooms, fontina, truffle drizzle.
-          </li>
-          <li>
-            <strong>The Forager</strong> – Sausage, mushroom, caramelized onion.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Sides & Salads -->
-      <div>
-        <h3 class="text-3xl font-playfair text-[#f4e1c1] mb-4 border-b border-[#f4e1c1]/30 pb-2">Salads & Sides</h3>
-        <ul class="space-y-4 text-[#e0cdb4]">
-          <li>
-            <strong>Caesar Salad</strong> – Romaine, garlic croutons, parmesan.
-          </li>
-          <li>
-            <strong>House Greens</strong> – Mixed greens, balsamic, seeds.
-          </li>
-          <li>
-            <strong>Garlic Knots</strong> – Woodfired with herb butter.
-          </li>
-          <li>
-            <strong>Fire-Roasted Veggies</strong> – Seasonal, from the oven.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Drinks -->
-      <div>
-        <h3 class="text-3xl font-playfair text-[#f4e1c1] mb-4 border-b border-[#f4e1c1]/30 pb-2">Drinks</h3>
-        <ul class="space-y-4 text-[#e0cdb4]">
-          <li><strong>Craft Sodas</strong> – Rotating seasonal flavors.</li>
-          <li><strong>Italian Sparkling Water</strong></li>
-          <li><strong>House Wine & Beer</strong> – Ask your server.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#3b2614] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10">
-    <p class="text-sm">© 2025 Woodinville Pizza Co. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById('current-year-menu').textContent = new Date().getFullYear();
+  </script>
+  <style>
+    /* CSS for fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    /* Add specific animations for elements if desired */
+  </style>
 </body>
 </html>
