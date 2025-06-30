@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pine Grill & BBQ - Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pine Grill & BBQ | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Pine Grill & BBQ</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#1a1a1a] text-white font-inter">
+  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
+    <nav class="space-x-6">
+      <a href="index.html" class="font-bold underline">Home</a>
+      <a href="menu.html" class="hover:underline">Menu</a>
+      <a href="catering.html" class="hover:underline">Catering</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section>
-            <h2>Experience Authentic BBQ, Masterfully Crafted.</h2>
-            <p>Welcome to Pine Grill & BBQ, where passion meets the pit. We specialize in slow-smoked meats, meticulously prepared to deliver unparalleled flavor and tenderness. Our commitment to quality ingredients and traditional techniques ensures a memorable dining experience with every visit.</p>
-            <p>From our signature **brisket** to our fall-off-the-bone **ribs**, each dish is a testament to the art of authentic barbecue. Discover why we're a local favorite for connoisseurs and casual diners alike.</p>
-            <img src="https://via.placeholder.com/900x500/E67E22/FFFFFF?text=Signature+BBQ+Platter" alt="Signature BBQ platter with smoked meats and sides">
-            <a href="menu.html" class="button">View Our Full Menu</a>
-        </section>
-
-        <section>
-            <h2>Our Commitment to Quality</h2>
-            <p>At Pine Grill & BBQ, our foundation is built on fresh, responsibly sourced ingredients and a dedication to the craft. We believe that great BBQ starts long before it hits the smoker, which is why we carefully select our cuts and create our rubs and sauces in-house. Our pitmasters bring years of expertise to ensure every bite is perfect.</p>
-            <ul>
-                <li>**Premium Meats:** Hand-selected and slow-smoked to perfection.</li>
-                <li>**House-Made Sauces:** Unique recipes crafted to complement our flavors.</li>
-                <li>**Fresh Sides:** Prepared daily using the finest ingredients.</li>
-                <li>**Exceptional Service:** A professional and welcoming dining experience.</li>
-            </ul>
-        </section>
+  <main class="text-center py-24 px-6 bg-[url('bbq-hero.jpg')] bg-cover bg-center">
+    <div class="bg-black/60 p-8 rounded-xl inline-block">
+      <h2 class="text-5xl font-playfair mb-4">Authentic Smokehouse Flavor</h2>
+      <p class="text-xl text-[#ffeccc] max-w-xl mx-auto">Wood-smoked meats, bold sides, and legendary sauces. Welcome to your new favorite BBQ joint.</p>
     </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Pine Grill & BBQ. All rights reserved.</p>
-        <p>[Your Address] | [Your Phone Number] | [Your Email]</p>
-    </footer>
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4] mt-20">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
