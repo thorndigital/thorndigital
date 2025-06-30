@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Woodinville Bistro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#1c1c1c] text-white font-inter">
+  <header class="bg-[#2e2a28] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
+    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1]">Woodinville Bistro</a>
+    <nav class="space-x-6 text-[#f4e1c1]">
+      <a href="index.html" class="hover:text-yellow-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 font-bold underline decoration-yellow-600">Menu</a>
+      <a href="reservation.html" class="hover:text-yellow-300">Reservation</a>
+    </nav>
+  </header>
+
+  <main class="py-16 px-6 max-w-6xl mx-auto">
+    <h1 class="text-5xl font-playfair text-center text-[#f4e1c1] mb-10">Our Menu</h1>
+
+    <div class="grid md:grid-cols-2 gap-12 text-[#e0cdb4]">
+      <div>
+        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Starters</h2>
+        <ul class="space-y-4">
+          <li><strong>Bruschetta</strong> – Grilled bread, tomato, basil, balsamic glaze</li>
+          <li><strong>Crab Cakes</strong> – House-made, lemon aioli, microgreens</li>
+          <li><strong>Charcuterie Board</strong> – Selection of cured meats, cheese, and jam</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Mains</h2>
+        <ul class="space-y-4">
+          <li><strong>Herb-Crusted Salmon</strong> – Seasonal vegetables, lemon butter sauce</li>
+          <li><strong>Wild Mushroom Risotto</strong> – Creamy arborio rice with truffle oil</li>
+          <li><strong>Filet Mignon</strong> – Grilled to perfection with garlic mash</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Desserts</h2>
+        <ul class="space-y-4">
+          <li><strong>Tiramisu</strong> – Classic recipe with espresso-soaked layers</li>
+          <li><strong>Chocolate Lava Cake</strong> – Rich and gooey with vanilla bean ice cream</li>
+          <li><strong>Crème Brûlée</strong> – Creamy vanilla custard with crisp caramel top</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Wines</h2>
+        <ul class="space-y-4">
+          <li><strong>Cabernet Sauvignon</strong> – Full-bodied, aged oak</li>
+          <li><strong>Chardonnay</strong> – Buttery, lightly oaked</li>
+          <li><strong>Pinot Noir</strong> – Bright, berry-forward</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#2e2a28] text-center py-6 text-[#e0cdb4]">
+    <p>&copy; <span id="year"></span> Woodinville Bistro. All rights reserved.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
