@@ -3,66 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore the exquisite menu of Woodinville Bistro. Featuring handcrafted starters, mains, desserts, and a curated selection of beverages.">
   <title>Menu | Woodinville Bistro</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="PLACEHOLDER_favicon.ico" type="image/x-icon">
+  <style>
+    /* Custom CSS for animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+    .animate-slide-in-up { animation: slideInUp 0.8s ease-out forwards; }
+  </style>
 </head>
-<body class="bg-[#1c1c1c] text-white font-inter">
-  <header class="bg-[#2e2a28] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
-    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1]">Woodinville Bistro</a>
-    <nav class="space-x-6 text-[#f4e1c1]">
-      <a href="index.html" class="hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="hover:text-yellow-300 font-bold underline decoration-yellow-600">Menu</a>
-      <a href="reservation.html" class="hover:text-yellow-300">Reservation</a>
+<body class="bg-[#1c1c1c] text-white font-inter antialiased min-h-screen flex flex-col">
+  <header class="bg-[#2e2a28] bg-opacity-95 px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg sticky top-0 z-50 transition-all duration-300">
+    <a href="index.html" class="text-3xl font-playfair text-[#f4e1c1] tracking-wide mb-2 sm:mb-0 hover:text-yellow-300 transition-colors duration-300" aria-label="Woodinville Bistro Home">Woodinville Bistro</a>
+    <nav class="space-x-6 text-[#f4e1c1] font-medium text-lg">
+      <a href="index.html" class="hover:text-yellow-300 hover:underline hover:underline-offset-4 hover:decoration-yellow-600 transition-all duration-300">Home</a>
+      <a href="menu.html" class="hover:text-yellow-300 font-bold underline underline-offset-4 decoration-yellow-600 transition-all duration-300" aria-current="page">Menu</a>
+      <a href="reservation.html" class="hover:text-yellow-300 hover:underline hover:underline-offset-4 hover:decoration-yellow-600 transition-all duration-300">Reservation</a>
     </nav>
   </header>
 
-  <main class="py-16 px-6 max-w-6xl mx-auto">
-    <h1 class="text-5xl font-playfair text-center text-[#f4e1c1] mb-10">Our Menu</h1>
+  <main class="flex-grow py-16 md:py-20 px-6 max-w-6xl mx-auto animate-fade-in">
+    <h1 class="text-5xl md:text-6xl font-playfair text-center text-[#f4e1c1] mb-12 drop-shadow-md">Our Exquisite Menu</h1>
 
-    <div class="grid md:grid-cols-2 gap-12 text-[#e0cdb4]">
-      <div>
-        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Starters</h2>
-        <ul class="space-y-4">
-          <li><strong>Bruschetta</strong> – Grilled bread, tomato, basil, balsamic glaze</li>
-          <li><strong>Crab Cakes</strong> – House-made, lemon aioli, microgreens</li>
-          <li><strong>Charcuterie Board</strong> – Selection of cured meats, cheese, and jam</li>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-[#e0cdb4]">
+
+      <div class="bg-[#2e2a28] p-8 rounded-xl shadow-xl animate-slide-in-up" style="animation-delay: 0.1s;">
+        <h2 class="text-3xl font-playfair mb-6 text-yellow-300 border-b border-yellow-600 pb-2 flex items-center">
+          <img src="PLACEHOLDER_starter_icon.png" alt="Starters icon" class="h-8 w-8 mr-3"> Starters
+        </h2>
+        <ul class="space-y-6">
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Bruschetta</strong>
+              <span class="text-lg text-yellow-300">$12</span>
+            </div>
+            <p class="text-sm">Grilled artisanal bread topped with fresh diced tomatoes, fragrant basil, garlic, and a delicate balsamic glaze.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Dungeness Crab Cakes</strong>
+              <span class="text-lg text-yellow-300">$19</span>
+            </div>
+            <p class="text-sm">Pan-seared Dungeness crab cakes, served with a zesty lemon aioli and a garnish of fresh microgreens.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Artisanal Charcuterie Board</strong>
+              <span class="text-lg text-yellow-300">$26</span>
+            </div>
+            <p class="text-sm">A curated selection of premium cured meats, fine cheeses, olives, artisan crackers, and house-made fruit preserves.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Seasonal Soup</strong>
+              <span class="text-lg text-yellow-300">$10</span>
+            </div>
+            <p class="text-sm">Ask your server for today's freshly prepared, seasonal soup creation.</p>
+          </li>
         </ul>
       </div>
 
-      <div>
-        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Mains</h2>
-        <ul class="space-y-4">
-          <li><strong>Herb-Crusted Salmon</strong> – Seasonal vegetables, lemon butter sauce</li>
-          <li><strong>Wild Mushroom Risotto</strong> – Creamy arborio rice with truffle oil</li>
-          <li><strong>Filet Mignon</strong> – Grilled to perfection with garlic mash</li>
+      <div class="bg-[#2e2a28] p-8 rounded-xl shadow-xl animate-slide-in-up" style="animation-delay: 0.2s;">
+        <h2 class="text-3xl font-playfair mb-6 text-yellow-300 border-b border-yellow-600 pb-2 flex items-center">
+          <img src="PLACEHOLDER_main_icon.png" alt="Mains icon" class="h-8 w-8 mr-3"> Mains
+        </h2>
+        <ul class="space-y-6">
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Herb-Crusted Wild Salmon</strong>
+              <span class="text-lg text-yellow-300">$32</span>
+            </div>
+            <p class="text-sm">Pan-seared wild-caught salmon with a fragrant herb crust, served alongside market-fresh seasonal vegetables and a delicate lemon butter sauce.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Wild Mushroom & Truffle Risotto</strong>
+              <span class="text-lg text-yellow-300">$28</span>
+            </div>
+            <p class="text-sm">Creamy Arborio rice slowly cooked with an assortment of wild mushrooms, Parmesan cheese, and a hint of white truffle oil.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Grilled Filet Mignon (8oz)</strong>
+              <span class="text-lg text-yellow-300">$45</span>
+            </div>
+            <p class="text-sm">Prime cut beef filet, expertly grilled to your desired temperature, served with creamy garlic mashed potatoes and asparagus.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Roasted Duck Breast</strong>
+              <span class="text-lg text-yellow-300">$35</span>
+            </div>
+            <p class="text-sm">Crispy-skinned duck breast with cherry reduction, served with roasted root vegetables.</p>
+          </li>
         </ul>
       </div>
 
-      <div>
-        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Desserts</h2>
-        <ul class="space-y-4">
-          <li><strong>Tiramisu</strong> – Classic recipe with espresso-soaked layers</li>
-          <li><strong>Chocolate Lava Cake</strong> – Rich and gooey with vanilla bean ice cream</li>
-          <li><strong>Crème Brûlée</strong> – Creamy vanilla custard with crisp caramel top</li>
+      <div class="bg-[#2e2a28] p-8 rounded-xl shadow-xl animate-slide-in-up" style="animation-delay: 0.3s;">
+        <h2 class="text-3xl font-playfair mb-6 text-yellow-300 border-b border-yellow-600 pb-2 flex items-center">
+          <img src="PLACEHOLDER_dessert_icon.png" alt="Desserts icon" class="h-8 w-8 mr-3"> Desserts
+        </h2>
+        <ul class="space-y-6">
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Classic Tiramisu</strong>
+              <span class="text-lg text-yellow-300">$10</span>
+            </div>
+            <p class="text-sm">Our timeless recipe featuring layers of espresso-soaked ladyfingers, mascarpone cheese, and cocoa powder.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Molten Chocolate Lava Cake</strong>
+              <span class="text-lg text-yellow-300">$12</span>
+            </div>
+            <p class="text-sm">Rich, warm chocolate cake with a gooey molten center, served with a scoop of vanilla bean ice cream.</p>
+          </li>
+          <li>
+            <div class="flex justify-between items-baseline mb-1">
+              <strong class="text-xl">Madagascar Vanilla Bean Crème Brûlée</strong>
+              <span class="text-lg text-yellow-300">$11</span>
+            </div>
+            <p class="text-sm">Velvety vanilla custard topped with a perfectly caramelized sugar crust.</p>
+          </li>
         </ul>
       </div>
 
-      <div>
-        <h2 class="text-3xl font-playfair mb-4 text-yellow-300">Wines</h2>
-        <ul class="space-y-4">
-          <li><strong>Cabernet Sauvignon</strong> – Full-bodied, aged oak</li>
-          <li><strong>Chardonnay</strong> – Buttery, lightly oaked</li>
-          <li><strong>Pinot Noir</strong> – Bright, berry-forward</li>
+      <div class="bg-[#2e2a28] p-8 rounded-xl shadow-xl animate-slide-in-up" style="animation-delay: 0.4s;">
+        <h2 class="text-3xl font-playfair mb-6 text-yellow-300 border-b border-yellow-600 pb-2 flex items-center">
+          <img src="PLACEHOLDER_drinks_icon.png" alt="Drinks icon" class="h-8 w-8 mr-3"> Beverages
+        </h2>
+        <ul class="space-y-6">
+          <li class="mb-4">
+            <strong class="text-xl text-yellow-300 block mb-2">Wines (Glass/Bottle)</strong>
+            <ul class="space-y-2 pl-4">
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Cabernet Sauvignon (Local Selection)</span>
+                  <span class="text-md">$14 / $55</span>
+                </div>
+                <p class="text-sm italic">Full-bodied with notes of dark fruit and a hint of oak, from a revered Woodinville winery.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Chardonnay (Buttery Reserve)</span>
+                  <span class="text-md">$13 / $50</span>
+                </div>
+                <p class="text-sm italic">Rich, buttery, and subtly oaked, a classic choice.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Pinot Noir (Pacific Northwest)</span>
+                  <span class="text-md">$15 / $60</span>
+                </div>
+                <p class="text-sm italic">Bright, elegant, with red berry and earthy undertones.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Sauvignon Blanc (Crisp & Zesty)</span>
+                  <span class="text-md">$12 / $48</span>
+                </div>
+                <p class="text-sm italic">Refreshing with notes of citrus and tropical fruit.</p>
+              </li>
+            </ul>
+          </li>
+          <li class="mb-4">
+            <strong class="text-xl text-yellow-300 block mb-2">Craft Beers (Draft/Bottle)</strong>
+            <ul class="space-y-2 pl-4">
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Local IPA (Rotating Tap)</span>
+                  <span class="text-md">$8</span>
+                </div>
+                <p class="text-sm italic">Ask your server for today's featured IPA from a Woodinville brewery.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Seasonal Lager</span>
+                  <span class="text-md">$7</span>
+                </div>
+                <p class="text-sm italic">Crisp and clean, perfect for any occasion.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong class="text-xl text-yellow-300 block mb-2">Non-Alcoholic</strong>
+            <ul class="space-y-2 pl-4">
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Artisanal Craft Sodas</span>
+                  <span class="text-md">$6</span>
+                </div>
+                <p class="text-sm italic">Selection of unique flavors: Root Beer, Ginger Beer, Blood Orange.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Freshly Brewed Iced Tea</span>
+                  <span class="text-md">$5</span>
+                </div>
+                <p class="text-sm italic">Unsweetened Black Tea or ask for today's special flavor.</p>
+              </li>
+              <li>
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="text-lg">Sparkling Water (San Pellegrino)</span>
+                  <span class="text-md">$5</span>
+                </div>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
+
     </div>
   </main>
 
-  <footer class="bg-[#2e2a28] text-center py-6 text-[#e0cdb4]">
-    <p>&copy; <span id="year"></span> Woodinville Bistro. All rights reserved.</p>
+  <footer class="bg-[#2e2a28] text-center py-8 text-[#e0cdb4] border-t border-[#f4e1c1]/10 shadow-inner mt-auto">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="text-sm md:text-base mb-2">Woodinville Bistro. | Crafted with passion in Woodinville, WA</p>
+      <p class="text-xs md:text-sm">&copy; <span id="year-menu"></span> All rights reserved.</p>
+    </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year-menu').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
