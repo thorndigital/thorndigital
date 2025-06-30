@@ -1,161 +1,160 @@
-/* Basic Resets & Body Styles */
+/* Core Styling & Body */
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif; /* A warm, legible, and modern-friendly sans-serif */
-    line-height: 1.7; /* Slightly more spacious line height for comfort */
-    color: #3D2B1F; /* A very dark, soft brown for main text */
-    background-color: #6F4E37; /* Base warm brown, like a log cabin interior */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%236F4E37"/><circle cx="50" cy="50" r="40" fill="none" stroke="%235C3E2A" stroke-width="2" opacity="0.4"/></svg>'); /* Subtle, dark wood-like texture */
-    background-size: 50px 50px;
-    display: flex; /* Use flexbox for sticky footer effect */
+    font-family: 'Inter', sans-serif; /* Modern, clean sans-serif for excellent readability */
+    line-height: 1.6;
+    color: #333333; /* Soft dark grey for main text */
+    background-color: #F8F8F8; /* Very light, clean background */
+    display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures body takes full viewport height */
+    min-height: 100vh;
 }
 
 /* Color Palette Variables */
 :root {
-    --deep-forest: #1F3F2F; /* A very deep, calming forest green */
-    --embers-red: #A32A29; /* A deep, warm, glowing red like embers */
-    --dark-oak: #3D2B1F; /* A very dark, rich oak brown */
-    --warm-cedar: #8B5E3C; /* A rich, medium-warm brown */
-    --golden-glow: #D4AF37; /* A subtle, warm gold accent */
-    --parchment-beige: #EDE0CC; /* A soft, aged parchment-like color for content backgrounds */
+    --primary-charcoal: #2C3E50; /* Deep charcoal for primary elements */
+    --accent-orange: #E67E22; /* Vibrant, professional orange for accents */
+    --light-grey: #ECF0F1; /* Very light grey for subtle backgrounds/borders */
+    --dark-grey-text: #333333; /* Dark grey for body text */
+    --white: #FFFFFF; /* Pure white for content backgrounds */
+    --subtle-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--dark-oak); /* Dark oak for a strong header */
-    color: var(--golden-glow); /* Gold for highlights */
-    padding: 1.8rem 0; /* More vertical padding */
+    background-color: var(--primary-charcoal);
+    color: var(--white);
+    padding: 1.5rem 0;
     text-align: center;
-    border-bottom: 6px solid var(--embers-red); /* Strong red accent line */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Deeper shadow for robust feel */
-    position: relative; /* For potential future elements */
+    border-bottom: 4px solid var(--accent-orange); /* Clean accent line */
+    box-shadow: 0 2px 10px var(--subtle-shadow); /* Subtle, professional shadow */
+    position: relative;
     z-index: 10;
 }
 
 header h1 {
     margin: 0;
-    font-family: 'Playfair Display SC', serif; /* An elegant, interesting, slightly vintage-inspired font */
-    font-size: 3.8em; /* Larger, more impactful title */
-    letter-spacing: 4px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* More pronounced shadow */
-    color: var(--golden-glow); /* Main title in warm gold */
+    font-family: 'Montserrat', sans-serif; /* Strong, modern sans-serif for headlines */
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-shadow: none; /* No text shadow for sleekness */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
-    margin: 0 1.8rem; /* More space between links */
+    margin: 0 1.2rem;
 }
 
 nav ul li a {
-    color: var(--parchment-beige); /* Navigation text in parchment */
+    color: var(--light-grey);
     text-decoration: none;
-    font-weight: 600; /* Slightly bolder */
-    font-size: 1.25em; /* Larger nav links */
-    padding: 0.8rem 1.5rem;
-    border: 2px solid transparent;
-    transition: all 0.4s ease-in-out; /* Smoother transition */
+    font-weight: 500; /* Medium weight */
+    font-size: 1.05em;
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid transparent; /* Underline effect on hover/active */
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 5px;
+    letter-spacing: 0.8px;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: var(--embers-red); /* Hover/active in embers red */
-    border-color: var(--embers-red);
-    background-color: rgba(0, 0, 0, 0.3); /* Darker, transparent background on hover */
-    transform: translateY(-3px); /* Subtle lift on hover */
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
 }
 
 /* Main Content Area */
 .container {
-    max-width: 900px; /* Cozy, slightly narrower container */
-    margin: 3rem auto; /* More vertical margin */
+    max-width: 1000px; /* Wider for a more open feel */
+    margin: 2.5rem auto;
     padding: 0 2rem;
-    flex: 1; /* Allows content to push footer down */
+    flex: 1;
 }
 
 section {
-    background-color: var(--parchment-beige); /* Soft, aged parchment background */
-    padding: 3.5rem; /* Generous padding */
-    margin-bottom: 3rem;
-    border-radius: 12px; /* Nicely rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Pronounced shadow for depth */
-    border: 3px solid var(--warm-cedar); /* Warm cedar border */
+    background-color: var(--white);
+    padding: 3rem;
+    margin-bottom: 2.5rem;
+    border-radius: 6px; /* Slightly rounded, but still sharp */
+    box-shadow: 0 4px 15px var(--subtle-shadow); /* Clean, soft shadow */
+    border: 1px solid var(--light-grey); /* Very subtle border */
 }
 
 h2 {
-    color: var(--deep-forest); /* Deep forest green for main headings */
-    font-family: 'Playfair Display', serif; /* Use a slightly less bold version of the header font */
-    font-size: 2.8em;
-    margin-bottom: 2rem;
-    border-bottom: 4px solid var(--embers-red); /* Solid red line for emphasis */
-    padding-bottom: 1rem;
-    text-align: center;
-    letter-spacing: 1px;
+    color: var(--primary-charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-orange); /* Clean, thin accent line */
+    padding-bottom: 0.8rem;
+    text-align: left; /* Align headings left for professionalism */
+    letter-spacing: 0.5px;
+    text-shadow: none;
 }
 
 h3 {
-    color: var(--dark-oak); /* Dark oak for subheadings */
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    margin-top: 2.5rem;
-    text-align: center;
+    color: var(--primary-charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    margin-top: 2rem;
+    text-align: left;
 }
 
 p {
-    margin-bottom: 1.5em; /* More spacing between paragraphs */
-    line-height: 1.8;
+    margin-bottom: 1em;
+    line-height: 1.7;
 }
 
 ul {
-    list-style: none; /* Remove default list style */
+    list-style: none;
     padding-left: 0;
 }
 
 ul li {
-    padding-left: 1.8em; /* Space for custom bullet */
+    padding-left: 1.5em;
     position: relative;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.6em;
 }
 
 ul li:before {
-    content: "🔥"; /* Fire emoji as a custom bullet point */
+    content: "•"; /* Simple, clean bullet point */
     position: absolute;
     left: 0;
-    color: var(--embers-red);
+    color: var(--accent-orange);
     font-size: 1.2em;
     line-height: 1;
+    font-weight: bold;
 }
 
 /* Buttons */
 .button {
     display: inline-block;
-    background-color: var(--embers-red); /* Buttons glow red like embers */
-    color: var(--parchment-beige); /* Text in parchment */
-    padding: 1.2rem 2.5rem;
+    background-color: var(--accent-orange);
+    color: var(--white);
+    padding: 0.9rem 1.8rem;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: 4px; /* Slightly sharp corners */
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: 2px solid var(--embers-red);
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    border: none; /* No border for sleek look */
+    box-shadow: 0 2px 5px var(--subtle-shadow);
+    font-size: 1em;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .button:hover {
-    background-color: var(--warm-cedar); /* Hover to warm cedar */
-    border-color: var(--warm-cedar);
-    transform: translateY(-4px); /* More pronounced lift */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    background-color: #CD6B1D; /* Slightly darker orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--subtle-shadow);
 }
 
 /* Images */
@@ -163,37 +162,37 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2.5rem auto;
-    border: 10px solid var(--dark-oak); /* Thick dark oak frame */
-    border-radius: 8px; /* Slightly rounded corners for the frame */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0; /* Align left with text */
+    border: none; /* No strong borders on images */
+    border-radius: 4px;
+    box-shadow: 0 4px 10px var(--subtle-shadow);
 }
 
 /* Footer */
 footer {
-    background-color: var(--dark-oak);
-    color: var(--parchment-beige);
+    background-color: var(--primary-charcoal);
+    color: var(--light-grey);
     text-align: center;
-    padding: 2.5rem 0;
-    margin-top: 4rem;
-    border-top: 6px solid var(--embers-red);
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+    padding: 1.8rem 0;
+    margin-top: 3rem;
+    border-top: 4px solid var(--accent-orange);
+    box-shadow: 0 -2px 10px var(--subtle-shadow);
 }
 
 footer p {
     margin: 0;
-    font-size: 0.95em;
-    line-height: 1.6;
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
-/* Specific Page Enhancements (Example for Menu) */
+/* Menu Specific Enhancements */
 .menu-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 1.2rem 0;
-    border-bottom: 1px dashed var(--warm-cedar); /* Dashed cedar line for menu items */
-    margin-bottom: 0.8rem;
+    align-items: flex-start; /* Align descriptions properly */
+    padding: 1rem 0;
+    border-bottom: 1px dashed var(--light-grey); /* Subtle dashed line */
+    margin-bottom: 0.8em;
 }
 
 .menu-item:last-child {
@@ -201,74 +200,75 @@ footer p {
 }
 
 .menu-item-name {
-    font-weight: bold;
-    color: var(--deep-forest);
-    font-size: 1.2em;
-    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: var(--primary-charcoal);
+    font-size: 1.1em;
 }
 
 .menu-item-price {
-    font-weight: bold;
-    color: var(--embers-red); /* Prices in embers red */
-    font-size: 1.2em;
-    flex-shrink: 0; /* Prevent price from shrinking */
-    margin-left: 1rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-left: 1.5rem;
 }
 
 .menu-item-description {
-    font-size: 0.95em;
-    color: var(--dark-oak);
-    margin-top: 0.4rem;
-    flex-basis: 75%; /* Give description more space */
-    padding-right: 1.5rem;
+    font-size: 0.9em;
+    color: var(--dark-grey-text);
+    margin-top: 0.2rem;
+    flex-basis: 75%;
+    padding-right: 1rem;
 }
 
 /* Contact Form */
 form {
     display: grid;
-    gap: 1.5rem; /* More space for form elements */
+    gap: 1.2rem;
 }
 
 form label {
-    font-weight: bold;
-    color: var(--dark-oak);
-    font-size: 1.15em;
+    font-weight: 500;
+    color: var(--primary-charcoal);
+    font-size: 1em;
 }
 
 form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 100%;
-    padding: 1.1rem;
-    border: 1px solid var(--warm-cedar);
-    border-radius: 6px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.1em;
+    padding: 0.8rem;
+    border: 1px solid var(--light-grey);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
     box-sizing: border-box;
-    background-color: var(--parchment-beige);
-    color: var(--dark-oak);
+    background-color: var(--white);
+    color: var(--dark-grey-text);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
 }
 
 form textarea {
     resize: vertical;
-    min-height: 150px; /* Taller text area */
+    min-height: 120px;
 }
 
 form button[type="submit"] {
-    background-color: var(--deep-forest); /* Submit button in deep forest green */
-    color: var(--parchment-beige);
-    padding: 1.3rem 2.8rem;
+    background-color: var(--primary-charcoal); /* Submit button in charcoal */
+    color: var(--white);
+    padding: 1rem 2.5rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1.25em;
-    font-weight: bold;
+    font-size: 1.1em;
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 5px var(--subtle-shadow);
+    text-transform: uppercase;
 }
 
 form button[type="submit"]:hover {
-    background-color: var(--embers-red); /* Hover to embers red */
-    transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    background-color: var(--accent-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--subtle-shadow);
 }
