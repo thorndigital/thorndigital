@@ -354,12 +354,34 @@
       50% { transform: translateY(-5px); }
     }
 
-    .navbar-blur {
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(30px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="logo-text">THORN DIGITAL</a>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
+          <a href="/home" class="nav-link hover:text-white">Home</a>
+          <a href="/portfolio" class="nav-link active">Portfolio</a>
+          <a href="/aboutus" class="nav-link hover:text-white">About</a>
+          <a href="/contactus" class="nav-link hover:text-white">Contact</a>
+        </nav>
+        
+        <!-- Mobile menu button -->
+        <button class="md:hidden text-white" id="mobileMenuBtn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Mobile menu -->
+      <div class="md:hidden hidden bg-black/90 backdrop-blur-md mt-4 p-4 rounded-lg" id="mobileMenu">
+        <nav class="flex flex-col space-y-4">
+          <a href="/home" class="nav-link">Home</a>
+          <a href="/portfolio" class="nav-link active">Portfolio</a>
+          <a href="/aboutus" class="nav-link">About</a>
+          <a href="/contactus" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
 
     .nav-link {
       position: relative;
