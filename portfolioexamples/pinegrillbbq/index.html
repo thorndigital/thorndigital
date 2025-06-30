@@ -5,28 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pine Grill & BBQ | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Merriweather', serif;
+      background-image: url('https://images.unsplash.com/photo-1529193132205-0219665f8c61?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Texas landscape */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    .text-shadow-outline {
+        text-shadow:
+            -1px -1px 0 #000,
+             1px -1px 0 #000,
+            -1px 1px 0 #000,
+             1px 1px 0 #000;
+    }
+    .btn-bbq {
+      background-color: #A34A28; /* Deep red-brown */
+      color: #FEE7C0; /* Creamy yellow */
+      border: 2px solid #7D381D;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-bbq:hover {
+      background-color: #7D381D;
+      transform: scale(1.05);
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
+    }
+  </style>
 </head>
-<body class="bg-[#1a1a1a] text-white font-inter">
-  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
-    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
-    <nav class="space-x-6">
-      <a href="index.html" class="font-bold underline">Home</a>
-      <a href="menu.html" class="hover:underline">Menu</a>
-      <a href="catering.html" class="hover:underline">Catering</a>
-      <a href="contact.html" class="hover:underline">Contact</a>
+<body class="bg-gray-900 text-white">
+  <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
+    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0">Pine Grill & BBQ</h1>
+    <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
+      <a href="index.html" class="font-bold underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
+      <a href="menu.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
+      <a href="catering.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Chow for Your Crew</a>
+      <a href="contact.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Holler at Us</a>
     </nav>
   </header>
 
-  <main class="text-center py-24 px-6 bg-[url('bbq-hero.jpg')] bg-cover bg-center">
-    <div class="bg-black/60 p-8 rounded-xl inline-block">
-      <h2 class="text-5xl font-playfair mb-4">Authentic Smokehouse Flavor</h2>
-      <p class="text-xl text-[#ffeccc] max-w-xl mx-auto">Wood-smoked meats, bold sides, and legendary sauces. Welcome to your new favorite BBQ joint.</p>
+  <main class="text-center py-24 px-6 bg-[url('https://images.unsplash.com/photo-1534065604169-281ef517e05e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-fixed">
+    <div class="hero-overlay p-8 rounded-2xl inline-block max-w-4xl border-4 border-[#A34A28] shadow-2xl">
+      <h2 class="text-6xl font-bebas-neue tracking-wide mb-6 text-[#FFD700] text-shadow-outline">Where Smoke Meets Soul</h2>
+      <p class="text-2xl text-[#FEE7C0] max-w-xl mx-auto leading-relaxed">Slow-smoked brisket, tender ribs, and sides that'll make your grandpappy proud. This ain't just BBQ, it's a Texas tradition.</p>
+      <a href="menu.html" class="mt-10 inline-block btn-bbq px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg">See Our Spread</a>
     </div>
   </main>
 
-  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4] mt-20">
-    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  <section class="py-20 px-6 bg-[#3C1E0F] text-[#FEE7C0] text-center">
+    <h3 class="text-4xl font-bebas-neue tracking-wide mb-8 text-[#FFD700]">Our Promise: Pure Texas Flavor</h3>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
+        <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Smoke" alt="Smoker Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Low & Slow</h4>
+        <p>Every cut of meat is smoked for hours over real post oak, just like we do it down here.</p>
+      </div>
+      <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
+        <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Spice" alt="Spice Rub Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Secret Rubs</h4>
+        <p>Our custom spice blends are passed down through generations, giving you a taste found nowhere else.</p>
+      </div>
+      <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
+        <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Sauce" alt="BBQ Sauce Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Legendary Sauce</h4>
+        <p>Whether you like it sweet, tangy, or with a kick, our sauces are the perfect finish to our BBQ.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
