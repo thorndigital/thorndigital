@@ -3,142 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pine Grill & BBQ | Our Pit Menu</title>
+  <title>Pine Grill & BBQ | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Merriweather', serif;
-      background-color: #1A110A; /* Darker, richer background */
+      background-color: #281A1A; /* Deep Charcoal/Brown */
+      color: #E0DCD4; /* Off-white/Cream */
+      background-image: url('PLACEHOLDER: A professional, dark, and rustic wood or subtle smoke texture background image');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
     }
-    .text-shadow-sm {
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    .header-bg {
+      background-color: #4A2C2C; /* Muted Red-Brown */
     }
-    .section-title {
-        border-bottom: 3px solid #A34A28; /* Bold underline for sections */
-        padding-bottom: 8px;
-        margin-bottom: 24px;
-        color: #FFD700;
+    .nav-link:hover {
+      color: #D49B52; /* Warm Gold/Orange */
+      text-decoration: underline;
     }
-    .menu-item-card {
-        background-color: #3C1E0F; /* Darker card background */
-        border: 2px solid #A34A28;
-        border-radius: 10px;
-        padding: 24px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        transition: transform 0.2s ease-in-out;
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.75); /* Darker overlay for text readability */
+      border: 4px solid #D49B52; /* Warm Gold/Orange border */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     }
-    .menu-item-card:hover {
-        transform: translateY(-5px);
+    .btn-bbq {
+      background-color: #3A5A40; /* Dark Forest Green */
+      color: #E0DCD4; /* Off-white/Cream */
+      border: 2px solid #D49B52; /* Warm Gold/Orange border */
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    .food-item-name {
-        color: #FEE7C0; /* Creamy yellow for names */
-        font-weight: 700;
-        font-size: 1.5rem;
-        margin-bottom: 8px;
+    .btn-bbq:hover {
+      background-color: #D49B52; /* Warm Gold/Orange */
+      color: #281A1A; /* Deep Charcoal/Brown */
+      transform: translateY(-3px);
     }
-    .food-item-desc {
-        color: #D4BFA4; /* Lighter text for descriptions */
-        font-size: 0.95rem;
+    .section-card {
+      background-color: #4A2C2C; /* Muted Red-Brown */
+      border: 2px solid #D49B52; /* Warm Gold/Orange border */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
     }
+    .section-card:hover {
+      transform: translateY(-8px);
+    }
+    .footer-bg {
+      background-color: #1A110A; /* Even darker for footer */
+      border-top: 4px solid #D49B52;
+    }
+    /* Custom Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+    .animate-slide-in-left { animation: slideInLeft 0.7s ease-out forwards; }
+    .animate-slide-in-right { animation: slideInRight 0.7s ease-out forwards; }
   </style>
 </head>
-<body class="bg-[#1A110A] text-white">
-  <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
-    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0 text-shadow-sm">Pine Grill & BBQ</h1>
-    <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
-      <a href="index.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
-      <a href="menu.html" class="font-bold underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
-      <a href="catering.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Chow for Your Crew</a>
-      <a href="contact.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Holler at Us</a>
+<body class="text-white">
+  <header class="header-bg px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#D49B52]">
+    <h1 class="text-4xl font-['Bebas_Neue'] tracking-wider mb-2 sm:mb-0 text-[#D49B52]">Pine Grill & BBQ</h1>
+    <nav class="space-x-4 sm:space-x-6 text-lg font-['Merriweather']">
+      <a href="index.html" class="font-bold underline nav-link transition-colors duration-200">Home</a>
+      <a href="menu.html" class="nav-link transition-colors duration-200">Our Pit Menu</a>
+      <a href="catering.html" class="nav-link transition-colors duration-200">Chow for Your Crew</a>
+      <a href="contact.html" class="nav-link transition-colors duration-200">Holler at Us</a>
     </nav>
   </header>
 
-  <main class="py-20 px-6 max-w-7xl mx-auto">
-    <h2 class="text-5xl font-bebas-neue tracking-wide text-center mb-16 text-[#FFD700] text-shadow-sm animate-fade-down animate-duration-500 animate-delay-100">The Pit Master's Selections</h2>
-
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-12 text-[#FEE7C0]">
-      <div class="menu-item-card col-span-full lg:col-span-1 animate-slide-in-bottom animate-duration-300 animate-delay-200">
-        <h3 class="text-3xl font-bebas-neue section-title mb-8">Main Plates</h3>
-        <ul class="space-y-6">
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-300">
-            <div class="food-item-name">The Brisket Plate</div>
-            <p class="food-item-desc">Our signature, melt-in-your-mouth beef brisket, slow-smoked to perfection with our secret dry rub. Comes with two generous sides.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-400">
-            <div class="food-item-name">Pulled Pork Platter</div>
-            <p class="food-item-desc">Tender, juicy pork shoulder, smoked until it falls apart, tossed in our tangy Carolina-style BBQ sauce. Served with your choice of two sides.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-500">
-            <div class="food-item-name">Smoked Ribs (Full or Half Rack)</div>
-            <p class="food-item-desc">Our award-winning pork ribs, slow-smoked until they're fall-off-the-bone tender and glazed with our sweet & spicy honey-chipotle sauce. Served with two sides.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-600">
-            <div class="food-item-name">Smoked Sausage Link Plate</div>
-            <p class="food-item-desc">A hearty, perfectly smoked sausage link with a snap, seasoned just right. Served with two sides.</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="menu-item-card animate-slide-in-bottom animate-duration-300 animate-delay-700">
-        <h3 class="text-3xl font-bebas-neue section-title mb-8">Sides & Fixin's</h3>
-        <ul class="space-y-6">
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-800">
-            <div class="food-item-name">Creamy Mac & Cheese</div>
-            <p class="food-item-desc">A cheesy classic, baked to bubbly perfection.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-900">
-            <div class="food-item-name">Homestyle BBQ Baked Beans</div>
-            <p class="food-item-desc">Slow-cooked with bits of brisket and our special BBQ sauce.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1000">
-            <div class="food-item-name">Tangy Coleslaw</div>
-            <p class="food-item-desc">Crisp cabbage and carrots in a zesty, creamy dressing.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1100">
-            <div class="food-item-name">Sweet Cornbread</div>
-            <p class="food-item-desc">Fluffy and sweet, perfect for sopping up every last bit of sauce.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1200">
-            <div class="food-item-name">Mustard Potato Salad</div>
-            <p class="food-item-desc">A Southern staple, creamy with a tangy mustard kick.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1300">
-            <div class="food-item-name">Green Bean Casserole</div>
-            <p class="food-item-desc">A comforting classic, topped with crispy fried onions.</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="menu-item-card animate-slide-in-bottom animate-duration-300 animate-delay-1400">
-        <h3 class="text-3xl font-bebas-neue section-title mb-8">Sweet Endings & Thirsty Quenchers</h3>
-        <ul class="space-y-6">
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1500">
-            <div class="food-item-name">Peach Cobbler</div>
-            <p class="food-item-desc">Warm, gooey peaches with a sweet, buttery crust. Just like Grandma used to make.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1600">
-            <div class="food-item-name">Banana Pudding</div>
-            <p class="food-item-desc">Layers of vanilla wafers, fresh bananas, and creamy pudding.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1700">
-            <div class="food-item-name">Sweet Tea</div>
-            <p class="food-item-desc">Bottomless, perfectly sweetened, and ice-cold. A Pacific Northwest essential.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1800">
-            <div class="food-item-name">Assorted Sodas</div>
-            <p class="food-item-desc">Coke, Diet Coke, Sprite, and more.</p>
-          </li>
-          <li class="animate-slide-in-bottom animate-duration-300 animate-delay-1900">
-            <div class="food-item-name">Bottled Water</div>
-            <p class="food-item-desc">Stay hydrated with our chilled bottled water.</p>
-          </li>
-        </ul>
-      </div>
+  <main class="text-center py-24 px-6 bg-[url('PLACEHOLDER: A close-up, professional photo of perfectly smoked brisket on a cutting board')] bg-cover bg-center bg-fixed">
+    <div class="hero-overlay p-8 rounded-2xl inline-block max-w-4xl animate-fade-in">
+      <h2 class="text-6xl font-['Bebas_Neue'] tracking-wide mb-6 text-[#D49B52] animate-slide-in-up">Where Smoke Meets Soul</h2>
+      <p class="text-2xl text-[#E0DCD4] max-w-xl mx-auto leading-relaxed animate-slide-in-up delay-200">Slow-smoked brisket, tender ribs, and sides that'll make your grandpappy proud. This ain't just BBQ, it's a Washington tradition.</p>
+      <a href="menu.html" class="mt-10 inline-block btn-bbq px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg animate-slide-in-up delay-400">See Our Spread</a>
     </div>
   </main>
 
-  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
+  <section class="py-20 px-6 bg-[#281A1A] text-[#E0DCD4] text-center">
+    <h3 class="text-4xl font-['Bebas_Neue'] tracking-wide mb-8 text-[#D49B52] animate-fade-in">Our Promise: Pure Flavor</h3>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div class="section-card p-8 rounded-lg animate-slide-in-up delay-100">
+        <img src="PLACEHOLDER_URL_FOR_SMOKE_ICON" alt="Smoker Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-['Bebas_Neue'] mb-3 text-[#D49B52]">Low & Slow</h4>
+        <p class="text-[#A0988C]">Every cut of meat is smoked for hours over local hardwoods, just like we do it here in the Pacific Northwest.</p>
+      </div>
+      <div class="section-card p-8 rounded-lg animate-slide-in-up delay-200">
+        <img src="PLACEHOLDER_URL_FOR_SPICE_ICON" alt="Spice Rub Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-['Bebas_Neue'] mb-3 text-[#D49B52]">Secret Rubs</h4>
+        <p class="text-[#A0988C]">Our custom spice blends are passed down through family recipes, giving you a taste you won't forget.</p>
+      </div>
+      <div class="section-card p-8 rounded-lg animate-slide-in-up delay-300">
+        <img src="PLACEHOLDER_URL_FOR_SAUCE_ICON" alt="BBQ Sauce Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
+        <h4 class="text-2xl font-['Bebas_Neue'] mb-3 text-[#D49B52]">Legendary Sauce</h4>
+        <p class="text-[#A0988C]">Whether you like it sweet, tangy, or with a kick, our sauces are the perfect complement to our BBQ.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-bg text-center py-6 text-sm text-[#A0988C] mt-20">
     © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
     <p class="mt-2">17823 NE 132nd Ave, Woodinville, WA 98072 | (425) 555-7890</p>
   </footer>
