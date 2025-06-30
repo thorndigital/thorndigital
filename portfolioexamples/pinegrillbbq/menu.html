@@ -1,125 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pine Grill & BBQ - Menu</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pine Grill & BBQ | Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1>Pine Grill & BBQ</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html" class="active">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#1a1a1a] text-white font-inter">
+  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
+    <nav class="space-x-6">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="menu.html" class="font-bold underline">Menu</a>
+      <a href="catering.html" class="hover:underline">Catering</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section>
-            <h2>Our Culinary Creations</h2>
-
-            <h3>Smoked Meats (Per Half Pound)</h3>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">Prime Brisket</span>
-                    <p class="menu-item-description">14-hour slow-smoked, tender and rich with a perfect bark.</p>
-                </div>
-                <span class="menu-item-price">$12.00</span>
-            </div>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">Pulled Pork</span>
-                    <p class="menu-item-description">Smoked until succulent, hand-pulled, and bursting with flavor.</p>
-                </div>
-                <span class="menu-item-price">$10.00</span>
-            </div>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">St. Louis Ribs</span>
-                    <p class="menu-item-description">Dry-rubbed and slow-smoked for a tender, flavorful experience. (Full Rack: $30.00)</p>
-                </div>
-                <span class="menu-item-price">$16.00</span>
-            </div>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">Smoked Chicken</span>
-                    <p class="menu-item-description">Juicy, smoked to perfection with our signature blend of spices.</p>
-                </div>
-                <span class="menu-item-price">$9.00</span>
-            </div>
-
-            <h3>Sandwiches & Plates</h3>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">Brisket Sandwich</span>
-                    <p class="menu-item-description">Smoked brisket, brioche bun, and your choice of sauce. Served with one side.</p>
-                </div>
-                <span class="menu-item-price">$16.00</span>
-            </div>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">Pulled Pork Sandwich</span>
-                    <p class="menu-item-description">Classic pulled pork, brioche bun, served with one side.</p>
-                </div>
-                <span class="menu-item-price">$14.00</span>
-            </div>
-            <div class="menu-item">
-                <div>
-                    <span class="menu-item-name">BBQ Platter (Choice of 2 Meats & 2 Sides)</span>
-                    <p class="menu-item-description">Our signature platter for a comprehensive BBQ tasting. Includes cornbread.</p>
-                </div>
-                <span class="menu-item-price">$28.00</span>
-            </div>
-
-            <h3>Artisan Sides</h3>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Creamy Coleslaw</span></div>
-                <span class="menu-item-price">$4.50</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Smoked Mac & Cheese</span></div>
-                <span class="menu-item-price">$5.50</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Pit Beans with Brisket</span></div>
-                <span class="menu-item-price">$5.00</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Cornbread Muffins (2 pcs)</span></div>
-                <span class="menu-item-price">$3.50</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Seasonal Roasted Vegetables</span></div>
-                <span class="menu-item-price">$5.00</span>
-            </div>
-
-            <h3>Desserts & Beverages</h3>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Homemade Pecan Pie</span></div>
-                <span class="menu-item-price">$7.00</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Key Lime Tart</span></div>
-                <span class="menu-item-price">$6.50</span>
-            </div>
-            <div class="menu-item">
-                <div><span class="menu-item-name">Craft Sodas & Fresh Brewed Iced Tea</span></div>
-                <span class="menu-item-price">$3.50</span>
-            </div>
-        </section>
+  <main class="py-20 px-6 max-w-5xl mx-auto">
+    <h2 class="text-4xl font-playfair text-center mb-10">Our Menu</h2>
+    <div class="grid md:grid-cols-2 gap-10 text-[#ffeccc]">
+      <div>
+        <h3 class="text-2xl border-b border-[#ffeccc]/30 pb-2 mb-4">BBQ Plates</h3>
+        <ul class="space-y-2">
+          <li><strong>Brisket Plate</strong> – Slow smoked with dry rub & two sides</li>
+          <li><strong>Pulled Pork</strong> – Carolina-style pork, house BBQ sauce</li>
+          <li><strong>BBQ Ribs</strong> – Fall-off-the-bone, glazed with honey-chipotle</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl border-b border-[#ffeccc]/30 pb-2 mb-4">Sides</h3>
+        <ul class="space-y-2">
+          <li>Mac & Cheese</li>
+          <li>BBQ Baked Beans</li>
+          <li>Coleslaw</li>
+          <li>Cornbread</li>
+        </ul>
+      </div>
     </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Pine Grill & BBQ. All rights reserved.</p>
-        <p>[Your Address] | [Your Phone Number] | [Your Email]</p>
-    </footer>
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4]">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
