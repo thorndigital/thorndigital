@@ -34,11 +34,22 @@
     .hero-overlay {
       background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
     }
+    .animate-bounce-slow {
+      animation: bounce-slow 2s infinite;
+    }
+    @keyframes bounce-slow {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
-    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0">Pine Grill & BBQ</h1>
+    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0 text-shadow-sm">Pine Grill & BBQ</h1>
     <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
       <a href="index.html" class="font-bold underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
       <a href="menu.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
@@ -49,35 +60,36 @@
 
   <main class="text-center py-24 px-6 bg-[url('https://images.unsplash.com/photo-1534065604169-281ef517e05e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-fixed">
     <div class="hero-overlay p-8 rounded-2xl inline-block max-w-4xl border-4 border-[#A34A28] shadow-2xl">
-      <h2 class="text-6xl font-bebas-neue tracking-wide mb-6 text-[#FFD700] text-shadow-outline">Where Smoke Meets Soul</h2>
-      <p class="text-2xl text-[#FEE7C0] max-w-xl mx-auto leading-relaxed">Slow-smoked brisket, tender ribs, and sides that'll make your grandpappy proud. This ain't just BBQ, it's a Texas tradition.</p>
-      <a href="menu.html" class="mt-10 inline-block btn-bbq px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg">See Our Spread</a>
+      <h2 class="text-6xl font-bebas-neue tracking-wide mb-6 text-[#FFD700] text-shadow-outline animate-fade-down animate-duration-500 animate-delay-100">Where Smoke Meets Soul</h2>
+      <p class="text-2xl text-[#FEE7C0] max-w-xl mx-auto leading-relaxed animate-fade-up animate-duration-500 animate-delay-300">Slow-smoked brisket, tender ribs, and sides that'll make your grandpappy proud. This ain't just BBQ, it's a Washington tradition.</p>
+      <a href="menu.html" class="mt-10 inline-block btn-bbq px-8 py-4 text-xl rounded-lg font-bold uppercase shadow-lg hover:animate-bounce-slow">See Our Spread</a>
     </div>
   </main>
 
   <section class="py-20 px-6 bg-[#3C1E0F] text-[#FEE7C0] text-center">
-    <h3 class="text-4xl font-bebas-neue tracking-wide mb-8 text-[#FFD700]">Our Promise: Pure Texas Flavor</h3>
+    <h3 class="text-4xl font-bebas-neue tracking-wide mb-8 text-[#FFD700]">Our Promise: Pure Flavor</h3>
     <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
       <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
         <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Smoke" alt="Smoker Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
         <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Low & Slow</h4>
-        <p>Every cut of meat is smoked for hours over real post oak, just like we do it down here.</p>
+        <p>Every cut of meat is smoked for hours over local hardwoods, just like we do it here in the Pacific Northwest.</p>
       </div>
       <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
         <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Spice" alt="Spice Rub Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
         <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Secret Rubs</h4>
-        <p>Our custom spice blends are passed down through generations, giving you a taste found nowhere else.</p>
+        <p>Our custom spice blends are passed down through family recipes, giving you a taste you won't forget.</p>
       </div>
       <div class="bg-[#5C2E1A] p-8 rounded-lg shadow-xl border-2 border-[#A34A28]">
         <img src="https://via.placeholder.com/100/A34A28/FEE7C0?text=Sauce" alt="BBQ Sauce Icon" class="mx-auto mb-4 w-24 h-24 object-contain">
         <h4 class="text-2xl font-bebas-neue mb-3 text-[#FFD700]">Legendary Sauce</h4>
-        <p>Whether you like it sweet, tangy, or with a kick, our sauces are the perfect finish to our BBQ.</p>
+        <p>Whether you like it sweet, tangy, or with a kick, our sauces are the perfect complement to our BBQ.</p>
       </div>
     </div>
   </section>
 
   <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
     © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
+    <p class="mt-2">17823 NE 132nd Ave, Woodinville, WA 98072 | (425) 555-7890</p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
