@@ -64,7 +64,7 @@
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
-    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0">Pine Grill & BBQ</h1>
+    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0 text-shadow-sm">Pine Grill & BBQ</h1>
     <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
       <a href="index.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
       <a href="menu.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
@@ -74,37 +74,37 @@
   </header>
 
   <main class="py-20 px-6 max-w-2xl mx-auto text-[#FEE7C0]">
-    <div class="form-container p-10 rounded-2xl">
-      <h2 class="text-5xl font-bebas-neue tracking-wide text-center mb-10 text-[#FFD700] text-shadow-sm">Holler at Us!</h2>
-      <p class="text-center text-lg mb-8 leading-relaxed">Got a question hotter than a jalapeño? Want to talk BBQ or book us for your next shindig? Fill out the form below, and we'll get back to you faster than a jackrabbit on a hot griddle!</p>
+    <div class="form-container p-10 rounded-2xl animate-fade-in animate-duration-500 animate-delay-200">
+      <h2 class="text-5xl font-bebas-neue tracking-wide text-center mb-10 text-[#FFD700] text-shadow-sm animate-fade-down animate-duration-500 animate-delay-300">Holler at Us!</h2>
+      <p class="text-center text-lg mb-8 leading-relaxed animate-fade-up animate-duration-500 animate-delay-400">Got a question hotter than a jalapeño? Want to talk BBQ or book us for your next shindig? Fill out the form below, and we'll get back to you faster than a jackrabbit on a hot griddle!</p>
 
       <form class="space-y-6">
-        <div>
+        <div class="animate-slide-in-left animate-duration-300 animate-delay-500">
           <label for="name" class="block text-lg font-bold mb-2 text-[#FFD700]">Your Name:</label>
           <input type="text" id="name" placeholder="Howdy, partner!" class="w-full" required />
         </div>
-        <div>
+        <div class="animate-slide-in-left animate-duration-300 animate-delay-600">
           <label for="email" class="block text-lg font-bold mb-2 text-[#FFD700]">Your Email:</label>
           <input type="email" id="email" placeholder="Drop us a line here" class="w-full" required />
         </div>
-        <div>
+        <div class="animate-slide-in-left animate-duration-300 animate-delay-700">
           <label for="message" class="block text-lg font-bold mb-2 text-[#FFD700]">Your Message:</label>
           <textarea id="message" rows="7" placeholder="Tell us what's on your mind..." class="w-full resize-y" required></textarea>
         </div>
-        <div class="text-center">
+        <div class="text-center animate-slide-in-left animate-duration-300 animate-delay-800">
           <button type="submit" class="btn-submit">Send Your Smoke Signal</button>
         </div>
       </form>
 
-      <div class="mt-12 text-center text-lg border-t-2 border-[#A34A28] pt-8">
+      <div class="mt-12 text-center text-lg border-t-2 border-[#A34A28] pt-8 animate-fade-in animate-duration-500 animate-delay-900">
         <h3 class="text-3xl font-bebas-neue text-[#FFD700] mb-4">Or Find Us Here:</h3>
         <p class="mb-2"><strong>Pine Grill & BBQ</strong></p>
-        <p class="mb-4">123 Brisket Blvd, Smokeridge, TX 78704</p>
-        <p class="mb-2">📞 <a href="tel:+15551234567" class="underline hover:text-[#FFD700] transition-colors duration-200">(555) 123-4567</a></p>
+        <p class="mb-4">17823 NE 132nd Ave, Woodinville, WA 98072</p>
+        <p class="mb-2">📞 <a href="tel:+14255557890" class="underline hover:text-[#FFD700] transition-colors duration-200">(425) 555-7890</a></p>
         <p>📧 <a href="mailto:info@pinegrillbbq.com" class="underline hover:text-[#FFD700] transition-colors duration-200">info@pinegrillbbq.com</a></p>
         <div class="mt-6">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.9221900139173!2d-97.74088928487926!3d30.26715308179929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b5ad3246e6a1%3A0xb3e7e2c9f5e1f0e!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2684.053186803273!2d-122.10091372332675!3d47.74797087118335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549001b9794d075d%3A0xf657d45b1f07f2a1!2s17823%20NE%20132nd%20Ave%2C%20Woodinville%2C%20WA%2098072!5e0!3m2!1sen!2sus!4v1719626081498!5m2!1sen!2sus"
             width="100%"
             height="300"
             style="border:0;"
@@ -120,6 +120,7 @@
 
   <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
     © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
+    <p class="mt-2">17823 NE 132nd Ave, Woodinville, WA 98072 | (425) 555-7890</p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
