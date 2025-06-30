@@ -1,10 +1,14 @@
 /* Core Styling & Body */
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif; /* Modern, clean sans-serif for excellent readability */
-    line-height: 1.6;
-    color: #333333; /* Soft dark grey for main text */
-    background-color: #F8F8F8; /* Very light, clean background */
+    font-family: 'Open Sans', sans-serif; /* Clean and highly readable sans-serif */
+    line-height: 1.7;
+    color: #F8F8F8; /* Light text for dark backgrounds */
+    background-color: #1A1A1A; /* Fallback dark color */
+    background-image: url('https://via.placeholder.com/1920x1080/1A1A1A/FFFFFF?text=Subtle+Dark+Texture+Background'); /* Placeholder for a subtle dark texture */
+    background-size: cover;
+    background-attachment: fixed; /* Makes the background scroll with the page */
+    background-position: center center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -12,22 +16,22 @@ body {
 
 /* Color Palette Variables */
 :root {
-    --primary-charcoal: #2C3E50; /* Deep charcoal for primary elements */
-    --accent-orange: #E67E22; /* Vibrant, professional orange for accents */
-    --light-grey: #ECF0F1; /* Very light grey for subtle backgrounds/borders */
-    --dark-grey-text: #333333; /* Dark grey for body text */
-    --white: #FFFFFF; /* Pure white for content backgrounds */
-    --subtle-shadow: rgba(0, 0, 0, 0.1);
+    --crimson-red: #DC143C; /* Lighter crimson red */
+    --black: #000000; /* Pure black for logo and strong contrast */
+    --white: #FFFFFF; /* Pure white for text */
+    --dark-grey: #333333; /* Dark grey for secondary elements */
+    --light-grey-text: #E0E0E0; /* Slightly off-white for softer text */
+    --transparent-black-overlay: rgba(0, 0, 0, 0.7); /* For text readability over images */
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--primary-charcoal);
+    background-color: var(--crimson-red); /* Lighter crimson red header */
     color: var(--white);
-    padding: 1.5rem 0;
+    padding: 1.8rem 0;
     text-align: center;
-    border-bottom: 4px solid var(--accent-orange); /* Clean accent line */
-    box-shadow: 0 2px 10px var(--subtle-shadow); /* Subtle, professional shadow */
+    border-bottom: 5px solid var(--black); /* Strong black accent line */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     position: relative;
     z-index: 10;
 }
@@ -35,82 +39,109 @@ header {
 header h1 {
     margin: 0;
     font-family: 'Montserrat', sans-serif; /* Strong, modern sans-serif for headlines */
-    font-size: 2.8em;
-    letter-spacing: 2px;
-    color: var(--white);
-    text-shadow: none; /* No text shadow for sleekness */
+    font-size: 3.2em;
+    letter-spacing: 3px;
+    color: var(--black); /* Logo/Title text in black */
+    text-shadow: none;
+    padding-bottom: 0.5rem; /* Space for the underline */
+    display: inline-block; /* Allows underline to fit text */
+    border-bottom: 3px solid var(--black); /* Black underline for the logo */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
-    margin: 0 1.2rem;
+    margin: 0 1.5rem;
 }
 
 nav ul li a {
-    color: var(--light-grey);
+    color: var(--white); /* White text for navigation */
     text-decoration: none;
-    font-weight: 500; /* Medium weight */
-    font-size: 1.05em;
-    padding: 0.6rem 1rem;
-    border-bottom: 2px solid transparent; /* Underline effect on hover/active */
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 0.7rem 1.2rem;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
+    border-radius: 4px;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    color: var(--accent-orange);
-    border-color: var(--accent-orange);
+    color: var(--black); /* Hover/active text black */
+    background-color: var(--white); /* White background on hover/active */
+    border-color: var(--black);
 }
 
 /* Main Content Area */
 .container {
-    max-width: 1000px; /* Wider for a more open feel */
-    margin: 2.5rem auto;
-    padding: 0 2rem;
+    max-width: 900px; /* Slightly narrower to emphasize content blocks */
+    margin: 3rem auto;
+    padding: 0 1.5rem;
     flex: 1;
 }
 
 section {
-    background-color: var(--white);
-    padding: 3rem;
-    margin-bottom: 2.5rem;
-    border-radius: 6px; /* Slightly rounded, but still sharp */
-    box-shadow: 0 4px 15px var(--subtle-shadow); /* Clean, soft shadow */
-    border: 1px solid var(--light-grey); /* Very subtle border */
+    /* Background for content sections - will need to be images */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 3.5rem;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth over images */
+    border: 2px solid var(--crimson-red); /* Crimson border */
+    position: relative; /* For the overlay */
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--transparent-black-overlay); /* Semi-transparent overlay for text readability */
+    border-radius: 8px;
+    z-index: 1; /* Puts overlay behind text but in front of background image */
+}
+
+section > *:not(.background-image) { /* Target direct children that are not the bg image itself */
+    position: relative;
+    z-index: 2; /* Ensures text and other elements are above the overlay */
+    color: var(--white); /* Ensure text is white on dark background */
 }
 
 h2 {
-    color: var(--primary-charcoal);
+    color: var(--crimson-red); /* Headings in crimson */
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--accent-orange); /* Clean, thin accent line */
+    font-size: 2.5em;
+    margin-bottom: 1.8rem;
+    border-bottom: 3px solid var(--white); /* White underline for headings */
     padding-bottom: 0.8rem;
-    text-align: left; /* Align headings left for professionalism */
-    letter-spacing: 0.5px;
-    text-shadow: none;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for headings */
 }
 
 h3 {
-    color: var(--primary-charcoal);
+    color: var(--crimson-red);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
+    font-size: 2em;
     margin-top: 2rem;
-    text-align: left;
+    text-align: center;
 }
 
 p {
-    margin-bottom: 1em;
-    line-height: 1.7;
+    margin-bottom: 1.2em;
+    line-height: 1.8;
 }
 
 ul {
@@ -119,16 +150,16 @@ ul {
 }
 
 ul li {
-    padding-left: 1.5em;
+    padding-left: 1.8em;
     position: relative;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.8em;
 }
 
 ul li:before {
-    content: "•"; /* Simple, clean bullet point */
+    content: "➤"; /* Sharp, sleek arrow bullet point */
     position: absolute;
     left: 0;
-    color: var(--accent-orange);
+    color: var(--crimson-red); /* Bullet point in crimson */
     font-size: 1.2em;
     line-height: 1;
     font-weight: bold;
@@ -137,62 +168,63 @@ ul li:before {
 /* Buttons */
 .button {
     display: inline-block;
-    background-color: var(--accent-orange);
-    color: var(--white);
-    padding: 0.9rem 1.8rem;
+    background-color: var(--black); /* Buttons in black */
+    color: var(--white); /* White text on buttons */
+    padding: 1rem 2.2rem;
     text-decoration: none;
-    border-radius: 4px; /* Slightly sharp corners */
+    border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: none; /* No border for sleek look */
-    box-shadow: 0 2px 5px var(--subtle-shadow);
-    font-size: 1em;
-    letter-spacing: 0.3px;
+    border: 2px solid var(--crimson-red); /* Crimson border on buttons */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .button:hover {
-    background-color: #CD6B1D; /* Slightly darker orange on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px var(--subtle-shadow);
+    background-color: var(--crimson-red); /* Hover to crimson */
+    border-color: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
-/* Images */
+/* Images within content (e.g., hero images for sections) */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2rem 0; /* Align left with text */
-    border: none; /* No strong borders on images */
+    margin: 2rem auto; /* Center images */
+    border: 4px solid var(--crimson-red); /* Crimson border for images */
     border-radius: 4px;
-    box-shadow: 0 4px 10px var(--subtle-shadow);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary-charcoal);
-    color: var(--light-grey);
+    background-color: var(--black); /* Black footer */
+    color: var(--light-grey-text);
     text-align: center;
-    padding: 1.8rem 0;
-    margin-top: 3rem;
-    border-top: 4px solid var(--accent-orange);
-    box-shadow: 0 -2px 10px var(--subtle-shadow);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 5px solid var(--crimson-red); /* Crimson top border */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
 }
 
 footer p {
     margin: 0;
     font-size: 0.9em;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* Menu Specific Enhancements */
 .menu-item {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Align descriptions properly */
-    padding: 1rem 0;
-    border-bottom: 1px dashed var(--light-grey); /* Subtle dashed line */
-    margin-bottom: 0.8em;
+    align-items: flex-start;
+    padding: 1.2rem 0;
+    border-bottom: 1px dashed var(--light-grey-text); /* Light grey dashed line */
+    margin-bottom: 1em;
 }
 
 .menu-item:last-child {
@@ -200,75 +232,87 @@ footer p {
 }
 
 .menu-item-name {
-    font-weight: 600;
-    color: var(--primary-charcoal);
-    font-size: 1.1em;
+    font-weight: 700; /* Bolder for impact */
+    color: var(--white); /* White text for menu item name */
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
 }
 
 .menu-item-price {
-    font-weight: 600;
-    color: var(--accent-orange);
-    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--crimson-red); /* Prices in crimson */
+    font-size: 1.15em;
     flex-shrink: 0;
     margin-left: 1.5rem;
 }
 
 .menu-item-description {
-    font-size: 0.9em;
-    color: var(--dark-grey-text);
+    font-size: 0.95em;
+    color: var(--light-grey-text); /* Lighter grey for description */
     margin-top: 0.2rem;
     flex-basis: 75%;
     padding-right: 1rem;
 }
 
-/* Contact Form */
+/* Contact Form - Text boxes should be crimson */
 form {
     display: grid;
-    gap: 1.2rem;
+    gap: 1.5rem;
 }
 
 form label {
-    font-weight: 500;
-    color: var(--primary-charcoal);
-    font-size: 1em;
+    font-weight: 600;
+    color: var(--white); /* Labels in white */
+    font-size: 1.05em;
 }
 
 form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--light-grey);
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
+    padding: 1rem;
+    border: 2px solid var(--white); /* White border for text boxes */
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     box-sizing: border-box;
-    background-color: var(--white);
-    color: var(--dark-grey-text);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    background-color: var(--crimson-red); /* Text boxes in crimson */
+    color: var(--white); /* Text input in white */
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4); /* Stronger inner shadow */
 }
 
-form textarea {
-    resize: vertical;
-    min-height: 120px;
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
 }
+
+/* Ensure text in crimson boxes is legible when typed */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--black); /* Black border on focus */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5); /* Black glow on focus */
+}
+
 
 form button[type="submit"] {
-    background-color: var(--primary-charcoal); /* Submit button in charcoal */
+    background-color: var(--black); /* Submit button in black */
     color: var(--white);
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 2.8rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1.15em;
+    font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px var(--subtle-shadow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     text-transform: uppercase;
 }
 
 form button[type="submit"]:hover {
-    background-color: var(--accent-orange);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px var(--subtle-shadow);
+    background-color: var(--crimson-red); /* Hover to crimson */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
