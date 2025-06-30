@@ -3,45 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pine Grill & BBQ | Menu</title>
+  <title>Pine Grill & BBQ | Our Pit Menu</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Merriweather', serif;
+      background-color: #1A110A; /* Darker, richer background */
+    }
+    .text-shadow-sm {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+    .section-title {
+        border-bottom: 3px solid #A34A28; /* Bold underline for sections */
+        padding-bottom: 8px;
+        margin-bottom: 24px;
+        color: #FFD700;
+    }
+    .menu-item-card {
+        background-color: #3C1E0F; /* Darker card background */
+        border: 2px solid #A34A28;
+        border-radius: 10px;
+        padding: 24px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s ease-in-out;
+    }
+    .menu-item-card:hover {
+        transform: translateY(-5px);
+    }
+    .food-item-name {
+        color: #FEE7C0; /* Creamy yellow for names */
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    .food-item-desc {
+        color: #D4BFA4; /* Lighter text for descriptions */
+        font-size: 0.95rem;
+    }
+  </style>
 </head>
-<body class="bg-[#1a1a1a] text-white font-inter">
-  <header class="bg-[#4b2e15] text-[#ffeccc] px-6 py-4 flex justify-between items-center shadow-md">
-    <h1 class="text-2xl font-playfair">Pine Grill & BBQ</h1>
-    <nav class="space-x-6">
-      <a href="index.html" class="hover:underline">Home</a>
-      <a href="menu.html" class="font-bold underline">Menu</a>
-      <a href="catering.html" class="hover:underline">Catering</a>
-      <a href="contact.html" class="hover:underline">Contact</a>
+<body class="bg-[#1A110A] text-white">
+  <header class="bg-[#5C2E1A] text-[#FEE7C0] px-6 py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg border-b-4 border-[#A34A28]">
+    <h1 class="text-4xl font-bebas-neue tracking-wider mb-2 sm:mb-0">Pine Grill & BBQ</h1>
+    <nav class="space-x-4 sm:space-x-6 text-lg font-merriweather">
+      <a href="index.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Home</a>
+      <a href="menu.html" class="font-bold underline hover:text-[#FFD700] transition-colors duration-200">Our Pit Menu</a>
+      <a href="catering.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Chow for Your Crew</a>
+      <a href="contact.html" class="hover:underline hover:text-[#FFD700] transition-colors duration-200">Holler at Us</a>
     </nav>
   </header>
 
-  <main class="py-20 px-6 max-w-5xl mx-auto">
-    <h2 class="text-4xl font-playfair text-center mb-10">Our Menu</h2>
-    <div class="grid md:grid-cols-2 gap-10 text-[#ffeccc]">
-      <div>
-        <h3 class="text-2xl border-b border-[#ffeccc]/30 pb-2 mb-4">BBQ Plates</h3>
-        <ul class="space-y-2">
-          <li><strong>Brisket Plate</strong> – Slow smoked with dry rub & two sides</li>
-          <li><strong>Pulled Pork</strong> – Carolina-style pork, house BBQ sauce</li>
-          <li><strong>BBQ Ribs</strong> – Fall-off-the-bone, glazed with honey-chipotle</li>
+  <main class="py-20 px-6 max-w-7xl mx-auto">
+    <h2 class="text-5xl font-bebas-neue tracking-wide text-center mb-16 text-[#FFD700] text-shadow-sm">The Pit Master's Selections</h2>
+
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-12 text-[#FEE7C0]">
+      <div class="menu-item-card col-span-full lg:col-span-1">
+        <h3 class="text-3xl font-bebas-neue section-title mb-8">Main Plates</h3>
+        <ul class="space-y-6">
+          <li>
+            <div class="food-item-name">The Brisket Plate</div>
+            <p class="food-item-desc">Our signature, melt-in-your-mouth beef brisket, slow-smoked to perfection with our secret dry rub. Comes with two generous sides.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Pulled Pork Platter</div>
+            <p class="food-item-desc">Tender, juicy pork shoulder, smoked until it falls apart, tossed in our tangy Carolina-style BBQ sauce. Served with your choice of two sides.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Smoked Ribs (Full or Half Rack)</div>
+            <p class="food-item-desc">Our award-winning pork ribs, slow-smoked until they're fall-off-the-bone tender and glazed with our sweet & spicy honey-chipotle sauce. Served with two sides.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Smoked Sausage Link Plate</div>
+            <p class="food-item-desc">A hearty, perfectly smoked sausage link with a snap, seasoned just right. Served with two sides.</p>
+          </li>
         </ul>
       </div>
-      <div>
-        <h3 class="text-2xl border-b border-[#ffeccc]/30 pb-2 mb-4">Sides</h3>
-        <ul class="space-y-2">
-          <li>Mac & Cheese</li>
-          <li>BBQ Baked Beans</li>
-          <li>Coleslaw</li>
-          <li>Cornbread</li>
+
+      <div class="menu-item-card">
+        <h3 class="text-3xl font-bebas-neue section-title mb-8">Sides & Fixin's</h3>
+        <ul class="space-y-6">
+          <li>
+            <div class="food-item-name">Creamy Mac & Cheese</div>
+            <p class="food-item-desc">A cheesy classic, baked to bubbly perfection.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Homestyle BBQ Baked Beans</div>
+            <p class="food-item-desc">Slow-cooked with bits of brisket and our special BBQ sauce.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Tangy Coleslaw</div>
+            <p class="food-item-desc">Crisp cabbage and carrots in a zesty, creamy dressing.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Sweet Cornbread</div>
+            <p class="food-item-desc">Fluffy and sweet, perfect for sopping up every last bit of sauce.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Mustard Potato Salad</div>
+            <p class="food-item-desc">A Southern staple, creamy with a tangy mustard kick.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Green Bean Casserole</div>
+            <p class="food-item-desc">A comforting classic, topped with crispy fried onions.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu-item-card">
+        <h3 class="text-3xl font-bebas-neue section-title mb-8">Sweet Endings & Thirsty Quenchers</h3>
+        <ul class="space-y-6">
+          <li>
+            <div class="food-item-name">Peach Cobbler</div>
+            <p class="food-item-desc">Warm, gooey peaches with a sweet, buttery crust. Just like Grandma used to make.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Banana Pudding</div>
+            <p class="food-item-desc">Layers of vanilla wafers, fresh bananas, and creamy pudding.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Sweet Tea</div>
+            <p class="food-item-desc">Bottomless, perfectly sweetened, and ice-cold. A Texas essential.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Big Red Soda</div>
+            <p class="food-item-desc">The classic Texas soft drink. You know it, you love it.</p>
+          </li>
+          <li>
+            <div class="food-item-name">Assorted Sodas & Water</div>
+            <p class="food-item-desc">Coke, Diet Coke, Sprite, and bottled water.</p>
+          </li>
         </ul>
       </div>
     </div>
   </main>
 
-  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#d4bfa4]">
-    © <span id="year"></span> Pine Grill & BBQ. All rights reserved.
+  <footer class="bg-[#33210f] text-center py-6 text-sm text-[#D4BFA4] mt-20 border-t-4 border-[#A34A28]">
+    © <span id="year"></span> Pine Grill & BBQ. All rights reserved. Y'all come back now, ya hear!
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
