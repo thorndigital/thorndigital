@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | Big Leaf Creations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bigleaf-dark: #04560b;
+      --bigleaf-glow: #0dbf50;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bigleaf-dark), var(--bigleaf-glow));
+      color: white;
+      background-attachment: fixed;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 0 10px var(--bigleaf-glow);
+    }
+    .glow-text {
+      text-shadow: 0 0 12px var(--bigleaf-glow);
+    }
+    .glow-btn {
+      background-color: white;
+      color: var(--bigleaf-dark);
+      box-shadow: 0 0 16px var(--bigleaf-glow);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+
+  <a href="/" class="logo-text absolute top-6 left-6">Big Leaf Creations</a>
+
+  <div class="max-w-2xl">
+    <h1 class="text-5xl font-bold glow-text mb-4">Thank You!</h1>
+    <p class="text-lg text-white/80 mb-8">Your message has been received. We'll get back to you shortly.</p>
+    
+    <a href="/" class="glow-btn inline-block px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">
+      Back to Home
+    </a>
+  </div>
+
+  <footer class="absolute bottom-6 text-sm text-white/40">
+    © 2025 Big Leaf Creations. All rights reserved.
+  </footer>
+
+</body>
+</html>
