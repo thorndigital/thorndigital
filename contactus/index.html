@@ -99,14 +99,17 @@
   
   /* Navbar */
   .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 255, 136, 0.05); /* Adjusted for the new glass effect */
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
   }
 
   header {
-    position: sticky;
+    position: fixed; /* Changed from sticky to fixed for consistent behavior with home page */
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
     padding: 1rem 1.5rem; /* px-6 py-4 */
   }
@@ -148,33 +151,37 @@
 
   .nav-link {
     position: relative;
+    color: rgba(255, 255, 255, 0.8); /* Consistent with home page */
+    text-decoration: none;
     transition: all 0.3s ease;
-    color: white; /* default color */
-    font-weight: 500;
+    padding: 0.5rem 0; /* Consistent padding */
   }
   
   .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
     height: 2px;
-    background: var(--thorn-glow);
-    transition: width 0.3s ease;
+    bottom: -5px; /* Consistent with home page */
+    left: 50%;
+    background: var(--thorn-accent); /* Using thorn-accent for consistency */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    width: 0; /* Initial width is 0 */
   }
   
-  .nav-link:hover::after, .nav-link.active::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     width: 100%;
   }
 
-  .nav-link.active {
-    font-weight: bold;
-    color: white; /* active state color */
-  }
-
   .nav-link:hover {
-    color: var(--thorn-light); /* Hover color for nav links */
+    color: var(--thorn-accent); /* Consistent hover color */
+  }
+  
+  .nav-link.active {
+    color: var(--thorn-accent);
+    text-shadow: 0 0 10px var(--thorn-glow); /* Consistent active glow */
+    font-weight: bold; /* Added font-bold for active link */
   }
 
   /* Hero Section */
@@ -353,14 +360,46 @@
   }
 
   /* Mobile Menu */
-  #mobileMenu {
-    background: rgba(4, 26, 5, 0.8);
-    backdrop-filter: blur(20px);
+  @media (max-width: 768px) {
+    .logo-text {
+      font-size: 1.25rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    /* Mobile menu styles */
+    #mobileMenu {
+      top: 100%; /* Position below the header */
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      z-index: 40; /* Ensure it's below the fixed header */
+      position: fixed; /* Keep it fixed for smooth overlay */
+      background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
+      backdrop-filter: blur(20px);
+      border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
+      border-bottom-right-radius: 1rem;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    }
+  }
+
+  .scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--thorn-accent), var(--thorn-glow));
+    z-index: 1000;
+    transition: width 0.1s ease;
   }
   </style>
 </head>
 <body class="min-h-screen">
-  
+  <div class="scroll-indicator" id="scrollIndicator"></div>
   <div class="particles" id="particles"></div>
 
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
@@ -379,7 +418,7 @@
     </button>
   </header>
 
-  <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
+  <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">  
     <nav class="flex flex-col space-y-4 text-center">
       <a href="/home" class="nav-link block py-2">Home</a>
       <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
@@ -478,6 +517,7 @@
       const body = document.body;
       const contactCards = document.querySelectorAll('.contact-card');
       const particlesContainer = document.getElementById('particles');
+      const scrollIndicator = document.getElementById('scrollIndicator'); // Added scroll indicator element
 
       const updateMousePosition = (e) => {
         const { clientX, clientY } = e;
@@ -505,7 +545,8 @@
           if (elementTop < window.innerHeight - elementVisible) {
             element.classList.add('visible');
           } else {
-            element.classList.remove('visible'); // Optional: remove visible class if it scrolls back up
+            // Optional: remove visible class if it scrolls back up - commented out for now as per home page behavior
+            // element.classList.remove('visible'); 
           }
         });
       };
@@ -532,10 +573,43 @@
         mobileMenu.classList.toggle('hidden');
       });
 
+      // --- Scroll Progress Indicator ---
+      function updateScrollIndicator() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollIndicator) { // Check if scrollIndicator exists
+          scrollIndicator.style.width = scrollPercent + '%';
+        }
+      }
+
+      // --- Highlight active nav link based on current page URL ---
+      function highlightActiveNavLink() {
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active', 'font-bold'); // Remove from all first
+          let linkHref = link.getAttribute('href');
+
+          // Normalize paths for comparison (e.g., /home to /)
+          let normalizedCurrentPath = currentPath === '/' || currentPath === '/index.html' ? '/home' : currentPath;
+          let normalizedLinkHref = linkHref === '/' || linkHref === '/index.html' ? '/home' : linkHref;
+
+          if (normalizedLinkHref === normalizedCurrentPath) {
+            link.classList.add('active', 'font-bold');
+          }
+        });
+      }
+
+
       // Initialize effects
-      window.addEventListener('scroll', handleScrollAnimations);
+      window.addEventListener('scroll', () => {
+        handleScrollAnimations();
+        updateScrollIndicator(); // Update scroll indicator on scroll
+      });
+      
       handleScrollAnimations(); // Trigger on load for elements already in view
       createParticles(); // Initialize particles
+      highlightActiveNavLink(); // Highlight active link on load
     });
   </script>
 </body>
