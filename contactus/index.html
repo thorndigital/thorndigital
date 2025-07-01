@@ -403,12 +403,12 @@
   <div class="particles" id="particles"></div>
 
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
-    <a href="index.html" class="logo-text">THORN DIGITAL</a>
+    <a href="/" class="logo-text">THORN DIGITAL</a>
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
-      <a href="/home" class="nav-link">Home</a>
+      <a href="/" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
-      <a href="/aboutus" class="nav-link">About</a>
-      <a href="/contactus" class="nav-link">Contact</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
     </nav>
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -420,15 +420,15 @@
 
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">  
     <nav class="flex flex-col space-y-4 text-center">
-      <a href="/home" class="nav-link block py-2">Home</a>
+      <a href="/" class="nav-link block py-2">Home</a>
       <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
-      <a href="/aboutus" class="nav-link block py-2">About</a>
-      <a href="/contactus" class="nav-link block py-2">Contact</a>
+      <a href="/about" class="nav-link block py-2">About</a>
+      <a href="/contact" class="nav-link block py-2">Contact</a>
     </nav>
   </div>
   <main>
-    <section class="text-7xl md:text-8xl font-bold hero-title mb-6 leading-tight">
-      <h1 class="hero-title">Let's Build Something Legendary</h1>
+    <section class="text-center pt-32 pb-20 px-6 fade-in" style="transition-delay: 0ms;">
+      <h1 class="hero-title mx-auto" style="max-width: 900px;">Let's Build Something Legendary</h1>
       <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mt-6">
         Ready to dominate your market? Reach out and let's craft your digital masterpiece — completely free until you're absolutely blown away.
       </p>
@@ -546,7 +546,7 @@
             element.classList.add('visible');
           } else {
             // Optional: remove visible class if it scrolls back up - commented out for now as per home page behavior
-            // element.classList.remove('visible'); 
+            // element.classList.remove('visible');  
           }
         });
       };
@@ -590,11 +590,28 @@
           link.classList.remove('active', 'font-bold'); // Remove from all first
           let linkHref = link.getAttribute('href');
 
-          // Normalize paths for comparison (e.g., /home to /)
-          let normalizedCurrentPath = currentPath === '/' || currentPath === '/index.html' ? '/home' : currentPath;
-          let normalizedLinkHref = linkHref === '/' || linkHref === '/index.html' ? '/home' : linkHref;
+          // Remove trailing slashes for consistent comparison, except for root
+          let normalizedCurrentPath = currentPath.endsWith('/') && currentPath !== '/' ? currentPath.slice(0, -1) : currentPath;
+          let normalizedLinkHref = linkHref.endsWith('/') && linkHref !== '/' ? linkHref.slice(0, -1) : linkHref;
 
-          if (normalizedLinkHref === normalizedCurrentPath) {
+          // Handle index.html and /home variations
+          if (normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/home') {
+            normalizedCurrentPath = '/';
+          }
+          if (normalizedLinkHref === '/index.html' || normalizedLinkHref === '/home') {
+            normalizedLinkHref = '/';
+          }
+          
+          // For other pages, remove the trailing "us" if present
+          if (normalizedCurrentPath.endsWith('us') && normalizedCurrentPath !== '/') {
+            normalizedCurrentPath = normalizedCurrentPath.slice(0, -2);
+          }
+          if (normalizedLinkHref.endsWith('us') && normalizedLinkHref !== '/') {
+            normalizedLinkHref = normalizedLinkHref.slice(0, -2);
+          }
+
+
+          if (normalizedLinkHref === normalizedCurrentPath || (normalizedLinkHref !== '/' && normalizedCurrentPath.startsWith(normalizedLinkHref))) {
             link.classList.add('active', 'font-bold');
           }
         });
