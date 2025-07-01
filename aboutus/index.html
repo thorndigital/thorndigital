@@ -5,52 +5,349 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Why Us & About | Thorn Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --thorn-dark: #04560b;
-      --thorn-accent: #0dbf50;
+      --primary-green: #04560b;
+      --dark-green: #041a05;
+      --neon-green: #39ff14;
+      --forest-green: #39ff14;
+      --emerald: #2dd96b;
+      --mint: #0dbf50;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--thorn-dark), #222);
+      background: radial-gradient(ellipse at top, var(--dark-green), #04560b, #000000);
       color: white;
-      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
     }
+    
+    /* Animated background particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--primary-green);
+      border-radius: 50%;
+      animation: float 6s infinite linear;
+      box-shadow: 0 0 6px var(--primary-green);
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+    
+    /* Neural network background */
+    .neural-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.1;
+    }
+    
+    .neural-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+      animation: pulse 3s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.3; }
+    }
+    
+    /* Enhanced glassmorphism */
+    .glass {
+      background: rgba(0, 255, 136, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    }
+    
+    .glass-card {
+      background: rgba(0, 255, 136, 0.03);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 255, 136, 0.1);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+    }
+    
+    /* Typography enhancements */
     .logo-text {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: white;
-      text-shadow: 0 0 10px var(--thorn-accent);
-      letter-spacing: 2px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--primary-green), var(--neon-green), var(--emerald));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+      letter-spacing: 3px;
+      animation: logoGlow 2s ease-in-out infinite alternate;
     }
+    
+    @keyframes logoGlow {
+      from { filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3)); }
+      to { filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.6)); }
+    }
+    
     .glow-text {
-      color: white;
-      text-shadow: 0 0 12px var(--thorn-accent);
+      background: linear-gradient(45deg, white, var(--primary-green), var(--mint));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+      animation: textShimmer 3s ease-in-out infinite;
     }
+    
+    @keyframes textShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+      animation: underlineGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes underlineGlow {
+      from { box-shadow: 0 0 10px var(--primary-green); }
+      to { box-shadow: 0 0 30px var(--primary-green); }
+    }
+    
+    /* Enhanced buttons */
     .glow-btn {
-      background-color: white;
-      color: var(--thorn-dark);
-      box-shadow: 0 0 16px var(--thorn-accent);
+      background: linear-gradient(45deg, var(--primary-green), var(--emerald));
+      color: black;
+      font-weight: 600;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .glow-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .glow-btn:hover::before {
+      left: 100%;
+    }
+    
+    .glow-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 50px rgba(0, 255, 136, 0.6);
+    }
+    
+    /* Navigation enhancements */
+    .nav-link {
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary-green);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 80%;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-green);
+      background: rgba(0, 255, 136, 0.1);
+    }
+    
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideInLeft 0.8s ease forwards;
+    }
+    
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 0.8s ease forwards;
+    }
+    
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Interactive icons */
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(45deg, var(--primary-green), var(--emerald));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-icon:hover {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+    }
+    
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .logo-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+      }
+      
+      .glass-card {
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary-green), var(--emerald));
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--neon-green);
     }
   </style>
 </head>
 <body class="min-h-screen">
 
+  <!-- Animated background -->
+  <div class="particles" id="particles"></div>
+  <div class="neural-bg" id="neuralBg"></div>
+
   <!-- Navbar -->
   <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="index.html" class="logo-text">THORN DIGITAL</a>
-      <nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
-        <a href="/home" class="nav-link hover:text-white">Home</a>
+      <nav class="hidden md:flex space-x-2 text-sm font-medium uppercase tracking-wider">
+        <a href="/home" class="nav-link">Home</a>
         <a href="/portfolio" class="nav-link active">Portfolio</a>
-        <a href="/aboutus" class="nav-link hover:text-white">About</a>
-        <a href="/contactus" class="nav-link hover:text-white">Contact</a>
+        <a href="/aboutus" class="nav-link">About</a>
+        <a href="/contactus" class="nav-link">Contact</a>
       </nav>
       
       <!-- Mobile menu button -->
-      <button class="md:hidden text-white" id="mobileMenuBtn">
+      <button class="md:hidden text-white hover:text-green-400 transition-colors" id="mobileMenuBtn">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -58,8 +355,8 @@
     </div>
 
     <!-- Mobile menu -->
-    <div class="md:hidden hidden bg-black/90 backdrop-blur-md mt-4 p-4 rounded-lg" id="mobileMenu">
-      <nav class="flex flex-col space-y-4">
+    <div class="md:hidden hidden glass mt-4 p-4 rounded-2xl" id="mobileMenu">
+      <nav class="flex flex-col space-y-2">
         <a href="/home" class="nav-link">Home</a>
         <a href="/portfolio" class="nav-link active">Portfolio</a>
         <a href="/aboutus" class="nav-link">About</a>
@@ -69,52 +366,188 @@
   </header>
 
   <!-- Why Us Section -->
-  <section class="text-center pt-24 pb-6 px-6">
-    <h1 class="text-5xl font-bold glow-text mb-4">Why Choose Thorn Digital?</h1>
-    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">We don’t just build websites — we forge your digital edge, sharpen your presence, and cut through the noise.</p>
+  <section class="text-center pt-32 pb-12 px-6 relative z-10">
+    <div class="fade-in">
+      <h1 class="hero-title glow-text">Why Choose Thorn Digital?</h1>
+      <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+        We don't just build websites — we forge your digital edge, sharpen your presence, and cut through the noise with bleeding-edge technology.
+      </p>
+    </div>
   </section>
 
   <!-- Why Us Features -->
-  <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
-      <h3 class="text-xl font-bold glow-text mb-2">Sharp, Local Focus</h3>
-      <p class="text-white/80">We specialize in bold, modern websites for local businesses — we know your market and how to make you stand out.</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
-      <h3 class="text-xl font-bold glow-text mb-2">Risk-Free Builds</h3>
-      <p class="text-white/80">You pay nothing until you’re thrilled. We carry the risk, you get the reward — that’s how confident we are in our craft.</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
-      <h3 class="text-xl font-bold glow-text mb-2">Premium Look & Feel</h3>
-      <p class="text-white/80">Clean, striking designs that feel high-end — but built with personal service and attention to detail.</p>
+  <section class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="glass-card p-8 rounded-3xl fade-in" style="animation-delay: 0.2s;">
+        <div class="feature-icon">
+          <span>⚡</span>
+        </div>
+        <h3 class="text-2xl font-bold glow-text mb-4">Sharp, Local Focus</h3>
+        <p class="text-white/80 leading-relaxed">We specialize in bold, modern websites for local businesses — we know your market and how to make you stand out with cutting-edge design.</p>
+      </div>
+      
+      <div class="glass-card p-8 rounded-3xl fade-in" style="animation-delay: 0.4s;">
+        <div class="feature-icon">
+          <span>🛡️</span>
+        </div>
+        <h3 class="text-2xl font-bold glow-text mb-4">Risk-Free Builds</h3>
+        <p class="text-white/80 leading-relaxed">You pay nothing until you're thrilled. We carry the risk, you get the reward — that's how confident we are in our premium craft.</p>
+      </div>
+      
+      <div class="glass-card p-8 rounded-3xl fade-in" style="animation-delay: 0.6s;">
+        <div class="feature-icon">
+          <span>💎</span>
+        </div>
+        <h3 class="text-2xl font-bold glow-text mb-4">Premium Look & Feel</h3>
+        <p class="text-white/80 leading-relaxed">Clean, striking designs that feel luxury-grade — built with personal service, advanced animations, and meticulous attention to detail.</p>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="text-center pt-10 pb-6 px-6">
-    <h1 class="text-5xl font-bold glow-text mb-4">Who We Are</h1>
-    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">Thorn Digital is a small, passionate team sharpening businesses’ online presence with custom, no-risk web design. We’re based in the PNW — and we know what it takes to stand out locally.</p>
+  <section class="text-center pt-20 pb-12 px-6 relative z-10">
+    <div class="slide-in-left">
+      <h1 class="hero-title glow-text">Who We Are</h1>
+      <p class="text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+        Thorn Digital is a small, passionate team of digital artisans sharpening businesses' online presence with custom, no-risk web experiences. We're based in the PNW — and we know what it takes to stand out in today's digital landscape.
+      </p>
+    </div>
   </section>
 
   <!-- Mission & Promise -->
-  <section class="py-20 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-10 text-center">
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
-      <h3 class="text-2xl font-bold glow-text mb-2">Our Mission</h3>
-      <p class="text-white/80">Empower local businesses with modern, striking websites that turn heads and build trust — all with zero upfront cost or risk.</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-xl backdrop-blur shadow-lg hover:shadow-[0_0_20px_var(--thorn-accent)] transition">
-      <h3 class="text-2xl font-bold glow-text mb-2">Our Promise</h3>
-      <p class="text-white/80">We only win if you win. No payment until you love your site. We’re here to grow with you, not just build and disappear.</p>
+  <section class="py-20 px-6 max-w-6xl mx-auto relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 text-center">
+      <div class="glass-card p-10 rounded-3xl slide-in-left" style="animation-delay: 0.2s;">
+        <div class="feature-icon">
+          <span>🎯</span>
+        </div>
+        <h3 class="text-3xl font-bold glow-text mb-4">Our Mission</h3>
+        <p class="text-white/80 leading-relaxed text-lg">Empower local businesses with modern, striking websites that turn heads and build trust — all with zero upfront cost or risk. We create digital experiences that feel alive.</p>
+      </div>
+      
+      <div class="glass-card p-10 rounded-3xl slide-in-right" style="animation-delay: 0.4s;">
+        <div class="feature-icon">
+          <span>🤝</span>
+        </div>
+        <h3 class="text-3xl font-bold glow-text mb-4">Our Promise</h3>
+        <p class="text-white/80 leading-relaxed text-lg">We only win if you win. No payment until you love your site. We're here to grow with you, not just build and disappear into the digital void.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer CTA -->
-  <footer class="bg-black/80 border-t border-white/10 py-12 text-center">
-    <h3 class="text-2xl font-semibold glow-text mb-8">Ready to Cut Through?</h3>
-    <a href="/contactus" class="glow-btn px-8 py-4 rounded-full font-semibold hover:brightness-110 transition">Start for Free</a>
-    <p class="text-sm text-white/60 mt-8">Or email us at <a href="mailto:thorndigital@gmail.com" class="text-green-300 underline">thorndigital@gmail.com</a></p>
-    <p class="mt-4 text-xs text-white/40">© 2025 Thorn Digital. All rights reserved.</p>
+  <footer class="glass border-t border-white/10 py-16 text-center relative z-10">
+    <div class="fade-in">
+      <h3 class="text-4xl font-bold glow-text mb-8">Ready to Cut Through?</h3>
+      <button class="glow-btn mb-8 text-lg">Start for Free</button>
+      <p class="text-lg text-white/80 mb-6">Or email us at 
+        <a href="mailto:thorndigital@gmail.com" class="text-green-400 hover:text-green-300 underline transition-colors">
+          thorndigital@gmail.com
+        </a>
+      </p>
+      <p class="mt-8 text-sm text-white/60">© 2025 Thorn Digital. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // Particle animation
+    function createParticles() {
+      const particles = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        particles.appendChild(particle);
+      }
+    }
+
+    // Neural network background
+    function createNeuralNetwork() {
+      const neural = document.getElementById('neuralBg');
+      for (let i = 0; i < 20; i++) {
+        const line = document.createElement('div');
+        line.className = 'neural-line';
+        line.style.top = Math.random() * 100 + '%';
+        line.style.left = Math.random() * 100 + '%';
+        line.style.width = Math.random() * 200 + 50 + 'px';
+        line.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+        line.style.animationDelay = Math.random() * 3 + 's';
+        neural.appendChild(line);
+      }
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Initialize animations
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+      createNeuralNetwork();
+      
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    });
+
+    // Dynamic cursor effect
+    document.addEventListener('mousemove', function(e) {
+      const cursor = document.querySelector('.cursor');
+      if (!cursor) {
+        const newCursor = document.createElement('div');
+        newCursor.className = 'cursor';
+        newCursor.style.cssText = `
+          position: fixed;
+          width: 10px;
+          height: 10px;
+          background: var(--primary-green);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 9999;
+          mix-blend-mode: difference;
+          transition: transform 0.1s ease;
+        `;
+        document.body.appendChild(newCursor);
+      }
+      
+      const cursor_element = document.querySelector('.cursor');
+      cursor_element.style.left = e.clientX - 5 + 'px';
+      cursor_element.style.top = e.clientY - 5 + 'px';
+    });
+  </script>
 
 </body>
 </html>
