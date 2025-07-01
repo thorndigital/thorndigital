@@ -207,22 +207,37 @@
   
   .nav-link {
     position: relative;
+    color: rgba(255, 255, 255, 0.8); /* Consistent with portfolio page */
+    text-decoration: none;
     transition: all 0.3s ease;
+    padding: 0.5rem 0; /* Consistent padding */
   }
   
   .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
     height: 2px;
-    background: var(--thorn-glow);
-    transition: width 0.3s ease;
+    bottom: -5px; /* Consistent with portfolio page */
+    left: 50%;
+    background: var(--thorn-accent); /* Using thorn-accent for consistency */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    width: 0; /* Initial width is 0 */
   }
   
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     width: 100%;
+  }
+
+  .nav-link:hover {
+    color: var(--thorn-accent); /* Consistent hover color */
+  }
+  
+  .nav-link.active {
+    color: var(--thorn-accent);
+    text-shadow: 0 0 10px var(--thorn-glow); /* Consistent active glow */
+    font-weight: bold; /* Added font-bold for active link */
   }
   
   .fade-in {
@@ -254,9 +269,10 @@
   }
   
   .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 255, 136, 0.05); /* Adjusted for the new glass effect */
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
   }
   
   .neon-border {
@@ -305,27 +321,65 @@
     background: linear-gradient(90deg, transparent, var(--thorn-accent), transparent);
     margin: 4rem 0;
   }
+
+  /* Mobile responsiveness for navbar */
+  @media (max-width: 768px) {
+    .logo-text {
+      font-size: 1.25rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    /* Mobile menu styles */
+    #mobileMenu {
+      top: 100%; /* Position below the header */
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      z-index: 40; /* Ensure it's below the fixed header */
+      position: fixed; /* Keep it fixed for smooth overlay */
+      background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
+      backdrop-filter: blur(20px);
+      border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
+      border-bottom-right-radius: 1rem;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    }
+  }
 </style>
 </head>
 <body class="min-h-screen">
-  <!-- Scroll Progress Indicator -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
   
-  <!-- Animated Background Particles -->
   <div class="particles" id="particles"></div>
 
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center glass-effect">
+  <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
     <a href="index.html" class="logo-text">THORN DIGITAL</a>
-    <nav class="space-x-8 text-md font-medium">
-      <a href="/home" class="nav-link glow-text font-bold">Home</a>
-      <a href="/portfolio" class="nav-link hover:text-green-300">Portfolio</a>
-      <a href="/aboutus" class="nav-link hover:text-green-300">About</a>
-      <a href="/contactus" class="nav-link hover:text-green-300">Contact</a>
+    <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/portfolio" class="nav-link">Portfolio</a>
+      <a href="/aboutus" class="nav-link">About</a>
+      <a href="/contactus" class="nav-link">Contact</a>
     </nav>
+    <button class="md:hidden text-white" id="mobileMenuBtn">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16m4 6H4"></path>
+      </svg>
+    </button>
   </header>
 
-  <!-- Hero Section -->
+  <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
+    <nav class="flex flex-col space-y-4 text-center">
+      <a href="/home" class="nav-link block py-2">Home</a>
+      <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
+      <a href="/aboutus" class="nav-link block py-2">About</a>
+      <a href="/contactus" class="nav-link block py-2">Contact</a>
+    </nav>
+  </div>
+
   <section class="relative text-center pt-32 pb-20 px-6 overflow-hidden">
     <div class="hero-bg"></div>
     <div class="fade-in">
@@ -338,7 +392,7 @@
         Bold, cutting-edge websites with a razor-sharp edge — revolutionary designs that convert visitors into customers. Pay nothing until you're absolutely impressed.
       </p>
       <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
-        <a href="contact.html" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
+        <a href="/contactus" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
           Start Your Project Free
         </a>
         <a href="#services" class="border-2 border-white/30 hover:border-white px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300 hover:bg-white/10">
@@ -355,7 +409,6 @@
     <p class="text-white/80 text-xl leading-relaxed">We craft striking, modern sites that build unshakeable trust and convert visitors into loyal, paying customers. Every pixel serves a purpose.</p>
   </div>
 
-  <!-- Services Section -->
   <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-3 gap-12 text-center">
       <div class="service-card p-8 rounded-2xl shadow-2xl fade-in">
@@ -378,7 +431,6 @@
 
   <div class="section-divider"></div>
 
-  <!-- Enhanced Testimonials -->
   <section class="py-32 px-6 relative">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-5xl font-bold glow-text mb-16 fade-in">What Our Clients Say</h2>
@@ -415,7 +467,6 @@
 
   <div class="section-divider"></div>
 
-  <!-- Enhanced Footer CTA -->
   <footer class="relative py-24 text-center overflow-hidden">
     <div class="glass-effect p-16 max-w-4xl mx-auto rounded-3xl border border-white/20 shadow-2xl">
       <h3 class="text-6xl font-bold glow-text mb-8 leading-tight">Ready to Dominate Your Market?</h3>
@@ -558,6 +609,31 @@
       const scrollPercent = window.pageYOffset / (document.body.scrollHeight - window.innerHeight);
       const intensity = 1 + scrollPercent * 0.5;
       document.documentElement.style.setProperty('--glow-intensity', intensity);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Highlight active nav link based on current page URL
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      document.querySelectorAll('.nav-link').forEach(link => {
+        // Remove 'active' and 'font-bold' from all links first
+        link.classList.remove('active', 'font-bold'); 
+        // Check if the link's href matches the current path.
+        // Also handle the case where '/home' might be 'index.html' or just '/'
+        let linkHref = link.getAttribute('href');
+        if (linkHref === '/home' && (currentPath === '/' || currentPath === '/index.html')) {
+          link.classList.add('active', 'font-bold');
+        } else if (linkHref === currentPath || (linkHref === '/index.html' && currentPath === '/') || (linkHref === '/home' && currentPath === '/')) {
+          link.classList.add('active', 'font-bold');
+        }
+      });
     });
   </script>
 </body>
