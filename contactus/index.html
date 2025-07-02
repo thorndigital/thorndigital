@@ -29,9 +29,19 @@
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16m4 6H4"></path>
+          d="M4 6h16M4 12h16m4 6H4"></path>
       </svg>
     </button>
+    
+    <!-- Mobile Menu Links -->
+    <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">
+      <nav class="flex flex-col space-y-4 text-center">
+        <a href="/home" class="nav-link block py-2">Home</a>
+        <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
+        <a href="/aboutus" class="nav-link block py-2">About</a>
+        <a href="/contactus" class="nav-link block py-2">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <!-- Mobile dropdown menu, hidden by default -->
