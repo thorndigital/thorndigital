@@ -113,7 +113,8 @@ body::before {
 
 /* Typography enhancements */
 .logo-text {
-  font-family: 'Orbitron', sans-serif;
+  /* Changed to Inter font */
+  font-family: 'Inter', sans-serif;
   font-size: 1.75rem; /* Consistent size */
   font-weight: 800; /* Consistent weight */
   /* For gradient text, color is implicitly handled by background-clip */
@@ -156,7 +157,8 @@ body::before {
 }
 
 .hero-title {
-  font-family: 'Orbitron', sans-serif; /* Consistent font */
+  /* Changed to Inter font */
+  font-family: 'Inter', sans-serif;
   font-weight: 800; /* Consistent weight */
   font-size: clamp(2.5rem, 8vw, 6rem); /* Responsive font size */
   line-height: 1.1;
@@ -291,7 +293,7 @@ header {
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 0.5rem 0;
-  font-family: 'Orbitron', sans-serif; /* Added for navigation links */
+  font-family: 'Inter', sans-serif; /* Changed to Inter font */
 }
 
 .nav-link::after {
