@@ -291,6 +291,7 @@ header {
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 0.5rem 0;
+  font-family: 'Orbitron', sans-serif; /* Added for navigation links */
 }
 
 .nav-link::after {
