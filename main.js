@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Only add mousemove listener if the aurora effect is intended for the current page (e.g., contact page)
-  if (window.location.pathname.includes('/contact')) {
+  // Check for specific elements that indicate it's the contact page
+  if (document.querySelector('.contact-card') || window.location.pathname.includes('/contactus')) {
     body.addEventListener('mousemove', updateMousePosition);
   }
 
@@ -203,12 +204,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingOverlay = document.getElementById('loadingOverlay');
     if (loadingOverlay) {
       window.addEventListener('load', function() {
+        // Reduced timeout for faster perceived load
         setTimeout(() => {
           loadingOverlay.style.opacity = '0';
           setTimeout(() => {
             loadingOverlay.style.display = 'none';
-          }, 500);
-        }, 500);
+          }, 100); // Reduced from 500ms
+        }, 100); // Reduced from 500ms
       });
     }
   }
@@ -224,26 +226,22 @@ document.addEventListener('DOMContentLoaded', function() {
       let normalizedCurrentPath = currentPath;
       let normalizedLinkHref = linkHref;
 
-      // Handle root path variations
-      if (normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/home') {
-        normalizedCurrentPath = '/';
+      // Handle root path variations for home
+      if (normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/') {
+        normalizedCurrentPath = '/home'; // Normalize to /home for comparison with /home link
       }
-      if (normalizedLinkHref === '/index.html' || normalizedLinkHref === '/home') {
-        normalizedLinkHref = '/';
+      if (normalizedLinkHref === '/index.html' || normalizedLinkHref === '/') { // If link is / or index.html, normalize to /home for comparison
+        normalizedLinkHref = '/home';
       }
 
-      // Handle /aboutus and /contactus to /about and /contact
-      if (normalizedCurrentPath.endsWith('us') && normalizedCurrentPath !== '/') {
-        normalizedCurrentPath = normalizedCurrentPath.slice(0, -2);
-      }
-      if (normalizedLinkHref.endsWith('us') && normalizedLinkHref !== '/') {
-        normalizedLinkHref = normalizedLinkHref.slice(0, -2);
-      }
-      
-      // Special case for /portfolio.html when the link is /portfolio
-      if (normalizedCurrentPath.includes('portfolio.html') && normalizedLinkHref === '/portfolio') {
+      // Handle specific page paths
+      if (normalizedCurrentPath.includes('/portfolio') && normalizedLinkHref === '/portfolio') {
         link.classList.add('active', 'font-bold');
-      } else if (normalizedLinkHref === normalizedCurrentPath) {
+      } else if (normalizedCurrentPath.includes('/aboutus') && normalizedLinkHref === '/aboutus') {
+        link.classList.add('active', 'font-bold');
+      } else if (normalizedCurrentPath.includes('/contactus') && normalizedLinkHref === '/contactus') {
+        link.classList.add('active', 'font-bold');
+      } else if (normalizedLinkHref === normalizedCurrentPath) { // For exact matches like /home
         link.classList.add('active', 'font-bold');
       }
     });
@@ -283,6 +281,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoadingOverlay();
   }
   // Initialize custom cursor on relevant pages or globally if desired
-  // For now, it's global as it was present on aboutus and portfolio and makes sense everywhere.
   initCustomCursor();
 });
