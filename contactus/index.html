@@ -9,17 +9,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
+  <!-- Scroll progress indicator at the top of the page -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
+  <!-- Animated background particles for visual flair -->
   <div class="particles" id="particles"></div>
 
+  <!-- Header section with logo and navigation -->
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
+    <!-- Logo with a link to the home page -->
     <a href="/home" class="logo-text">THORN DIGITAL</a>
+    <!-- Desktop navigation menu -->
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
       <a href="/home" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
       <a href="/aboutus" class="nav-link">About</a>
       <a href="/contactus" class="nav-link">Contact</a>
     </nav>
+    <!-- Mobile menu button -->
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,6 +34,7 @@
     </button>
   </header>
 
+  <!-- Mobile dropdown menu, hidden by default -->
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">  
     <nav class="flex flex-col space-y-4 text-center">
       <a href="/home" class="nav-link block py-2">Home</a>
@@ -37,24 +44,29 @@
     </nav>
   </div>
   <main>
+    <!-- Hero section for the contact page -->
     <section class="text-center pt-32 pb-20 px-6 fade-in">
       <h1 class="hero-title mx-auto" style="max-width: 900px;">Let's Build Something Legendary</h1>
       <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mt-6">
         Ready to dominate your market? Reach out and let's craft your digital masterpiece — completely free until you're absolutely blown away.
       </p>
     </section>
+    <!-- Contact cards section with fade-in animation -->
     <section class="px-6 mb-20 fade-in">
       <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 relative">
+        <!-- Contact Card 1: Lightning Fast -->
         <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">⚡</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Lightning Fast</h3>
           <p class="text-white/80 text-lg leading-relaxed">Get your quote in under 24 hours</p>
         </div>
+        <!-- Contact Card 2: Zero Risk -->
         <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">🛡️</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Zero Risk</h3>
           <p class="text-white/80 text-lg leading-relaxed">Pay nothing until you're thrilled</p>
         </div>
+        <!-- Contact Card 3: Local Experts -->
         <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">🚀</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Local Experts</h3>
@@ -62,37 +74,44 @@
         </div>
       </div>
     </section>
+    <!-- Contact form section with fade-in animation -->
     <section class="px-6 pb-20 fade-in">
       <div class="max-w-2xl mx-auto">
         <div class="form-container">
+          <!-- Contact form with submission to FormSubmit.co -->
           <form action="https://formsubmit.co/thorndigital@gmail.com" method="POST" id="contactForm">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="/thankyou">
+            <input type="hidden" name="_next" value="/thankyou.html"> <!-- Changed to .html for direct file access -->
             <input type="hidden" name="_subject" value="New Contact from Thorn Digital Website">
+            <!-- Name input field -->
             <div class="mb-6">
               <label for="name" class="block form-label">Your Name</label>
               <div class="form-input-wrapper">
                 <input type="text" id="name" name="name" required placeholder="Enter your full name" class="form-input" />
               </div>
             </div>
+            <!-- Email input field -->
             <div class="mb-6">
               <label for="email" class="block form-label">Email Address</label>
               <div class="form-input-wrapper">
                 <input type="email" id="email" name="email" required placeholder="your@email.com" class="form-input" />
               </div>
             </div>
+            <!-- Business name input field (optional) -->
             <div class="mb-6">
               <label for="business" class="block form-label">Business Name (Optional)</label>
               <div class="form-input-wrapper">
                 <input type="text" id="business" name="business" placeholder="Your company or business" class="form-input" />
               </div>
             </div>
+            <!-- Message textarea -->
             <div class="mb-8">
               <label for="message" class="block form-label">Tell Us About Your Vision</label>
               <div class="form-input-wrapper">
                 <textarea id="message" name="message" rows="6" required class="form-input textarea-input"></textarea>
               </div>
             </div>
+            <!-- Submit button -->
             <div class="text-center mt-6">
               <button type="submit" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block">
                 Launch My Project
@@ -103,6 +122,7 @@
       </div>
     </section>
   </main>
+  <!-- Footer section -->
   <footer class="glass-effect py-16 text-center fade-in">
     <div class="max-w-4xl mx-auto px-6">
       <h3 class="text-2xl font-bold mb-4 glow-text">
@@ -121,6 +141,7 @@
       </div>
     </div>
   </footer>
+  <!-- Main JavaScript file for interactive elements and animations -->
   <script src="main.js"></script>
 </body>
 </html>
