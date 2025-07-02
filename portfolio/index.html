@@ -7,288 +7,7 @@
   <meta name="description" content="Discover Thorn Digital's portfolio of modern, high-performance websites that cut through the noise and drive results.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --thorn-dark: #04560b;
-      --thorn-darker: #041a05;
-      --thorn-accent: #0dbf50;
-      --thorn-accent-glow: #39ff14;
-      --thorn-secondary: #2dd96b;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-
-    * {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(13, 191, 80, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(13, 191, 80, 0.05) 0%, transparent 50%),
-        linear-gradient(135deg, var(--thorn-darker) 0%, var(--thorn-dark) 50%, #111 100%);
-      color: white;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    /* Enhanced Typography */
-    .logo-text {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: white;
-      text-shadow: 0 0 20px var(--thorn-accent-glow);
-      letter-spacing: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .logo-text:hover {
-      text-shadow: 0 0 30px var(--thorn-accent), 0 0 40px var(--thorn-accent-glow);
-      transform: scale(1.05);
-    }
-
-    .hero-title {
-      background: linear-gradient(135deg, #ffffff 0%, var(--thorn-accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: glow-pulse 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow-pulse {
-      0% { filter: drop-shadow(0 0 10px var(--thorn-accent-glow)); }
-      100% { filter: drop-shadow(0 0 25px var(--thorn-accent)); }
-    }
-
-    /* Glass morphism effects */
-    .glass {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-    }
-
-    /* Specific glass effect for the new header */
-    .glass-effect {
-      background: rgba(0, 255, 136, 0.05);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 255, 136, 0.1); /* Adjusted for nav bar */
-      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-    }
-
-    .glass-card {
-      background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 255, 255, 0.02) 100%);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .glass-card:hover {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(13, 191, 80, 0.05) 100%);
-      border-color: var(--thorn-accent);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        0 0 0 1px var(--thorn-accent),
-        0 0 30px var(--thorn-accent-glow);
-    }
-
-    /* Enhanced buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, var(--thorn-accent) 0%, #10d554 100%);
-      color: var(--thorn-dark);
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(13, 191, 80, 0.4);
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-
-    /* Navigation enhancements */
-    .nav-link {
-      position: relative;
-      color: rgba(255, 255, 255, 0.8); /* Changed to use rgba for consistency */
-      text-decoration: none;
-      transition: all 0.3s ease;
-      padding: 0.5rem 0; /* Consistent padding */
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px; /* Consistent with other nav */
-      left: 50%;
-      background: var(--thorn-accent);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-link:hover {
-      color: var(--thorn-accent); /* Changed for consistent hover */
-    }
-
-    .nav-link.active {
-      color: var(--thorn-accent);
-      text-shadow: 0 0 10px var(--thorn-accent-glow);
-      font-weight: bold; /* Added font-bold */
-    }
-
-    /* Portfolio grid animations */
-    .portfolio-item {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
-    .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
-    .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
-    .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Image hover effects */
-    .portfolio-image {
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .portfolio-image::after {
-      content: 'View Project';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--thorn-accent);
-      color: var(--thorn-dark);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-
-    .glass-card:hover .portfolio-image::after {
-      opacity: 1;
-    }
-
-    .glass-card:hover .portfolio-image img {
-      transform: scale(1.1);
-      filter: brightness(0.7);
-    }
-
-    /* Floating elements */
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .logo-text {
-        font-size: 1.25rem;
-      }
-      
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      /* Adjust mobile menu positioning */
-      #mobileMenu {
-        top: 100%; /* Position below the header */
-        background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
-        backdrop-filter: blur(20px);
-        border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
-        border-bottom-right-radius: 1rem;
-        border: 1px solid rgba(0, 255, 136, 0.1);
-        box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-      }
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--thorn-dark);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--thorn-accent);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #10d554;
-    }
-
-    /* Loading animation */
-    .loading-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--thorn-darker);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.5s ease;
-    }
-
-    .loading-spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid var(--glass-border);
-      border-top: 3px solid var(--thorn-accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
   <div class="loading-overlay" id="loadingOverlay">
@@ -296,12 +15,12 @@
   </div>
 
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
-    <a href="index.html" class="logo-text">THORN DIGITAL</a>
+    <a href="/" class="logo-text">THORN DIGITAL</a>
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
-      <a href="/home" class="nav-link">Home</a>
+      <a href="/" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
-      <a href="/aboutus" class="nav-link">About</a>
-      <a href="/contactus" class="nav-link">Contact</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
     </nav>
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,10 +32,10 @@
 
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
     <nav class="flex flex-col space-y-4 text-center">
-      <a href="/home" class="nav-link block py-2">Home</a>
+      <a href="/" class="nav-link block py-2">Home</a>
       <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
-      <a href="/aboutus" class="nav-link block py-2">About</a>
-      <a href="/contactus" class="nav-link block py-2">Contact</a>
+      <a href="/about" class="nav-link block py-2">About</a>
+      <a href="/contact" class="nav-link block py-2">Contact</a>
     </nav>
   </div>
 
@@ -337,10 +56,10 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#portfolio" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
+        <a href="#portfolio" class="glow-btn px-8 py-4 text-lg font-semibold">
           Explore Our Work
         </a>
-        <a href="/contactus" class="text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white/10 transition text-lg font-semibold">
+        <a href="/contact" class="btn-secondary px-8 py-4 text-lg font-semibold">
           Start Your Project
         </a>
       </div>
@@ -356,7 +75,7 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
         
-        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+        <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/woodinvillepizzaco/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
               <img src="assets/woodinvillepizzacopreview.png" 
@@ -387,7 +106,7 @@
           </a>
         </article>
 
-        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+        <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/caferush/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
               <img src="assets/caferushpreview.png" 
@@ -418,7 +137,7 @@
           </a>
         </article>
 
-        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+        <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/pinegrillbbq/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
               <img src="assets/pinegrillbbqpreview.png" 
@@ -449,7 +168,7 @@
           </a>
         </article>
 
-        <article class="portfolio-item glass-card p-8 rounded-2xl group">
+        <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/woodinvillebistro/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
               <img src="assets/woodinvillebistropreview.png" 
@@ -484,7 +203,7 @@
     </div>
   </section>
 
-  <footer class="glass border-t border-white/10 py-20 text-center relative overflow-hidden">
+  <footer class="glass-effect border-t border-white/10 py-20 text-center relative overflow-hidden">
     <div class="absolute inset-0">
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-thorn-accent opacity-5 rounded-full blur-3xl"></div>
     </div>
@@ -496,10 +215,10 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-        <a href="/contactus" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold">
+        <a href="/contact" class="glow-btn px-10 py-4 text-lg font-semibold">
           Start Your Project
         </a>
-        <a href="mailto:thorndigital@gmail.com" class="text-white border border-white/30 px-10 py-4 rounded-full hover:bg-white/10 transition text-lg font-semibold">
+        <a href="mailto:thorndigital@gmail.com" class="btn-secondary px-10 py-4 text-lg font-semibold">
           Email Us
         </a>
       </div>
@@ -520,108 +239,6 @@
     </div>
   </footer>
 
-  <script>
-    // Loading screen
-    window.addEventListener('load', function() {
-      const loadingOverlay = document.getElementById('loadingOverlay');
-      setTimeout(() => {
-        loadingOverlay.style.opacity = '0';
-        setTimeout(() => {
-          loadingOverlay.style.display = 'none';
-        }, 500);
-      }, 500);
-    });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Parallax effect on scroll
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      
-      const floatingElements = document.querySelectorAll('.floating');
-      floatingElements.forEach(element => {
-        element.style.transform = `translateY(${rate}px)`;
-      });
-    });
-
-    // Enhanced portfolio item reveal on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.portfolio-item').forEach(item => {
-      observer.observe(item);
-    });
-
-    // Add dynamic cursor effect (desktop only)
-    if (window.innerWidth > 768) {
-      const cursor = document.createElement('div');
-      cursor.className = 'fixed w-4 h-4 bg-thorn-accent rounded-full pointer-events-none z-50 mix-blend-difference';
-      cursor.style.transition = 'transform 0.1s ease';
-      document.body.appendChild(cursor);
-
-      document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX - 8 + 'px';
-        cursor.style.top = e.clientY - 8 + 'px';
-      });
-
-      document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursor.style.transform = 'scale(2)';
-        });
-        el.addEventListener('mouseleave', () => {
-          cursor.style.transform = 'scale(1)';
-        });
-      });
-    }
-
-    // Highlight active nav link based on current page URL
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentPath = window.location.pathname;
-      document.querySelectorAll('.nav-link').forEach(link => {
-        // Remove 'active' and 'font-bold' from all links first
-        link.classList.remove('active', 'font-bold'); 
-        // Check if the link's href matches the current path.
-        // Also handle the case where '/home' might be 'index.html' or just '/'
-        let linkHref = link.getAttribute('href');
-        if (linkHref === '/home' && (currentPath === '/' || currentPath === '/index.html')) {
-          link.classList.add('active', 'font-bold');
-        } else if (linkHref === currentPath || (linkHref === '/portfolio' && currentPath.includes('portfolio.html'))) {
-          link.classList.add('active', 'font-bold');
-        }
-      });
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
