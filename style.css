@@ -27,7 +27,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: radial-gradient(ellipse at top, var(--thorn-mid) 0%, var(--thorn-dark) 100%); /* From home.html */
   color: white; /* Default text color for general content */
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
   position: relative;
   background-attachment: fixed; /* From portfolio.html */
 }
