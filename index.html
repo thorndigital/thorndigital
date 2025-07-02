@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorn Digital</title>
+    <!-- Option 1: Meta Refresh (Fastest, but less control) -->
+    <meta http-equiv="refresh" content="0; url=/home">
+    
+    <!-- Option 2: JavaScript Redirect (More robust, but requires JS to run) -->
+    <script>
+        // This script ensures immediate redirection to /home
+        // It's placed here to run before any other scripts or content.
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            window.location.replace('/home');
+        }
+    </script>
+</head>
+<body>
+    <!-- A simple message for users whose browsers might not redirect immediately -->
+    <p>Redirecting to the home page...</p>
+    <p><a href="/home">Click here if you are not redirected.</a></p>
+</body>
+</html>
