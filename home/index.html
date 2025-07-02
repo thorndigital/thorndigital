@@ -9,18 +9,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
+  <!-- Scroll progress indicator at the top of the page -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
   
+  <!-- Animated background particles for visual flair -->
   <div class="particles" id="particles"></div>
 
+  <!-- Header section with logo and navigation -->
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
+    <!-- Logo with a link to the home page -->
     <a href="/home" class="logo-text">THORN DIGITAL</a>
+    <!-- Desktop navigation menu -->
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
       <a href="/home" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
       <a href="/aboutus" class="nav-link">About</a>
       <a href="/contactus" class="nav-link">Contact</a>
     </nav>
+    <!-- Mobile menu button -->
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,6 +35,7 @@
     </button>
   </header>
 
+  <!-- Mobile dropdown menu, hidden by default -->
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
     <nav class="flex flex-col space-y-4 text-center">
       <a href="/home" class="nav-link block py-2">Home</a>
@@ -38,17 +45,22 @@
     </nav>
   </div>
 
+  <!-- Hero section with main call to action and animated background -->
   <section class="relative text-center pt-32 pb-20 px-6 overflow-hidden">
+    <!-- Background element for parallax effect -->
     <div class="hero-bg"></div>
+    <!-- Content for the hero section with fade-in animation -->
     <div class="fade-in">
       <h1 class="text-7xl md:text-8xl font-bold hero-title mb-6 leading-tight">
         We Design.<br/>
         You Approve.<br/>
+        <!-- Typing effect for dynamic text -->
         <span class="typing-effect inline-block">You Win.</span>
       </h1>
       <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
         Bold, cutting-edge websites with a razor-sharp edge — revolutionary designs that convert visitors into customers. Pay nothing until you're absolutely impressed.
       </p>
+      <!-- Call to action buttons -->
       <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
         <a href="/contactus" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
           Start Your Project Free
@@ -60,25 +72,31 @@
     </div>
   </section>
 
+  <!-- Section divider for visual separation -->
   <div class="section-divider"></div>
 
+  <!-- Introduction to web design services -->
   <div class="mt-20 text-center max-w-4xl mx-auto px-6 fade-in">
     <h2 class="text-5xl font-bold glow-text mb-6">Web Design That Cuts Through The Noise</h2>
     <p class="text-white/80 text-xl leading-relaxed">We craft striking, modern sites that build unshakeable trust and convert visitors into loyal, paying customers. Every pixel serves a purpose.</p>
   </div>
 
+  <!-- Services section with interactive cards -->
   <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-3 gap-12 text-center">
+      <!-- Service Card 1: Custom Design -->
       <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">⚡</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Custom Design</h3>
         <p class="text-white/80 text-lg leading-relaxed">Unique, razor-sharp designs tailored exclusively for your brand. Zero templates, 100% original creativity that demands attention.</p>
       </div>
+      <!-- Service Card 2: Lightning Fast -->
       <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">🚀</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Lightning Fast</h3>
         <p class="text-white/80 text-lg leading-relaxed">Pixel-perfect performance on every device. Optimized for speed, built for conversion, designed to dominate search rankings.</p>
       </div>
+      <!-- Service Card 3: Zero Risk Guarantee -->
       <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">🛡️</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Zero Risk Guarantee</h3>
@@ -87,12 +105,15 @@
     </div>
   </section>
 
+  <!-- Section divider -->
   <div class="section-divider"></div>
 
+  <!-- Testimonials section -->
   <section class="py-32 px-6 relative">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-5xl font-bold glow-text mb-16 fade-in">What Our Clients Say</h2>
       <div class="grid md:grid-cols-2 gap-8">
+        <!-- Testimonial Card 1 -->
         <div class="testimonial-card p-8 shadow-2xl fade-in">
           <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
           <p class="italic text-white/90 text-lg mb-6 leading-relaxed">
@@ -106,6 +127,7 @@
             </div>
           </div>
         </div>
+        <!-- Testimonial Card 2 -->
         <div class="testimonial-card p-8 shadow-2xl fade-in">
           <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
           <p class="italic text-white/90 text-lg mb-6 leading-relaxed">
@@ -123,8 +145,10 @@
     </div>
   </section>
 
+  <!-- Section divider -->
   <div class="section-divider"></div>
 
+  <!-- Footer section with call to action and contact info -->
   <footer class="relative py-24 text-center overflow-hidden glass-effect">
     <div class="glass-effect p-16 max-w-4xl mx-auto rounded-3xl border border-white/20 shadow-2xl">
       <h3 class="text-6xl font-bold glow-text mb-8 leading-tight">Ready to Dominate Your Market?</h3>
@@ -132,7 +156,7 @@
         Join the ranks of businesses that don't just exist online – they command attention and drive results.
       </p>
       <div class="space-y-6 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center mb-12">
-        <a href="/contact" class="glow-btn px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
+        <a href="/contactus" class="glow-btn px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
           Start Your Transformation
         </a>
         <a href="mailto:thorndigital@gmail.com" class="btn-secondary px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
@@ -150,6 +174,7 @@
     </div>
   </footer>
 
+  <!-- Main JavaScript file for interactive elements and animations -->
   <script src="main.js"></script>
 </body>
 </html>
