@@ -6,9 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // automatically redirects to yourdomain.com/home.
   // IMPORTANT: Exclude the /thankyou.html and /thankyou/ pages from this redirect.
   const currentPath = window.location.pathname;
+  // Define the absolute URL for the thank you page for robust comparison
+  const absoluteThankYouUrl = 'https://thorndigital.onrender.com/thankyou'; 
+  const thankYouPath = '/thankyou/'; // Path for clean URL
+  const thankYouHtmlPath = '/thankyou.html'; // Path for direct HTML file
+
+  // Check if the current URL is the root or index.html AND not one of the thank you paths
   if ((currentPath === '/' || currentPath === '/index.html') && 
-      currentPath !== '/thankyou.html' && 
-      currentPath !== '/thankyou/') { // Added exclusion for /thankyou/
+      currentPath !== thankYouHtmlPath && 
+      currentPath !== thankYouPath &&
+      window.location.href !== absoluteThankYouUrl) { // Also check against the full absolute URL
     window.location.replace('/home');
     return; // Stop further execution on this page
   }
@@ -295,4 +302,3 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize custom cursor on relevant pages or globally if desired
   initCustomCursor();
 });
-
