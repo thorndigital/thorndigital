@@ -6,349 +6,7 @@
   <title>Thorn Digital | Cutting-Edge Web Design</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-  :root {
-    --thorn-dark: #041a05;
-    --thorn-mid: #04560b;
-    --thorn-accent: #0dbf50;
-    --thorn-light: #2dd96b;
-    --thorn-glow: #39ff14;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(ellipse at top, var(--thorn-mid) 0%, var(--thorn-dark) 100%);
-    color: white;
-    overflow-x: hidden;
-    position: relative;
-  }
-  
-  /* Animated background particles */
-  .particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: var(--thorn-glow);
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: float 20s infinite linear;
-  }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) translateX(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.3;
-    }
-    90% {
-      opacity: 0.1;
-    }
-    100% {
-      transform: translateY(-100px) translateX(100px);
-      opacity: 0;
-    }
-  }
-  
-  .logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: white;
-    text-shadow: 0 0 20px var(--thorn-glow), 0 0 40px var(--thorn-accent);
-    letter-spacing: 3px;
-    position: relative;
-    animation: pulse-glow 3s ease-in-out infinite alternate;
-  }
-  
-  @keyframes pulse-glow {
-    0% {
-      text-shadow: 0 0 20px var(--thorn-glow), 0 0 40px var(--thorn-accent);
-    }
-    100% {
-      text-shadow: 0 0 30px var(--thorn-glow), 0 0 60px var(--thorn-accent), 0 0 80px var(--thorn-light);
-    }
-  }
-  
-  .glow-text {
-    color: white;
-    text-shadow: 0 0 15px var(--thorn-accent);
-    animation: text-glow 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes text-glow {
-    from {
-      text-shadow: 0 0 15px var(--thorn-accent), 0 0 25px var(--thorn-accent);
-    }
-    to {
-      text-shadow: 0 0 20px var(--thorn-glow), 0 0 35px var(--thorn-accent), 0 0 45px var(--thorn-light);
-    }
-  }
-  
-  .glow-btn {
-    background: linear-gradient(135deg, white, #f0f0f0);
-    color: var(--thorn-dark);
-    box-shadow: 0 0 25px var(--thorn-glow), 0 8px 32px rgba(13, 191, 80, 0.3);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .glow-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4), transparent);
-    transition: left 0.5s;
-  }
-  
-  .glow-btn:hover::before {
-    left: 100%;
-  }
-  
-  .glow-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 35px var(--thorn-glow), 0 12px 40px rgba(13, 191, 80, 0.4);
-  }
-  
-  .hero-title {
-    background: linear-gradient(135deg, white, var(--thorn-light), var(--thorn-glow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-shift 4s ease-in-out infinite;
-  }
-  
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-  
-  .service-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(13, 191, 80, 0.2);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(57, 255, 20, 0.1), rgba(13, 191, 80, 0.1));
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  
-  .service-card:hover::before {
-    opacity: 1;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(13, 191, 80, 0.3), 0 0 60px rgba(57, 255, 20, 0.2);
-    border-color: var(--thorn-accent);
-  }
-  
-  .testimonial-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(13, 191, 80, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .testimonial-card::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--thorn-accent), var(--thorn-glow), var(--thorn-accent));
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .testimonial-card:hover::after {
-    opacity: 1;
-  }
-  
-  .nav-link {
-    position: relative;
-    color: rgba(255, 255, 255, 0.8); /* Consistent with portfolio page */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0; /* Consistent padding */
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    bottom: -5px; /* Consistent with portfolio page */
-    left: 50%;
-    background: var(--thorn-accent); /* Using thorn-accent for consistency */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    width: 0; /* Initial width is 0 */
-  }
-  
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-
-  .nav-link:hover {
-    color: var(--thorn-accent); /* Consistent hover color */
-  }
-  
-  .nav-link.active {
-    color: var(--thorn-accent);
-    text-shadow: 0 0 10px var(--thorn-glow); /* Consistent active glow */
-    font-weight: bold; /* Added font-bold for active link */
-  }
-  
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-  
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .typing-effect {
-    border-right: 2px solid var(--thorn-glow);
-    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--thorn-glow) }
-  }
-  
-  .glass-effect {
-    background: rgba(0, 255, 136, 0.05); /* Adjusted for the new glass effect */
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-  }
-  
-  .neon-border {
-    border: 2px solid var(--thorn-accent);
-    box-shadow: 0 0 20px var(--thorn-accent), inset 0 0 20px rgba(13, 191, 80, 0.1);
-  }
-  
-  .scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--thorn-accent), var(--thorn-glow));
-    z-index: 1000;
-    transition: width 0.1s ease;
-  }
-  
-  .floating-icon {
-    animation: float-gentle 6s ease-in-out infinite;
-  }
-  
-  @keyframes float-gentle {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 80%, rgba(13, 191, 80, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--thorn-accent), transparent);
-    margin: 4rem 0;
-  }
-
-  /* Mobile responsiveness for navbar */
-  @media (max-width: 768px) {
-    .logo-text {
-      font-size: 1.25rem;
-    }
-    
-    .hero-title {
-      font-size: 2.5rem;
-    }
-    
-    /* Mobile menu styles */
-    #mobileMenu {
-      top: 100%; /* Position below the header */
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-      z-index: 40; /* Ensure it's below the fixed header */
-      position: fixed; /* Keep it fixed for smooth overlay */
-      background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
-      backdrop-filter: blur(20px);
-      border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
-      border-bottom-right-radius: 1rem;
-      border: 1px solid rgba(0, 255, 136, 0.1);
-      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-    }
-  }
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
   <div class="scroll-indicator" id="scrollIndicator"></div>
@@ -356,12 +14,12 @@
   <div class="particles" id="particles"></div>
 
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
-    <a href="index.html" class="logo-text">THORN DIGITAL</a>
+    <a href="/" class="logo-text">THORN DIGITAL</a>
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
-      <a href="/home" class="nav-link">Home</a>
+      <a href="/" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
-      <a href="/aboutus" class="nav-link">About</a>
-      <a href="/contactus" class="nav-link">Contact</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
     </nav>
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,10 +31,10 @@
 
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
     <nav class="flex flex-col space-y-4 text-center">
-      <a href="/home" class="nav-link block py-2">Home</a>
+      <a href="/" class="nav-link block py-2">Home</a>
       <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
-      <a href="/aboutus" class="nav-link block py-2">About</a>
-      <a href="/contactus" class="nav-link block py-2">Contact</a>
+      <a href="/about" class="nav-link block py-2">About</a>
+      <a href="/contact" class="nav-link block py-2">Contact</a>
     </nav>
   </div>
 
@@ -392,10 +50,10 @@
         Bold, cutting-edge websites with a razor-sharp edge — revolutionary designs that convert visitors into customers. Pay nothing until you're absolutely impressed.
       </p>
       <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
-        <a href="/contactus" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
+        <a href="/contact" class="glow-btn px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
           Start Your Project Free
         </a>
-        <a href="/portfolio" class="border-2 border-white/30 hover:border-white px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300 hover:bg-white/10">
+        <a href="/portfolio" class="btn-secondary px-10 py-5 rounded-full font-semibold text-lg inline-block transition-all duration-300">
           View Our Work
         </a>
       </div>
@@ -411,17 +69,17 @@
 
   <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-3 gap-12 text-center">
-      <div class="service-card p-8 rounded-2xl shadow-2xl fade-in">
+      <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">⚡</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Custom Design</h3>
         <p class="text-white/80 text-lg leading-relaxed">Unique, razor-sharp designs tailored exclusively for your brand. Zero templates, 100% original creativity that demands attention.</p>
       </div>
-      <div class="service-card p-8 rounded-2xl shadow-2xl fade-in">
+      <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">🚀</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Lightning Fast</h3>
         <p class="text-white/80 text-lg leading-relaxed">Pixel-perfect performance on every device. Optimized for speed, built for conversion, designed to dominate search rankings.</p>
       </div>
-      <div class="service-card p-8 rounded-2xl shadow-2xl fade-in">
+      <div class="service-card glass-card p-8 shadow-2xl fade-in">
         <div class="floating-icon text-6xl mb-6">🛡️</div>
         <h3 class="text-2xl font-bold glow-text mb-4">Zero Risk Guarantee</h3>
         <p class="text-white/80 text-lg leading-relaxed">No upfront costs, no hidden fees. You only invest when you're completely blown away by what we've created for you.</p>
@@ -435,7 +93,7 @@
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-5xl font-bold glow-text mb-16 fade-in">What Our Clients Say</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="testimonial-card p-8 rounded-2xl shadow-2xl fade-in neon-border">
+        <div class="testimonial-card p-8 shadow-2xl fade-in">
           <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
           <p class="italic text-white/90 text-lg mb-6 leading-relaxed">
             "Thorn Digital didn't just build us a website – they crafted a digital experience that completely transformed our business. Our conversions increased by 340% in the first month."
@@ -448,7 +106,7 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card p-8 rounded-2xl shadow-2xl fade-in neon-border">
+        <div class="testimonial-card p-8 shadow-2xl fade-in">
           <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
           <p class="italic text-white/90 text-lg mb-6 leading-relaxed">
             "The 'pay nothing until impressed' model sold us immediately, but the final result exceeded every expectation. Our site is now a conversion machine."
@@ -467,23 +125,23 @@
 
   <div class="section-divider"></div>
 
-  <footer class="relative py-24 text-center overflow-hidden">
+  <footer class="relative py-24 text-center overflow-hidden glass-effect">
     <div class="glass-effect p-16 max-w-4xl mx-auto rounded-3xl border border-white/20 shadow-2xl">
       <h3 class="text-6xl font-bold glow-text mb-8 leading-tight">Ready to Dominate Your Market?</h3>
       <p class="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
         Join the ranks of businesses that don't just exist online – they command attention and drive results.
       </p>
       <div class="space-y-6 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center mb-12">
-        <a href="/contactus" class="glow-btn px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
+        <a href="/contact" class="glow-btn px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
           Start Your Transformation
         </a>
-        <a href="mailto:thorndigital@gmail.com" class="border-2 border-green-400 hover:bg-green-400 hover:text-black px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
+        <a href="mailto:thorndigital@gmail.com" class="btn-secondary px-12 py-6 rounded-full font-bold text-lg inline-block transition-all duration-300">
           Email Us Direct
         </a>
       </div>
       <div class="text-center space-y-4">
         <p class="text-white/60">
-          <a href="mailto:thorndigital@gmail.com" class="text-green-300 hover:text-green-200 underline transition-colors">
+          <a href="mailto:thorndigital@gmail.com" class="email-link">
             thorndigital@gmail.com
           </a>
         </p>
@@ -492,149 +150,6 @@
     </div>
   </footer>
 
-  <script>
-    // Scroll progress indicator
-    function updateScrollIndicator() {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.getElementById('scrollIndicator').style.width = scrollPercent + '%';
-    }
-
-    // Fade in animation on scroll
-    function handleScrollAnimations() {
-      const elements = document.querySelectorAll('.fade-in');
-      elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('visible');
-        }
-      });
-    }
-
-    // Create floating particles
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 50;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Smooth scrolling for anchor links
-    function initSmoothScrolling() {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-    }
-
-    // Enhanced hover effects for service cards
-    function initServiceCardEffects() {
-      const serviceCards = document.querySelectorAll('.service-card');
-      serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-15px) rotateX(8deg) rotateY(2deg)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
-        });
-      });
-    }
-
-    // Typing effect restart on scroll
-    function restartTypingEffect() {
-      const typingElement = document.querySelector('.typing-effect');
-      if (typingElement) {
-        const rect = typingElement.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          typingElement.style.animation = 'none';
-          setTimeout(() => {
-            typingElement.style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
-          }, 100);
-        }
-      }
-    }
-
-    // Initialize all effects
-    window.addEventListener('scroll', () => {
-      updateScrollIndicator();
-      handleScrollAnimations();
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      createParticles();
-      initSmoothScrolling();
-      initServiceCardEffects();
-      handleScrollAnimations();
-      
-      // Trigger initial animations
-      setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach(el => {
-          if (el.getBoundingClientRect().top < window.innerHeight) {
-            el.classList.add('visible');
-          }
-        });
-      }, 300);
-    });
-
-    // Parallax effect for hero background
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const heroBackground = document.querySelector('.hero-bg');
-      if (heroBackground) {
-        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
-    });
-
-    // Add dynamic glow intensity based on scroll
-    window.addEventListener('scroll', () => {
-      const scrollPercent = window.pageYOffset / (document.body.scrollHeight - window.innerHeight);
-      const intensity = 1 + scrollPercent * 0.5;
-      document.documentElement.style.setProperty('--glow-intensity', intensity);
-    });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Highlight active nav link based on current page URL
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentPath = window.location.pathname;
-      document.querySelectorAll('.nav-link').forEach(link => {
-        // Remove 'active' and 'font-bold' from all links first
-        link.classList.remove('active', 'font-bold'); 
-        // Check if the link's href matches the current path.
-        // Also handle the case where '/home' might be 'index.html' or just '/'
-        let linkHref = link.getAttribute('href');
-        if (linkHref === '/home' && (currentPath === '/' || currentPath === '/index.html')) {
-          link.classList.add('active', 'font-bold');
-        } else if (linkHref === currentPath || (linkHref === '/index.html' && currentPath === '/') || (linkHref === '/home' && currentPath === '/')) {
-          link.classList.add('active', 'font-bold');
-        }
-      });
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
