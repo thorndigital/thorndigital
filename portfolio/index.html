@@ -10,18 +10,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
+  <!-- Loading overlay for a smooth page transition -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
   </div>
 
+  <!-- Header section with logo and navigation -->
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
+    <!-- Logo with a link to the home page -->
     <a href="/home" class="logo-text">THORN DIGITAL</a>
+    <!-- Desktop navigation menu -->
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
       <a href="/home" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
       <a href="/aboutus" class="nav-link">About</a>
       <a href="/contactus" class="nav-link">Contact</a>
     </nav>
+    <!-- Mobile menu button -->
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -30,6 +35,7 @@
     </button>
   </header>
 
+  <!-- Mobile dropdown menu, hidden by default -->
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu"> 
     <nav class="flex flex-col space-y-4 text-center">
       <a href="/home" class="nav-link block py-2">Home</a>
@@ -39,9 +45,10 @@
     </nav>
   </div>
 
-
+  <!-- Hero section for the portfolio page with animated background elements -->
   <section class="text-center pt-32 pb-16 px-6 relative">
     <div class="absolute inset-0 overflow-hidden">
+      <!-- Floating background elements for visual depth -->
       <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-thorn-accent opacity-5 rounded-full blur-3xl floating"></div>
       <div class="absolute top-3/4 right-1/4 w-48 h-48 bg-thorn-accent opacity-10 rounded-full blur-2xl floating" style="animation-delay: -3s;"></div>
     </div>
@@ -55,17 +62,19 @@
         Our portfolio showcases how we craft <span class="text-thorn-accent font-semibold">sharp, modern websites</span> that grab attention, build trust, and drive real results for businesses.
       </p>
       
+      <!-- Call to action buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="#portfolio" class="glow-btn px-8 py-4 text-lg font-semibold">
           Explore Our Work
         </a>
-        <a href="/contact" class="btn-secondary px-8 py-4 text-lg font-semibold">
+        <a href="/contactus" class="btn-secondary px-8 py-4 text-lg font-semibold">
           Start Your Project
         </a>
       </div>
     </div>
   </section>
 
+  <!-- Portfolio items section -->
   <section id="portfolio" class="py-24 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
@@ -75,6 +84,7 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
         
+        <!-- Portfolio Item 1: Woodinville Pizza Co -->
         <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/woodinvillepizzaco/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
@@ -106,6 +116,7 @@
           </a>
         </article>
 
+        <!-- Portfolio Item 2: Café Rush -->
         <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/caferush/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
@@ -137,6 +148,7 @@
           </a>
         </article>
 
+        <!-- Portfolio Item 3: Pine Grill & BBQ -->
         <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/pinegrillbbq/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
@@ -168,6 +180,7 @@
           </a>
         </article>
 
+        <!-- Portfolio Item 4: Woodinville Bistro -->
         <article class="portfolio-item glass-card p-8 group">
           <a href="portfolioexamples/woodinvillebistro/index.html" target="_blank" class="block">
             <div class="portfolio-image rounded-xl mb-6 overflow-hidden shadow-2xl">
@@ -203,8 +216,10 @@
     </div>
   </section>
 
+  <!-- Footer section with call to action and links -->
   <footer class="glass-effect border-t border-white/10 py-20 text-center relative overflow-hidden">
     <div class="absolute inset-0">
+      <!-- Background elements for visual depth -->
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-thorn-accent opacity-5 rounded-full blur-3xl"></div>
     </div>
     
@@ -214,8 +229,9 @@
         Let's create something extraordinary together. Your vision, our expertise.
       </p>
       
+      <!-- Call to action buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-        <a href="/contact" class="glow-btn px-10 py-4 text-lg font-semibold">
+        <a href="/contactus" class="glow-btn px-10 py-4 text-lg font-semibold">
           Start Your Project
         </a>
         <a href="mailto:thorndigital@gmail.com" class="btn-secondary px-10 py-4 text-lg font-semibold">
@@ -223,12 +239,8 @@
         </a>
       </div>
       
+      <!-- Footer links and copyright -->
       <div class="text-center space-y-6">
-        <div class="flex justify-center space-x-8 text-sm text-white/60">
-          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
-          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
-          <a href="/sitemap" class="hover:text-white transition">Sitemap</a>
-        </div>
         
         <div class="w-24 h-px bg-white/20 mx-auto"></div>
         
@@ -239,6 +251,8 @@
     </div>
   </footer>
 
+  <!-- Main JavaScript file for interactive elements and animations -->
   <script src="main.js"></script>
 </body>
 </html>
+
