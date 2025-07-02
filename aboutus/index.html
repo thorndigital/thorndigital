@@ -10,17 +10,23 @@
 </head>
 <body class="min-h-screen">
 
+  <!-- Particle background for visual effect -->
   <div class="particles" id="particles"></div>
+  <!-- Neural network background for a tech-inspired look -->
   <div class="neural-bg" id="neuralBg"></div>
 
+  <!-- Header section with logo and navigation -->
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
+    <!-- Logo with a link to the home page -->
     <a href="/home" class="logo-text">THORN DIGITAL</a>
+    <!-- Desktop navigation menu -->
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
       <a href="/home" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
       <a href="/aboutus" class="nav-link">About</a>
       <a href="/contactus" class="nav-link">Contact</a>
     </nav>
+    <!-- Mobile menu button -->
     <button class="md:hidden text-white" id="mobileMenuBtn">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,7 +35,7 @@
     </button>
   </header>
   
-  <!-- Mobile dropdown menu -->
+  <!-- Mobile dropdown menu, hidden by default -->
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">
     <nav class="flex flex-col space-y-4 text-center">
       <a href="/home" class="nav-link block py-2">Home</a>
@@ -39,7 +45,9 @@
     </nav>
   </div>
 
+  <!-- Hero section for "Why Choose Us" -->
   <section class="text-center pt-32 pb-12 px-6 relative z-10">
+    <!-- Content with fade-in animation -->
     <div class="fade-in">
       <h1 class="hero-title glow-text">Why Choose Thorn Digital?</h1>
       <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -48,8 +56,10 @@
     </div>
   </section>
 
+  <!-- Features section with glass cards and fade-in animations -->
   <section class="py-20 px-6 max-w-7xl mx-auto relative z-10">
     <div class="grid md:grid-cols-3 gap-8 text-center">
+      <!-- Feature Card 1: Sharp, Local Focus -->
       <div class="glass-card p-8 shadow-2xl fade-in" style="animation-delay: 0.2s;">
         <div class="feature-icon">
           <span>⚡</span>
@@ -57,7 +67,7 @@
         <h3 class="text-2xl font-bold glow-text mb-4">Sharp, Local Focus</h3>
         <p class="text-white/80 leading-relaxed">We specialize in bold, modern websites for local businesses — we know your market and how to make you stand out with cutting-edge design.</p>
       </div>
-      
+      <!-- Feature Card 2: Risk-Free Builds -->
       <div class="glass-card p-8 shadow-2xl fade-in" style="animation-delay: 0.4s;">
         <div class="feature-icon">
           <span>🛡️</span>
@@ -65,7 +75,7 @@
         <h3 class="text-2xl font-bold glow-text mb-4">Risk-Free Builds</h3>
         <p class="text-white/80 leading-relaxed">You pay nothing until you're thrilled. We carry the risk, you get the reward — that's how confident we are in our premium craft.</p>
       </div>
-      
+      <!-- Feature Card 3: Premium Look & Feel -->
       <div class="glass-card p-8 shadow-2xl fade-in" style="animation-delay: 0.6s;">
         <div class="feature-icon">
           <span>💎</span>
@@ -76,6 +86,7 @@
     </div>
   </section>
 
+  <!-- "Who We Are" section with slide-in animation -->
   <section class="text-center pt-20 pb-12 px-6 relative z-10">
     <div class="slide-in-left">
       <h1 class="hero-title glow-text">Who We Are</h1>
@@ -85,8 +96,10 @@
     </div>
   </section>
 
+  <!-- Mission and Promise section with glass cards and slide-in animations -->
   <section class="py-20 px-6 max-w-6xl mx-auto relative z-10">
     <div class="grid md:grid-cols-2 gap-12 text-center">
+      <!-- Mission Card -->
       <div class="glass-card p-10 shadow-2xl slide-in-left" style="animation-delay: 0.2s;">
         <div class="feature-icon">
           <span>🎯</span>
@@ -94,7 +107,7 @@
         <h3 class="text-3xl font-bold glow-text mb-4">Our Mission</h3>
         <p class="text-white/80 leading-relaxed text-lg">Empower local businesses with modern, striking websites that turn heads and build trust — all with zero upfront cost or risk. We create digital experiences that feel alive.</p>
       </div>
-      
+      <!-- Promise Card -->
       <div class="glass-card p-10 shadow-2xl slide-in-right" style="animation-delay: 0.4s;">
         <div class="feature-icon">
           <span>🤝</span>
@@ -105,10 +118,11 @@
     </div>
   </section>
 
+  <!-- Footer section with call to action and contact info -->
   <footer class="glass-effect border-t border-white/10 py-16 text-center relative z-10">
     <div class="fade-in">
       <h3 class="text-4xl font-bold glow-text mb-8">Ready to Cut Through?</h3>
-      <a href="/contact" class="glow-btn mb-8 text-lg">Start for Free</a>
+      <a href="/contactus" class="glow-btn mb-8 text-lg">Start for Free</a>
       <p class="text-lg text-white/80 mb-6">Or email us at 
         <a href="mailto:thorndigital@gmail.com" class="email-link">
           thorndigital@gmail.com
@@ -118,6 +132,7 @@
     </div>
   </footer>
 
+  <!-- Main JavaScript file for interactive elements and animations -->
   <script src="main.js"></script>
 </body>
 </html>
