@@ -1,6 +1,14 @@
 // main.js
 
 document.addEventListener('DOMContentLoaded', function() {
+  // --- Global Redirect for Root URL ---
+  // This ensures that accessing the root URL (e.g., yourdomain.com)
+  // automatically redirects to yourdomain.com/home.
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    window.location.replace('/home');
+    return; // Stop further execution on this page
+  }
+
   // --- Common Elements ---
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -20,12 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scrollIndicator) {
       const scrollTop = window.pageYOffset;
       const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
+      const scrollPercent = (docHeight > 0) ? (scrollTop / docHeight) * 100 : 0; // Avoid division by zero
       scrollIndicator.style.width = scrollPercent + '%';
     }
   }
 
-  // --- Particle Animation (from home.html) ---
+  // --- Particle Animation ---
   function createParticles() {
     if (particlesContainer) {
       const particleCount = 50;
@@ -40,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Neural Network Background (from aboutus.html) ---
+  // --- Neural Network Background (for aboutus.html) ---
   function createNeuralNetwork() {
     const neuralBg = document.getElementById('neuralBg');
     if (neuralBg) {
@@ -57,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Interactive Aurora & Card Glow Effect (from contactus.html) ---
+  // --- Interactive Aurora & Card Glow Effect (for contactus.html) ---
   const updateMousePosition = (e) => {
     const { clientX, clientY } = e;
     body.style.setProperty('--mouse-x', `${clientX}px`);
@@ -74,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Only add mousemove listener if the aurora effect is intended for the current page (e.g., contact page)
-  // Check for specific elements that indicate it's the contact page
   if (document.querySelector('.contact-card') || window.location.pathname.includes('/contactus')) {
     body.addEventListener('mousemove', updateMousePosition);
   }
@@ -116,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Enhanced hover effects for service cards (from home.html) ---
+  // --- Enhanced hover effects for service cards (for home.html) ---
   function initServiceCardEffects() {
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
@@ -130,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Parallax effect for hero background (from home.html) ---
+  // --- Parallax effect for hero background (for home.html) ---
   function initHeroParallax() {
     const heroBackground = document.querySelector('.hero-bg');
     if (heroBackground) {
@@ -141,20 +148,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Dynamic glow intensity based on scroll (from home.html) ---
+  // --- Dynamic glow intensity based on scroll (for home.html) ---
   function initGlowIntensity() {
     window.addEventListener('scroll', () => {
       const scrollPercent = window.pageYOffset / (document.body.scrollHeight - window.innerHeight);
-      const intensity = 1 + scrollPercent * 0.5;
+      const intensity = 1 + scrollPercent * 0.5; // Adjust as needed
       document.documentElement.style.setProperty('--glow-intensity', intensity);
     });
   }
 
-  // --- Portfolio item reveal on scroll (from portfolio.html) ---
+  // --- Portfolio item reveal on scroll (for portfolio.html) ---
   function initPortfolioAnimations() {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1, // Trigger when 10% of the item is visible
+      rootMargin: '0px 0px -50px 0px' // Adjust to trigger slightly before reaching the bottom
     };
 
     const observer = new IntersectionObserver(function(entries) {
@@ -163,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
           // Disconnect after animation to prevent re-triggering if desired
-          // observer.unobserve(entry.target); 
+          observer.unobserve(entry.target); 
         }
       });
     }, observerOptions);
@@ -173,9 +180,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Dynamic Cursor Effect (desktop only, from aboutus.html and portfolio.html) ---
+  // --- Dynamic Custom Cursor Effect (desktop only) ---
   function initCustomCursor() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 768) { // Only enable on desktop
       let cursor_element = document.querySelector('.custom-cursor');
       if (!cursor_element) {
         cursor_element = document.createElement('div');
@@ -188,7 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor_element.style.top = e.clientY - 5 + 'px';  // Adjusted for 10px height
       });
 
-      document.querySelectorAll('a, button').forEach(el => {
+      // Enlarge cursor on hover over interactive elements
+      document.querySelectorAll('a, button, .glass-card').forEach(el => {
         el.addEventListener('mouseenter', () => {
           cursor_element.style.transform = 'scale(2)';
         });
@@ -199,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Loading Overlay (from portfolio.html) ---
+  // --- Loading Overlay (for portfolio.html) ---
   function initLoadingOverlay() {
     const loadingOverlay = document.getElementById('loadingOverlay');
     if (loadingOverlay) {
@@ -215,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // --- Highlight active nav link based on current page URL (unified logic) ---
+  // --- Highlight active nav link based on current page URL ---
   function highlightActiveNavLink() {
     const currentPath = window.location.pathname;
     document.querySelectorAll('.nav-link').forEach(link => {
