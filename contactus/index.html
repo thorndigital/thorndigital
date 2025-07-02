@@ -6,397 +6,7 @@
   <title>Contact | Thorn Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-  :root {
-    --thorn-dark: #041a05;
-    --thorn-mid: #04560b;
-    --thorn-accent: #0dbf50;
-    --thorn-light: #2dd96b;
-    --thorn-glow: #39ff14;
-
-    /* Dynamic Properties (updated by JS) */
-    --mouse-x: 50%;
-    --mouse-y: 50%;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(ellipse at top, var(--thorn-mid) 0%, var(--thorn-dark) 100%);
-    color: white;
-    overflow-x: hidden;
-    position: relative;
-  }
-
-  /* Animated background particles */
-  .particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: var(--thorn-glow);
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: float 20s infinite linear;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) translateX(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.3;
-    }
-    90% {
-      opacity: 0.1;
-    }
-    100% {
-      transform: translateY(-100px) translateX(100px);
-      opacity: 0;
-    }
-  }
-
-  /* Interactive Aurora Background */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(57, 255, 20, 0.15),
-      transparent 40%
-    );
-    z-index: -2;
-    transition: background 0.1s linear;
-  }
-
-  /* General Component Styling */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Navbar */
-  .glass-effect {
-    background: rgba(0, 255, 136, 0.05); /* Adjusted for the new glass effect */
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-  }
-
-  header {
-    position: fixed; /* Changed from sticky to fixed for consistent behavior with home page */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    padding: 1rem 1.5rem; /* px-6 py-4 */
-  }
-
-  .logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 3px; /* tracking-wide */
-    text-shadow: 0 0 20px var(--thorn-glow), 0 0 40px var(--thorn-accent);
-    position: relative;
-    animation: pulse-glow 3s ease-in-out infinite alternate;
-  }
-
-  @keyframes pulse-glow {
-    0% {
-      text-shadow: 0 0 20px var(--thorn-glow), 0 0 40px var(--thorn-accent);
-    }
-    100% {
-      text-shadow: 0 0 30px var(--thorn-glow), 0 0 60px var(--thorn-accent), 0 0 80px var(--thorn-light);
-    }
-  }
-  
-  .glow-text {
-    color: white;
-    text-shadow: 0 0 15px var(--thorn-accent);
-    animation: text-glow 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes text-glow {
-    from {
-      text-shadow: 0 0 15px var(--thorn-accent), 0 0 25px var(--thorn-accent);
-    }
-    to {
-      text-shadow: 0 0 20px var(--thorn-glow), 0 0 35px var(--thorn-accent), 0 0 45px var(--thorn-light);
-    }
-  }
-
-  .nav-link {
-    position: relative;
-    color: rgba(255, 255, 255, 0.8); /* Consistent with home page */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0; /* Consistent padding */
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    bottom: -5px; /* Consistent with home page */
-    left: 50%;
-    background: var(--thorn-accent); /* Using thorn-accent for consistency */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    width: 0; /* Initial width is 0 */
-  }
-  
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-
-  .nav-link:hover {
-    color: var(--thorn-accent); /* Consistent hover color */
-  }
-  
-  .nav-link.active {
-    color: var(--thorn-accent);
-    text-shadow: 0 0 10px var(--thorn-glow); /* Consistent active glow */
-    font-weight: bold; /* Added font-bold for active link */
-  }
-
-  /* Hero Section */
-  .hero-title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800; /* Adjusted from 900 */
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    line-height: 1.1;
-    background: linear-gradient(135deg, white, var(--thorn-light), var(--thorn-glow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-shift 4s ease-in-out infinite;
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  /* Floating Contact Cards */
-  .contact-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(13, 191, 80, 0.2);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(57, 255, 20, 0.1), rgba(13, 191, 80, 0.1));
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  
-  .contact-card:hover::before {
-    opacity: 1;
-  }
-  
-  .contact-card:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(13, 191, 80, 0.3), 0 0 60px rgba(57, 255, 20, 0.2);
-    border-color: var(--thorn-accent);
-  }
-
-  .contact-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--thorn-glow); /* Ensured icon color matches glow */
-  }
-
-  /* Premium Form Styling */
-  .form-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-  }
-
-  .form-label {
-    font-weight: 600;
-    color: white; /* Ensure label is white */
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.5px;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 1.2rem;
-    background: rgba(255, 255, 255, 0.05); /* Lighter background */
-    border: 1px solid rgba(13, 191, 80, 0.3); /* Green border */
-    border-radius: 10px;
-    color: white;
-    font-weight: 300;
-    transition: all 0.3s ease;
-  }
-
-  .form-input::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* Lighter placeholder */
-    opacity: 0.8;
-  }
-
-  .form-input:focus {
-    outline: none;
-    background: rgba(13, 191, 80, 0.15);
-    border-color: var(--thorn-glow); /* Glow border on focus */
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.2);
-  }
-
-  .textarea-input {
-    resize: vertical;
-    min-height: 150px;
-  }
-
-  /* Epic Submit Button */
-  .glow-btn {
-    background: linear-gradient(135deg, white, #f0f0f0);
-    color: var(--thorn-dark);
-    box-shadow: 0 0 25px var(--thorn-glow), 0 8px 32px rgba(13, 191, 80, 0.3);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .glow-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4), transparent);
-    transition: left 0.5s;
-  }
-  
-  .glow-btn:hover::before {
-    left: 100%;
-  }
-  
-  .glow-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 35px var(--thorn-glow), 0 12px 40px rgba(13, 191, 80, 0.4);
-  }
-
-  /* Footer */
-  footer {
-    background: rgba(4, 26, 5, 0.5); /* Use thorn-dark with transparency */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* White/10 border */
-  }
-
-  .email-link {
-    color: var(--thorn-glow); /* Match glow color */
-    text-decoration: none;
-    position: relative;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-  }
-
-  .email-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--thorn-glow);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .email-link:hover {
-    color: white; /* Hover color matches home page */
-  }
-
-  .email-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  /* Mobile Menu */
-  @media (max-width: 768px) {
-    .logo-text {
-      font-size: 1.25rem;
-    }
-    
-    .hero-title {
-      font-size: 2.5rem;
-    }
-    
-    /* Mobile menu styles */
-    #mobileMenu {
-      top: 100%; /* Position below the header */
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-      z-index: 40; /* Ensure it's below the fixed header */
-      position: fixed; /* Keep it fixed for smooth overlay */
-      background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
-      backdrop-filter: blur(20px);
-      border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
-      border-bottom-right-radius: 1rem;
-      border: 1px solid rgba(0, 255, 136, 0.1);
-      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
-    }
-  }
-
-  .scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--thorn-accent), var(--thorn-glow));
-    z-index: 1000;
-    transition: width 0.1s ease;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
   <div class="scroll-indicator" id="scrollIndicator"></div>
@@ -405,9 +15,9 @@
   <header class="w-full flex justify-between items-center px-6 py-4 glass-effect fixed top-0 left-0 right-0 z-50">
     <a href="/" class="logo-text">THORN DIGITAL</a>
     <nav class="hidden md:flex items-center space-x-8 text-md font-medium">
-      <a href="/home" class="nav-link">Home</a>
+      <a href="/" class="nav-link">Home</a>
       <a href="/portfolio" class="nav-link">Portfolio</a>
-      <a href="/aboutus" class="nav-link">About</a>
+      <a href="/about" class="nav-link">About</a>
       <a href="/contact" class="nav-link">Contact</a>
     </nav>
     <button class="md:hidden text-white" id="mobileMenuBtn">
@@ -420,44 +30,44 @@
 
   <div class="md:hidden hidden fixed top-16 left-0 w-full p-4 z-40" id="mobileMenu">  
     <nav class="flex flex-col space-y-4 text-center">
-      <a href="/home" class="nav-link block py-2">Home</a>
+      <a href="/" class="nav-link block py-2">Home</a>
       <a href="/portfolio" class="nav-link block py-2">Portfolio</a>
-      <a href="/aboutus" class="nav-link block py-2">About</a>
-      <a href="/contactus" class="nav-link block py-2">Contact</a>
+      <a href="/about" class="nav-link block py-2">About</a>
+      <a href="/contact" class="nav-link block py-2">Contact</a>
     </nav>
   </div>
   <main>
-    <section class="text-center pt-32 pb-20 px-6 fade-in" style="transition-delay: 0ms;">
+    <section class="text-center pt-32 pb-20 px-6 fade-in">
       <h1 class="hero-title mx-auto" style="max-width: 900px;">Let's Build Something Legendary</h1>
       <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mt-6">
         Ready to dominate your market? Reach out and let's craft your digital masterpiece — completely free until you're absolutely blown away.
       </p>
     </section>
-    <section class="px-6 mb-20 fade-in" style="transition-delay: 150ms;">
+    <section class="px-6 mb-20 fade-in">
       <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 relative">
-        <div class="contact-card text-center p-8 rounded-2xl shadow-2xl">
+        <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">⚡</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Lightning Fast</h3>
           <p class="text-white/80 text-lg leading-relaxed">Get your quote in under 24 hours</p>
         </div>
-        <div class="contact-card text-center p-8 rounded-2xl shadow-2xl">
+        <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">🛡️</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Zero Risk</h3>
           <p class="text-white/80 text-lg leading-relaxed">Pay nothing until you're thrilled</p>
         </div>
-        <div class="contact-card text-center p-8 rounded-2xl shadow-2xl">
+        <div class="contact-card glass-card text-center p-8 shadow-2xl">
           <div class="contact-icon">🚀</div>
           <h3 class="text-2xl font-bold mb-2 glow-text">Local Experts</h3>
           <p class="text-white/80 text-lg leading-relaxed">PNW-based, market-focused</p>
         </div>
       </div>
     </section>
-    <section class="px-6 pb-20 fade-in" style="transition-delay: 300ms;">
+    <section class="px-6 pb-20 fade-in">
       <div class="max-w-2xl mx-auto">
         <div class="form-container">
           <form action="https://formsubmit.co/thorndigital@gmail.com" method="POST" id="contactForm">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://thorndigital.onrender.com/thankyou">
+            <input type="hidden" name="_next" value="/thankyou">
             <input type="hidden" name="_subject" value="New Contact from Thorn Digital Website">
             <div class="mb-6">
               <label for="name" class="block form-label">Your Name</label>
@@ -493,7 +103,7 @@
       </div>
     </section>
   </main>
-  <footer class="glass-effect py-16 text-center fade-in" style="transition-delay: 450ms;">
+  <footer class="glass-effect py-16 text-center fade-in">
     <div class="max-w-4xl mx-auto px-6">
       <h3 class="text-2xl font-bold mb-4 glow-text">
         Prefer Direct Contact?
@@ -511,123 +121,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // --- Interactive Aurora & Card Glow Effect ---
-      const body = document.body;
-      const contactCards = document.querySelectorAll('.contact-card');
-      const particlesContainer = document.getElementById('particles');
-      const scrollIndicator = document.getElementById('scrollIndicator'); // Added scroll indicator element
-
-      const updateMousePosition = (e) => {
-        const { clientX, clientY } = e;
-        body.style.setProperty('--mouse-x', `${clientX}px`);
-        body.style.setProperty('--mouse-y', `${clientY}px`);
-
-        contactCards.forEach(card => {
-          const rect = card.getBoundingClientRect();
-          const cardX = clientX - rect.left;
-          const cardY = clientY - rect.top;
-          card.style.setProperty('--mouse-x-rel', `${cardX}px`);
-          card.style.setProperty('--mouse-y-rel', `${cardY}px`);
-        });
-      };
-
-      body.addEventListener('mousemove', updateMousePosition);
-
-      // --- Fade In Animation on Scroll ---
-      const handleScrollAnimations = () => {
-        const elements = document.querySelectorAll('.fade-in');
-        elements.forEach(element => {
-          const elementTop = element.getBoundingClientRect().top;
-          const elementVisible = 150;
-          
-          if (elementTop < window.innerHeight - elementVisible) {
-            element.classList.add('visible');
-          } else {
-            // Optional: remove visible class if it scrolls back up - commented out for now as per home page behavior
-            // element.classList.remove('visible');  
-          }
-        });
-      };
-
-      // --- Create Floating Particles (from home page) ---
-      function createParticles() {
-        const particleCount = 50;
-        
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.animationDelay = Math.random() * 20 + 's';
-          particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
-          particlesContainer.appendChild(particle);
-        }
-      }
-
-      // --- Mobile Menu Toggle ---
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-
-      // --- Scroll Progress Indicator ---
-      function updateScrollIndicator() {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        if (scrollIndicator) { // Check if scrollIndicator exists
-          scrollIndicator.style.width = scrollPercent + '%';
-        }
-      }
-
-      // --- Highlight active nav link based on current page URL ---
-      function highlightActiveNavLink() {
-        const currentPath = window.location.pathname;
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('active', 'font-bold'); // Remove from all first
-          let linkHref = link.getAttribute('href');
-
-          // Remove trailing slashes for consistent comparison, except for root
-          let normalizedCurrentPath = currentPath.endsWith('/') && currentPath !== '/' ? currentPath.slice(0, -1) : currentPath;
-          let normalizedLinkHref = linkHref.endsWith('/') && linkHref !== '/' ? linkHref.slice(0, -1) : linkHref;
-
-          // Handle index.html and /home variations
-          if (normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/home') {
-            normalizedCurrentPath = '/';
-          }
-          if (normalizedLinkHref === '/index.html' || normalizedLinkHref === '/home') {
-            normalizedLinkHref = '/';
-          }
-          
-          // For other pages, remove the trailing "us" if present
-          if (normalizedCurrentPath.endsWith('us') && normalizedCurrentPath !== '/') {
-            normalizedCurrentPath = normalizedCurrentPath.slice(0, -2);
-          }
-          if (normalizedLinkHref.endsWith('us') && normalizedLinkHref !== '/') {
-            normalizedLinkHref = normalizedLinkHref.slice(0, -2);
-          }
-
-
-          if (normalizedLinkHref === normalizedCurrentPath || (normalizedLinkHref !== '/' && normalizedCurrentPath.startsWith(normalizedLinkHref))) {
-            link.classList.add('active', 'font-bold');
-          }
-        });
-      }
-
-
-      // Initialize effects
-      window.addEventListener('scroll', () => {
-        handleScrollAnimations();
-        updateScrollIndicator(); // Update scroll indicator on scroll
-      });
-      
-      handleScrollAnimations(); // Trigger on load for elements already in view
-      createParticles(); // Initialize particles
-      highlightActiveNavLink(); // Highlight active link on load
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
