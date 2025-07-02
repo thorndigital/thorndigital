@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Global Redirect for Root URL ---
   // This ensures that accessing the root URL (e.g., yourdomain.com)
   // automatically redirects to yourdomain.com/home.
-  // IMPORTANT: Exclude the /thankyou.html page from this redirect.
-  if ((window.location.pathname === '/' || window.location.pathname === '/index.html') && window.location.pathname !== '/thankyou.html') {
+  // IMPORTANT: Exclude the /thankyou.html and /thankyou/ pages from this redirect.
+  const currentPath = window.location.pathname;
+  if ((currentPath === '/' || currentPath === '/index.html') && 
+      currentPath !== '/thankyou.html' && 
+      currentPath !== '/thankyou/') { // Added exclusion for /thankyou/
     window.location.replace('/home');
     return; // Stop further execution on this page
   }
@@ -292,3 +295,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize custom cursor on relevant pages or globally if desired
   initCustomCursor();
 });
+
