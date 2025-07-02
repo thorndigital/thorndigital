@@ -649,15 +649,27 @@ footer {
     top: 100%; /* Position below the header */
     left: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem; /* Slightly more padding */
     z-index: 40; /* Ensure it's below the fixed header */
     position: fixed; /* Keep it fixed for smooth overlay */
-    background: rgba(0, 255, 136, 0.05); /* Apply glass effect to mobile menu */
-    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    backdrop-filter: blur(15px); /* Slightly less blur, still present */
     border-bottom-left-radius: 1rem; /* Rounded corners for the dropdown */
     border-bottom-right-radius: 1rem;
-    border: 1px solid rgba(0, 255, 136, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Lighter border for contrast */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Darker, more pronounced shadow */
+  }
+
+  #mobileMenu .nav-link {
+    color: white; /* Ensure links are visible on dark background */
+    font-size: 1.125rem; /* Slightly larger text */
+    padding: 0.75rem 0;
+  }
+  #mobileMenu .nav-link:hover {
+    color: var(--thorn-accent); /* Keep hover color */
+  }
+  #mobileMenu .nav-link.active {
+    color: var(--thorn-glow); /* Keep active color */
   }
 }
 
